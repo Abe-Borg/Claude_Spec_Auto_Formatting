@@ -1749,6 +1749,26 @@ def apply_phase2_classifications(
     doc_path.write_text("".join(out), encoding="utf-8")
 
 
+def resolve_arch_extract_root(p: Path) -> Path:
+    """
+    Accepts either:
+      - extracted root folder (contains word/styles.xml)
+      - word folder itself
+    Returns the extracted root folder.
+    """
+    p = Path(p)
+
+    # If they pass .../word, go up one
+    if p.name.lower() == "word":
+        p = p.parent
+
+    styles_path = p / "word" / "styles.xml"
+    if not styles_path.exists():
+        raise FileNotFoundError(f"Architect styles.xml not found at: {styles_path}")
+
+    return p
+
+
 def load_arch_style_registry(arch_extract_dir: Path) -> Dict[str, str]:
     """
     Reads architect styles.xml and returns a mapping of CSI role -> styleId.
