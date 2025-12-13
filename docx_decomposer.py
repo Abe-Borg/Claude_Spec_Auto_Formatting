@@ -22,6 +22,29 @@ import difflib
 import re
 
 
+# -----------------------------------------------------------------------------
+# DOCX packaging safety
+# -----------------------------------------------------------------------------
+_DOCX_ALLOWED_TOP_LEVEL_DIRS = {"_rels", "docProps", "word", "customXml"}
+_DOCX_ALLOWED_TOP_LEVEL_FILES = {"[Content_Types].xml"}
+
+def _is_docx_package_part(rel_path: "Path") -> bool:
+    """
+    Only include real OpenXML parts in the output .docx.
+    Excludes generated artifacts like *.json, *.log, prompts folders, etc.
+    """
+    # Root file: [Content_Types].xml
+    if len(rel_path.parts) == 1 and rel_path.name in _DOCX_ALLOWED_TOP_LEVEL_FILES:
+        return True
+
+    # Root directories that belong to a DOCX package
+    if rel_path.parts and rel_path.parts[0] in _DOCX_ALLOWED_TOP_LEVEL_DIRS:
+        return True
+
+    return False
+
+
+
 PHASE2_MASTER_PROMPT = r"""
 You are a CSI STRUCTURE CLASSIFIER for AEC specifications.
 
@@ -1012,15 +1035,23 @@ class DocxDecomposer:
         
         # Create a new ZIP file
         with zipfile.ZipFile(output_path, 'w', zipfile.ZIP_DEFLATED) as docx:
-            # Walk through all files in the extracted directory
-            for file_path in self.extract_dir.rglob('*'):
-                if file_path.is_file():
-                    # Get the relative path for the archive
-                    arcname = file_path.relative_to(self.extract_dir)
-                    docx.write(file_path, arcname)
-        
+            for file_path in self.extract_dir.rglob("*"):
+                if not file_path.is_file():
+                    continue
+
+                rel_path = file_path.relative_to(self.extract_dir)
+
+                # Only include legitimate DOCX parts
+                if not _is_docx_package_part(rel_path):
+                    continue
+
+                # Force forward slashes inside the ZIP (Word expects this)
+                docx.write(file_path, arcname=rel_path.as_posix())
+
+
         print(f"Reconstruction complete: {output_path}")
         return output_path
+
 
     def write_normalize_bundle(self, bundle_path=None, prompts_dir=None):
         """
@@ -1808,50 +1839,75 @@ def resolve_arch_extract_root(p: Path) -> Path:
 
 def load_arch_style_registry(arch_extract_dir: Path) -> Dict[str, str]:
     """
-    Reads architect styles.xml and returns role -> styleId.
-
-    Phase-2 rule: we do NOT create styles. We only map roles to existing styles.
-    We try to detect by styleId and by human-readable style name.
-
-    NOTE: Order matters: SUBSUBPARAGRAPH must be checked before SUBPARAGRAPH,
-    and both before PARAGRAPH, or you'll collapse everything into PARAGRAPH.
+    Phase 2 contract:
+    - Prefer a registry JSON emitted by Phase 1 (NO guessing).
+    - Fallback to heuristic inference from styles.xml ONLY if the registry is missing.
     """
-    arch_extract_dir = resolve_arch_extract_root(arch_extract_dir)
+    arch_extract_dir = Path(arch_extract_dir)
+
+    # Allow passing the registry JSON directly
+    if arch_extract_dir.is_file() and arch_extract_dir.suffix.lower() == ".json":
+        reg = json.loads(arch_extract_dir.read_text(encoding="utf-8"))
+        if isinstance(reg, dict):
+            return {str(k).strip(): str(v).strip() for k, v in reg.items() if isinstance(v, str)}
+        return {}
+
+    # Preferred: registry produced by Phase 1
+    registry_candidates = [
+        arch_extract_dir / "arch_style_registry.json",
+        arch_extract_dir / "word" / "arch_style_registry.json",
+    ]
+    for cand in registry_candidates:
+        if cand.exists():
+            reg = json.loads(cand.read_text(encoding="utf-8"))
+            if isinstance(reg, dict):
+                return {str(k).strip(): str(v).strip() for k, v in reg.items() if isinstance(v, str)}
+            return {}
+
+    # Fallback: infer from styles.xml (best-effort; may fail by design)
     styles_path = arch_extract_dir / "word" / "styles.xml"
+    if not styles_path.exists():
+        raise FileNotFoundError("Architect styles.xml not found")
 
     tree = ET.parse(styles_path)
     root = tree.getroot()
 
-    role_map: Dict[str, str] = {}
-
-    def norm(s: Optional[str]) -> str:
-        return (s or "").upper()
+    role_to_style: Dict[str, str] = {}
 
     for st in root.findall(f".//{_q('style')}"):
+        stype = _get_attr(st, "type")
+        if stype != "paragraph":
+            continue
+
         sid = _get_attr(st, "styleId")
         if not sid:
             continue
 
+        # Avoid mapping built-in defaults
+        if sid in {"Normal", "DefaultParagraphFont"}:
+            continue
+
         name_el = st.find(_q("name"))
-        sname = _get_attr(name_el, "val") if name_el is not None else None
+        sname = _get_attr(name_el, "val") if name_el is not None else ""
+        hay = f"{sid} {sname}".upper()
 
-        hay = norm(sid) + " " + norm(sname)
-
-        # IMPORTANT: most-specific first
-        if "SUBSUB" in hay or "SUB-SUB" in hay or "SUB SUB" in hay:
-            role_map.setdefault("SUBSUBPARAGRAPH", sid)
-        elif "SUBPARA" in hay or "SUB-PARA" in hay or "SUB PARA" in hay:
-            role_map.setdefault("SUBPARAGRAPH", sid)
-        elif "ARTICLE" in hay:
-            role_map.setdefault("ARTICLE", sid)
+        # If your Phase 1 names include CSI tokens, this works.
+        # If not, Phase 1 MUST provide arch_style_registry.json.
+        if "SECTION" in hay and "TITLE" in hay:
+            role_to_style["SectionTitle"] = sid
         elif "PART" in hay:
-            role_map.setdefault("PART", sid)
-        elif "SECTIONTITLE" in hay or "SECTION TITLE" in hay or ("SECTION" in hay and "TITLE" in hay):
-            role_map.setdefault("SectionTitle", sid)
+            role_to_style["PART"] = sid
+        elif "ARTICLE" in hay:
+            role_to_style["ARTICLE"] = sid
+        elif "SUBSUB" in hay:
+            role_to_style["SUBSUBPARAGRAPH"] = sid
+        elif "SUBPARA" in hay or "SUBPARAGRAPH" in hay:
+            role_to_style["SUBPARAGRAPH"] = sid
         elif "PARA" in hay or "PARAGRAPH" in hay:
-            role_map.setdefault("PARAGRAPH", sid)
+            role_to_style["PARAGRAPH"] = sid
 
-    return role_map
+    return role_to_style
+
 
 
 
