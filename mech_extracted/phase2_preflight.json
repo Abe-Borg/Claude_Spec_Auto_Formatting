@@ -1,9 +1,0 @@
-{
-  "arch_extract_root": "C:\\Users\\Abrah\\Dropbox\\PC (2)\\Desktop\\Claude_Word_Surgical_Edit\\MySpec_extracted",
-  "target_extract_root": "mech_extracted",
-  "roles_in_classifications": {},
-  "arch_style_registry": {
-    "PARAGRAPH": "DefaultParagraphFont"
-  },
-  "unmapped_roles": []
-}
