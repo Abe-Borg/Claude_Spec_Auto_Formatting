@@ -1,0 +1,2545 @@
+{
+  "document_meta": {
+    "discipline": "mechanical"
+  },
+  "paragraphs": [
+    {
+      "paragraph_index": 0,
+      "text": "SECTION 230713 \u2013 DUCT INSULATION",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 2,
+      "text": "Exclusively published and distributed by Architectural Computer Services, Inc. (ARCOM) for the AIA",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 3,
+      "text": "Revise this Section by deleting and inserting text to meet Project-specific requirements.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 4,
+      "text": "This Section uses the term \"Architect.\" Change this term to match that used to identify the design professional as defined in the General and Supplementary Conditions.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 5,
+      "text": "Verify that Section titles referenced in this Section are correct for this Project's Specifications; Section titles may have changed.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 6,
+      "text": "GENERAL",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 7,
+      "text": "RELATED DOCUMENTS",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 8,
+      "text": "Retain or delete this article in all Sections of Project Manual.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 9,
+      "text": "Drawings and general provisions of the Contract, including General and Supplementary Conditions and Division 01 Specification Sections, apply to this Section.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 10,
+      "text": "SUMMARY",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 11,
+      "text": "Section includes insulating the following duct services:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 12,
+      "text": "The list below matches the various systems in the schedule articles. Coordinate the revision of list with \"Duct Insulation Schedule, General,\" \"Indoor Duct and Plenum Insulation Schedule,\" and \"Aboveg",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 13,
+      "text": "Indoor, concealed supply and outdoor air.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 14,
+      "text": "Indoor, exposed supply and outdoor air.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 15,
+      "text": "Indoor, concealed return located in unconditioned space.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 16,
+      "text": "Indoor, exposed return located in unconditioned space.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 17,
+      "text": "Outdoor, concealed supply and return.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 18,
+      "text": "Outdoor, exposed supply and return.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 19,
+      "text": "Related Sections:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 20,
+      "text": "Retain Sections in subparagraphs below that contain requirements Contractor might expect to find in this Section but are specified in other Sections.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 21,
+      "text": "Section 230719 \"HVAC Piping Insulation.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 22,
+      "text": "Section 233113 \"Metal Ducts\" for duct liners.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 23,
+      "text": "ACTION SUBMITTALS",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 24,
+      "text": "Product Data: For each type of product indicated. Include thermal conductivity, water-vapor permeance thickness, and jackets (both factory- and field-applied if any).",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 25,
+      "text": "Shop Drawings: Include plans, elevations, sections, details, and attachments to other work.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 26,
+      "text": "Detail application of protective shields, saddles, and inserts at hangers for each type of insulation and hanger.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 27,
+      "text": "Detail insulation application at elbows, fittings, dampers, specialties and flanges for each type of insulation.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 28,
+      "text": "Detail application of field-applied jackets.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 29,
+      "text": "Detail application at linkages of control devices.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 30,
+      "text": "Retain first paragraph below to verify products with Samples.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 31,
+      "text": "INFORMATIONAL SUBMITTALS",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 32,
+      "text": "Coordinate first paragraph below with qualification requirements in Section 014000 \"Quality Requirements\" and as supplemented in \"Quality Assurance\" Article.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 33,
+      "text": "Qualification Data: For qualified Installer.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 34,
+      "text": "Retain first paragraph below if surface-burning characteristics specified in \"Quality Assurance\" Article are specified to be verified by an independent testing agency.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 35,
+      "text": "Material Test Reports: From a qualified testing agency acceptable to authorities having jurisdiction indicating, interpreting, and certifying test results for compliance of insulation materials, seale",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 36,
+      "text": "Retain paragraph below if Contractor is responsible for field quality-control testing and inspecting.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 37,
+      "text": "Field quality-control reports.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 38,
+      "text": "QUALITY ASSURANCE",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 39,
+      "text": "Retain first paragraph below if available at Project location. Apprenticeship programs are usually associated with union shops. Other craft training programs are available.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 40,
+      "text": "Installer Qualifications: Skilled mechanics who have successfully completed an apprenticeship program or another craft training program certified by the Department of Labor, Bureau of Apprenticeship a",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 41,
+      "text": "When fire-performance characteristics are important requirements, verify surface-burning characteristics of insulation materials by an independent testing agency and require test report submittals.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 42,
+      "text": "Surface-Burning Characteristics: For insulation and related materials, as determined by testing identical products according to ASTM E 84, by a testing agency acceptable to authorities having jurisdic",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 43,
+      "text": "Insulation Installed Indoors: Flame-spread index of 25 or less, and smoke-developed index of 50 or less.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 44,
+      "text": "Insulation Installed Outdoors: Flame-spread index of 75 or less, and smoke-developed index of 150 or less.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 45,
+      "text": "If retaining \"Mockups\" Paragraph below, indicate location, size, and other details of mockups on Drawings or by inserts. Revise if only one mockup is required.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 46,
+      "text": "DELIVERY, STORAGE, AND HANDLING",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 47,
+      "text": "Retain this article to require shipping container markings. Container marking is an option in ASTM standards; default condition does not include the marking in this article unless specified in the Con",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 48,
+      "text": "Packaging: Insulation material containers shall be marked by manufacturer with appropriate ASTM standard designation, type and grade, and maximum use temperature.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 49,
+      "text": "COORDINATION",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 50,
+      "text": "Coordinate sizes and locations of supports, hangers, and insulation shields specified in Section 230529 \"Hangers and Supports for HVAC Piping and Equipment.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 51,
+      "text": "Coordinate clearance requirements with duct Installer for duct insulation application. Before preparing ductwork Shop Drawings, establish and maintain clearance requirements for installation of insula",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 52,
+      "text": "SCHEDULING",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 53,
+      "text": "Schedule insulation application after pressure testing systems and, where required, after installing and testing heat tracing. Insulation application may begin on segments that have satisfactory test ",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 54,
+      "text": "Complete installation and concealment of plastic materials as rapidly as possible in each area of construction.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 55,
+      "text": "PRODUCTS",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 56,
+      "text": "INSULATION MATERIALS",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 57,
+      "text": "If retaining more than one type of insulation in this article, indicate where each type applies in insulation system schedules.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 58,
+      "text": "Comply with requirements in \"Duct Insulation Schedule, General,\" \"Indoor Duct and Plenum Insulation Schedule,\" and \"Aboveground, Outdoor Duct and Plenum Insulation Schedule\" articles for where insulat",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 59,
+      "text": "See \"Product Characteristics\" Article in the Evaluations for comparisons and temperature ranges for insulation material properties.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 60,
+      "text": "Products shall not contain asbestos, lead, mercury, or mercury compounds.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 61,
+      "text": "Products that come in contact with stainless steel shall have a leachable chloride content of less than 50 ppm when tested according to ASTM C 871.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 62,
+      "text": "Insulation materials for use on austenitic stainless steel shall be qualified as acceptable according to ASTM C 795.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 63,
+      "text": "Foam insulation materials shall not use CFC or HCFC blowing agents in the manufacturing process.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 64,
+      "text": "\"Flexible Elastomeric Insulation\" Paragraph below is unsuitable for temperatures lower than minus 70 deg F (minus 57 deg C) and higher than 220 deg F (104 deg C).",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 65,
+      "text": "For operating temperatures higher than 250 deg F (121 deg C), use blanket insulation in first paragraph below. Retain ASTM C 1290 types as follows: Type I for insulation without jackets, Type II for i",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 66,
+      "text": "Mineral-Fiber Blanket Insulation: Mineral or glass fibers bonded with a thermosetting resin. Comply with ASTM C 553, Type II and ASTM C 1290, Type III with factory-applied FSK jacket. Factory-applied ",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 67,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers and products. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 68,
+      "text": "Products: Subject to compliance with requirements, provide one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 69,
+      "text": "CertainTeed Corp.; SoftTouch Duct Wrap.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 70,
+      "text": "Johns Manville; Microlite.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 71,
+      "text": "Knauf Insulation; Friendly Feel Duct Wrap.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 72,
+      "text": "Owens Corning; SOFTR All-Service Duct Wrap.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 73,
+      "text": "For operating temperatures higher than 250 deg F (121 deg C), use board insulation in first paragraph below. The most common jacket for ductwork and plenum applications is FSK.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 74,
+      "text": "Mineral-Fiber Board Insulation: Mineral or glass fibers bonded with a thermosetting resin. Comply with ASTM C 612, Type IA or Type IB. For duct and plenum applications, provide insulation with factory",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 75,
+      "text": "Products: Subject to compliance with requirements, provide one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 76,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers and products. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 77,
+      "text": "CertainTeed Corp.; Commercial Board.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 78,
+      "text": "Fibrex Insulations Inc.; FBX.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 79,
+      "text": "Johns Manville; 800 Series Spin-Glas.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 80,
+      "text": "Knauf Insulation; Insulation Board.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 81,
+      "text": "Manson Insulation Inc.; AK Board.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 82,
+      "text": "Owens Corning; Fiberglas 700 Series.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 83,
+      "text": "Pipe and tank insulation is used for large-diameter piping and vessels. ASJ is commonly used.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 84,
+      "text": "ADHESIVES",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 85,
+      "text": "Military Specification in this article was the only standard available when this Section was written. MIL-A-3316C was last updated in October 1987.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 86,
+      "text": "Materials shall be compatible with insulation materials, jackets, and substrates and for bonding insulation to itself and to surfaces to be insulated unless otherwise indicated.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 87,
+      "text": "Product attributes in first paragraph below are based on Foster Brand products; there are variations among manufacturers.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 88,
+      "text": "Mineral-Fiber Adhesive: Comply with MIL-A-3316C, Class 2, Grade A.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 89,
+      "text": "Products: Subject to compliance with requirements, provide one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 90,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers and products. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 91,
+      "text": "Childers Brand, Specialty Construction Brands, Inc., a business of H. B. Fuller Company; CP-127.Eagle Bridges - Marathon Industries; 225.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 92,
+      "text": "Foster Brand, Specialty Construction Brands, Inc., a business of H. B. Fuller Company; 85-60/85-70.Mon-Eco Industries, Inc.; 22-25.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 93,
+      "text": "One or both subparagraphs below may be required to comply with Project requirements or authorities having jurisdiction. Retain first subparagraph below if required for LEED-NC, LEED-CI, or LEED-CS Cre",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 94,
+      "text": "For indoor applications, adhesive shall have a VOC content of 80 g/L or less when calculated according to 40 CFR 59, Subpart D (EPA Method 24).",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 95,
+      "text": "Retain subparagraph below if required for LEED for Schools Credit IEQ 4.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 96,
+      "text": "Adhesive shall comply with the testing and product requirements of the California Department of Health Services' \"Standard Practice for the Testing of Volatile Organic Emissions from Various Sources U",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 97,
+      "text": "ASJ Adhesive, and FSK Jacket Adhesive: Comply with MIL-A-3316C, Class 2, Grade A for bonding insulation jacket lap seams and joints.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 98,
+      "text": "Products: Subject to compliance with requirements, provide one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 99,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers and products. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 100,
+      "text": "Childers Brand, Specialty Construction Brands, Inc., a business of H. B. Fuller Company; CP-82.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 101,
+      "text": "Eagle Bridges - Marathon Industries; 225.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 102,
+      "text": "Foster Brand, Specialty Construction Brands, Inc., a business of H. B. Fuller Company; 85-50.Mon-Eco Industries, Inc.; 22-25.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 103,
+      "text": "One or both subparagraphs below may be required to comply with Project requirements or authorities having jurisdiction. Retain first subparagraph below if required for LEED-NC, LEED-CI, or LEED-CS Cre",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 104,
+      "text": "For indoor applications, adhesive shall have a VOC content of 50 g/L or less when calculated according to 40 CFR 59, Subpart D (EPA Method 24).",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 105,
+      "text": "Retain subparagraph below if required for LEED for Schools Credit IEQ 4.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 106,
+      "text": "Adhesive shall comply with the testing and product requirements of the California Department of Health Services' \"Standard Practice for the Testing of Volatile Organic Emissions from Various Sources U",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 107,
+      "text": "MASTICS",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 108,
+      "text": "The industry does not have a clear definition that categorizes mastics into vapor barriers, vapor retarders, and breather mastics. Specification follows the nomenclature used by Foster. Products with ",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 109,
+      "text": "LEED Credit IEQ 4.1 does not address requirements for mastics.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 110,
+      "text": "Materials shall be compatible with insulation materials, jackets, and substrates; comply with MIL-PRF-19565C, Type II.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 111,
+      "text": "Retain subparagraph below if low-emitting materials are required. Consult mastic manufacturers to determine VOC limits.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 112,
+      "text": "For indoor applications, use mastics that have a VOC content of 50 g/L or less when calculated according to 40 CFR 59, Subpart D (EPA Method 24).",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 113,
+      "text": "Verify that products listed comply with water-vapor permeance. Require proof of performance and certified test reports from vapor-barrier mastic manufacturer to support product literature claims.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 114,
+      "text": "Retain one of four mastic paragraphs below. Product attributes in first paragraph are based on Foster; there are variations among manufacturers.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 115,
+      "text": "Vapor-Barrier Mastic: Water based; suitable for indoor use on below ambient services.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 116,
+      "text": "Products: Subject to compliance with requirements, provide one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 117,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers and products. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 118,
+      "text": "Foster Brand, Specialty Construction Brands, Inc., a business of H. B. Fuller Company; 30-80/30-90.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 119,
+      "text": "Vimasco Corporation; 749.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 120,
+      "text": "Water-Vapor Permeance: ASTM E 96/E 96M, Procedure B, 0.013 perm at 43-mil dry film thickness.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 121,
+      "text": "Service Temperature Range: Minus 20 to plus 180 deg F.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 122,
+      "text": "Solids Content: ASTM D 1644, 58 percent by volume and 70 percent by weight.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 123,
+      "text": "Color: White.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 124,
+      "text": "Breather Mastic: Water based; suitable for indoor and outdoor use on above ambient services.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 125,
+      "text": "Products: Subject to compliance with requirements, provide one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 126,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers and products. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 127,
+      "text": "Childers Brand, Specialty Construction Brands, Inc., a business of H. B. Fuller Company; CP-10.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 128,
+      "text": "Eagle Bridges - Marathon Industries; 550.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 129,
+      "text": "Foster Brand, Specialty Construction Brands, Inc., a business of H. B. Fuller Company; 46-50.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 130,
+      "text": "Mon-Eco Industries, Inc.; 55-50.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 131,
+      "text": "Vimasco Corporation; WC-1/WC-5.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 132,
+      "text": "Water-Vapor Permeance: ASTM F 1249, 1.8 perms at 0.0625-inch dry film thickness.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 133,
+      "text": "Service Temperature Range: Minus 20 to plus 180 deg F.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 134,
+      "text": "Solids Content: 60 percent by volume and 66 percent by weight.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 135,
+      "text": "Color: White.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 136,
+      "text": "LAGGING ADHESIVES",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 137,
+      "text": "LEED Credit IEQ 4.1 does not address requirements for lagging adhesives.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 138,
+      "text": "Description: Comply with MIL-A-3316C, Class I, Grade A and shall be compatible with insulation materials, jackets, and substrates.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 139,
+      "text": "Retain first subparagraph below if low-emitting materials are required. Consult lagging adhesive manufacturers to determine VOC limits.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 140,
+      "text": "For indoor applications, use lagging adhesives that have a VOC content of 50 g/L or less when calculated according to 40 CFR 59, Subpart D (EPA Method 24).",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 141,
+      "text": "Products: Subject to compliance with requirements, provide one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 142,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers and products. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 143,
+      "text": "Childers Brand, Specialty Construction Brands, Inc., a business of H. B. Fuller Company; CP-50 AHV2.Foster Brand, Specialty Construction Brands, Inc., a business of H. B. Fuller Company; 30-36.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 144,
+      "text": "Vimasco Corporation; 713 and 714.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 145,
+      "text": "Fire-resistant, water-based lagging adhesive and coating for use indoors to adhere fire-resistant lagging cloths over duct insulation.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 146,
+      "text": "Service Temperature Range: 0 to plus 180 deg F.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 147,
+      "text": "Color: White.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 148,
+      "text": "SEALANTS",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 149,
+      "text": "Materials in first paragraph below are for sealing metal jacket seams and joints.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 150,
+      "text": "FSK and Metal Jacket Flashing Sealants:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 151,
+      "text": "Products: Subject to compliance with requirements, provide one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 152,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers and products. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 153,
+      "text": "Childers Brand, Specialty Construction Brands, Inc., a business of H. B. Fuller Company; CP-76.Eagle Bridges - Marathon Industries; 405.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 154,
+      "text": "Foster Brand, Specialty Construction Brands, Inc., a business of H. B. Fuller Company; 95-44.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 155,
+      "text": "Mon-Eco Industries, Inc.; 44-05.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 156,
+      "text": "Materials shall be compatible with insulation materials, jackets, and substrates.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 157,
+      "text": "Fire- and water-resistant, flexible, elastomeric sealant.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 158,
+      "text": "Service Temperature Range: Minus 40 to plus 250 deg F.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 159,
+      "text": "Color: Aluminum.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 160,
+      "text": "One or both subparagraphs below may be required to comply with Project requirements or authorities having jurisdiction. Retain first subparagraph below if required for LEED-NC, LEED-CI, or LEED-CS Cre",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 161,
+      "text": "For indoor applications, sealants shall have a VOC content of 420 g/L or less when calculated according to 40 CFR 59, Subpart D (EPA Method 24).",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 162,
+      "text": "Retain subparagraph below if required for LEED for Schools Credit IEQ 4.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 163,
+      "text": "Sealants shall comply with the testing and product requirements of the California Department of Health Services' \"Standard Practice for the Testing of Volatile Organic Emissions from Various Sources U",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 164,
+      "text": "FACTORY-APPLIED JACKETS",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 165,
+      "text": "Coordinate types of factory-applied jacket insulation materials selected and types of factory-applied jackets indicated in insulation system schedules.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 166,
+      "text": "For insulation materials with factory-applied jackets for use on applications above 140 deg F (60 deg C), specify sufficient insulation thickness to maintain outer surface temperature of insulation be",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 167,
+      "text": "Knauf is the only mineral-fiber insulation manufacturer that offers factory-applied FSP jacket for blanket insulation. CertainTeed and Johns Manville offer a vinyl jacket, but it does not comply with ",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 168,
+      "text": "Insulation system schedules indicate factory-applied jackets on various applications. When factory-applied jackets are indicated, comply with the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 169,
+      "text": "FSK Jacket: Aluminum-foil, fiberglass-reinforced scrim with kraft-paper backing; complying with ASTM C 1136, Type II.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 170,
+      "text": "FIELD-APPLIED JACKETS",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 171,
+      "text": "Insulation jackets in this article are for field application. ASTM C 921, Type I, is for use over insulation on ducts operating at below ambient temperatures at least part of the time or where a vapor",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 172,
+      "text": "Field-applied jackets shall comply with ASTM C 921, Type I, unless otherwise indicated.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 173,
+      "text": "A properly sealed FSK jacket, common with most forms of factory-applied jackets for mineral-fiber insulation, complies with vapor-retarder requirements in ASTM C 921, Type I.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 174,
+      "text": "FSK Jacket: Aluminum-foil-face, fiberglass-reinforced scrim with kraft-paper backing.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 175,
+      "text": "Although other thicknesses for PVC jackets are available, a flame-spread index of 25 and a smoke-developed index of 50 apply only to thicknesses of 30 mils (0.8 mm) and less.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 176,
+      "text": "TAPES",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 177,
+      "text": "Product performance is based on products manufactured by Venture Tape; there are slight variations among manufacturers.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 178,
+      "text": "FSK Tape: Foil-face, vapor-retarder tape matching factory-applied jacket with acrylic adhesive; complying with ASTM C 1136.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 179,
+      "text": "Products: Subject to compliance with requirements, provide one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 180,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers and products. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 181,
+      "text": "ABI, Ideal Tape Division; 491 AWF FSK.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 182,
+      "text": "Avery Dennison Corporation, Specialty Tapes Division; Fasson 0827.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 183,
+      "text": "Compac Corporation; 110 and 111.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 184,
+      "text": "Venture Tape; 1525 CW NT, 1528 CW, and 1528 CW/SQ.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 185,
+      "text": "Width: 3 inches.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 186,
+      "text": "Thickness: 6.5 mils.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 187,
+      "text": "Adhesion: 90 ounces force/inch in width.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 188,
+      "text": "Elongation: 2 percent.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 189,
+      "text": "Tensile Strength: 40 lbf/inch in width.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 190,
+      "text": "FSK Tape Disks and Squares: Precut disks or squares of FSK tape.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 191,
+      "text": "SECUREMENTS",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 192,
+      "text": "Bands:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 193,
+      "text": "Products: Subject to compliance with requirements, provide one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 194,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers and products. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 195,
+      "text": "ITW Insulation Systems; Gerrard Strapping and Seals.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 196,
+      "text": "RPR Products, Inc.; Insul-Mate Strapping, Seals, and Springs.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 197,
+      "text": "Wing seals are primarily used for fastening bands together. Closed seals are occasionally used for large, 84-inch- (2130-mm-) diameter applications and where fastening bands are used with springs. Win",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 198,
+      "text": "Aluminum: ASTM B 209, Alloy 3003, 3005, 3105, or 5005; Temper H-14, 0.020 inch thick, 1/2 inch wide with wing seal or closed seal.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 199,
+      "text": "Springs are used for large, 84-inch- (2130-mm-) diameter applications and on applications with rapid changes in expansion and contraction.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 200,
+      "text": "Springs: Twin spring set constructed of stainless steel with ends flat and slotted to accept metal bands. Spring size determined by manufacturer for application.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 201,
+      "text": "Insulation Pins and Hangers:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 202,
+      "text": "Capacitor-Discharge-Weld Pins: Copper- or zinc-coated steel pin, fully annealed for capacitor-discharge welding, 0.106-inch diameter shank, length to suit depth of insulation indicated.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 203,
+      "text": "Products: Subject to compliance with requirements, provide one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 204,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers and products. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 205,
+      "text": "AGM Industries, Inc.; CWP-1.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 206,
+      "text": "GEMCO; CD.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 207,
+      "text": "Midwest Fasteners, Inc.; CD.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 208,
+      "text": "Nelson Stud Welding; TPA, TPC, and TPS.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 209,
+      "text": "Cupped-Head, Capacitor-Discharge-Weld Pins: Copper- or zinc-coated steel pin, fully annealed for capacitor-discharge welding, 0.106-inch- diameter shank, length to suit depth of insulation indicated w",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 210,
+      "text": "Products: Subject to compliance with requirements, provide one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 211,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers and products. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 212,
+      "text": "AGM Industries, Inc.; CHP-1.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 213,
+      "text": "GEMCO; Cupped Head Weld Pin.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 214,
+      "text": "Midwest Fasteners, Inc.; Cupped Head.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 215,
+      "text": "Nelson Stud Welding; CHP.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 216,
+      "text": "Metal, Adhesively Attached, Perforated-Base Insulation Hangers: Baseplate welded to projecting spindle that is capable of holding insulation, of thickness indicated, securely in position indicated whe",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 217,
+      "text": "Products: Subject to compliance with requirements, provide one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 218,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers and products. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 219,
+      "text": "AGM Industries, Inc.; Tactoo Perforated Base Insul-Hangers.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 220,
+      "text": "GEMCO; Perforated Base.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 221,
+      "text": "Midwest Fasteners, Inc.; Spindle.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 222,
+      "text": "Baseplate: Perforated, galvanized carbon-steel sheet, 0.030 inch thick by 2 inches square.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 223,
+      "text": "Spindle: Copper- or zinc-coated, low-carbon steel, fully annealed, 0.106-inch- diameter shank, length to suit depth of insulation indicated.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 224,
+      "text": "Adhesive: Recommended by hanger manufacturer. Product with demonstrated capability to bond insulation hanger securely to substrates indicated without damaging insulation, hangers, and substrates.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 225,
+      "text": "Nonmetal, Adhesively Attached, Perforated-Base Insulation Hangers: Baseplate fastened to projecting spindle that is capable of holding insulation, of thickness indicated, securely in position indicate",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 226,
+      "text": "Products: Subject to compliance with requirements, provide one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 227,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers and products. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 228,
+      "text": "GEMCO; Nylon Hangers.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 229,
+      "text": "Midwest Fasteners, Inc.; Nylon Insulation Hangers.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 230,
+      "text": "Baseplate: Perforated, nylon sheet, 0.030 inch thick by 1-1/2 inches in diameter.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 231,
+      "text": "Spindle: Nylon, 0.106-inch- diameter shank, length to suit depth of insulation indicated, up to 2-1/2 inches.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 232,
+      "text": "Adhesive: Recommended by hanger manufacturer. Product with demonstrated capability to bond insulation hanger securely to substrates indicated without damaging insulation, hangers, and substrates.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 233,
+      "text": "Insulation-Retaining Washers: Self-locking washers formed from 0.016-inch- thick, galvanized-steel sheet, with beveled edge sized as required to hold insulation securely in place but not less than 1-1",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 234,
+      "text": "Products: Subject to compliance with requirements, provide one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 235,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers and products. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 236,
+      "text": "AGM Industries, Inc.; RC-150.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 237,
+      "text": "GEMCO; R-150.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 238,
+      "text": "Midwest Fasteners, Inc.; WA-150.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 239,
+      "text": "Nelson Stud Welding; Speed Clips.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 240,
+      "text": "Protect ends with capped self-locking washers incorporating a spring steel insert to ensure permanent retention of cap in exposed locations.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 241,
+      "text": "Nonmetal Insulation-Retaining Washers: Self-locking washers formed from 0.016-inch- thick nylon sheet, with beveled edge sized as required to hold insulation securely in place but not less than 1-1/2 ",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 242,
+      "text": "Manufacturers: Subject to compliance with requirements, provide products by one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 243,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers and products. Retain subparagraph and list of manufacturers below. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 244,
+      "text": "GEMCO.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 245,
+      "text": "Midwest Fasteners, Inc.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 246,
+      "text": "Staples: Outward-clinching insulation staples, nominal 3/4-inch- wide, stainless steel or Monel.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 247,
+      "text": "In paragraph below, stainless steel is the most common wire used and is best suited for all applications.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 248,
+      "text": "Wire: 0.062-inch soft-annealed, galvanized steel.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 249,
+      "text": "See Editing Instruction No. 1 in the Evaluations for cautions about naming manufacturers. Retain subparagraph and list of manufacturers below. See Section 016000 \"Product Requirements.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 250,
+      "text": "Manufacturers: Subject to compliance with requirements, provide products by one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 251,
+      "text": "C & F Wire.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 252,
+      "text": "CORNER ANGLES",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 253,
+      "text": "Aluminum Corner Angles: 0.040 inch thick, minimum 1 by 1 inch, aluminum according to ASTM B 209, Alloy 3003, 3005, 3105, or 5005; Temper H-14.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 254,
+      "text": "EXECUTION",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 255,
+      "text": "EXAMINATION",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 256,
+      "text": "Examine substrates and conditions for compliance with requirements for installation tolerances and other conditions affecting performance of insulation application.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 257,
+      "text": "Verify that systems to be insulated have been tested and are free of defects.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 258,
+      "text": "Verify that surfaces to be insulated are clean and dry.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 259,
+      "text": "Proceed with installation only after unsatisfactory conditions have been corrected.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 260,
+      "text": "PREPARATION",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 261,
+      "text": "Surface Preparation: Clean and dry surfaces to receive insulation. Remove materials that will adversely affect insulation application.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 262,
+      "text": "GENERAL INSTALLATION REQUIREMENTS",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 263,
+      "text": "Install insulation materials, accessories, and finishes with smooth, straight, and even surfaces; free of voids throughout the length of ducts and fittings.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 264,
+      "text": "Install insulation materials, vapor barriers or retarders, jackets, and thicknesses required for each item of duct system as specified in insulation system schedules.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 265,
+      "text": "Install accessories compatible with insulation materials and suitable for the service. Install accessories that do not corrode, soften, or otherwise attack insulation or jacket in either wet or dry st",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 266,
+      "text": "Install insulation with longitudinal seams at top and bottom of horizontal runs.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 267,
+      "text": "Install multiple layers of insulation with longitudinal and end seams staggered.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 268,
+      "text": "Keep insulation materials dry during application and finishing.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 269,
+      "text": "Install insulation with tight longitudinal seams and end joints. Bond seams and joints with adhesive recommended by insulation material manufacturer.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 270,
+      "text": "Install insulation with least number of joints practical.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 271,
+      "text": "Where vapor barrier is indicated, seal joints, seams, and penetrations in insulation at hangers, supports, anchors, and other projections with vapor-barrier mastic.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 272,
+      "text": "Install insulation continuously through hangers and around anchor attachments.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 273,
+      "text": "For insulation application where vapor barriers are indicated, extend insulation on anchor legs from point of attachment to supported item to point of attachment to structure. Taper and seal ends at a",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 274,
+      "text": "Install insert materials and install insulation to tightly join the insert. Seal insulation to insulation inserts with adhesive or sealing compound recommended by insulation material manufacturer.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 275,
+      "text": "Apply adhesives, mastics, and sealants at manufacturer's recommended coverage rate and wet and dry film thicknesses.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 276,
+      "text": "Install insulation with factory-applied jackets as follows:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 277,
+      "text": "Draw jacket tight and smooth.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 278,
+      "text": "Cover circumferential joints with 3-inch- wide strips, of same material as insulation jacket. Secure strips with adhesive and outward clinching staples along both edges of strip, spaced 4 inches o.c.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 279,
+      "text": "Overlap jacket longitudinal seams at least 1-1/2 inches. Clean and dry surface to receive self-sealing lap. Staple laps with outward clinching staples along edge at 2 inches o.c.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 280,
+      "text": "For below ambient services, apply vapor-barrier mastic over staples.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 281,
+      "text": "Cover joints and seams with tape, according to insulation material manufacturer's written instructions, to maintain vapor seal.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 282,
+      "text": "Where vapor barriers are indicated, apply vapor-barrier mastic on seams and joints and at ends adjacent to duct flanges and fittings.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 283,
+      "text": "Cut insulation in a manner to avoid compressing insulation more than 75 percent of its nominal thickness.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 284,
+      "text": "Finish installation with systems at operating conditions. Repair joint separations and cracking due to thermal movement.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 285,
+      "text": "Repair damaged insulation facings by applying same facing material over damaged areas. Extend patches at least 4 inches beyond damaged areas. Adhere, staple, and seal patches similar to butt joints.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 286,
+      "text": "PENETRATIONS",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 287,
+      "text": "Insulation Installation at Roof Penetrations: Install insulation continuously through roof penetrations.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 288,
+      "text": "Seal penetrations with flashing sealant.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 289,
+      "text": "For applications requiring only indoor insulation, terminate insulation above roof surface and seal with joint sealant. For applications requiring indoor and outdoor insulation, install insulation for",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 290,
+      "text": "Extend jacket of outdoor insulation outside roof flashing at least 2 inches below top of roof flashing.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 291,
+      "text": "Seal jacket to roof flashing with flashing sealant.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 292,
+      "text": "Insulation Installation at Aboveground Exterior Wall Penetrations: Install insulation continuously through wall penetrations.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 293,
+      "text": "Seal penetrations with flashing sealant.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 294,
+      "text": "For applications requiring only indoor insulation, terminate insulation inside wall surface and seal with joint sealant. For applications requiring indoor and outdoor insulation, install insulation fo",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 295,
+      "text": "Extend jacket of outdoor insulation outside wall flashing and overlap wall flashing at least 2 inches.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 296,
+      "text": "Seal jacket to wall flashing with flashing sealant.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 297,
+      "text": "Insulation Installation at Interior Wall and Partition Penetrations (That Are Not Fire Rated): Install insulation continuously through walls and partitions.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 298,
+      "text": "Insulation Installation at Fire-Rated Wall and Partition Penetrations: Terminate insulation at fire damper sleeves for fire-rated wall and partition penetrations. Externally insulate damper sleeves to",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 299,
+      "text": "Insulation Installation at Floor Penetrations:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 300,
+      "text": "Duct: For penetrations through fire-rated assemblies, terminate insulation at fire damper sleeves and externally insulate damper sleeve beyond floor to match adjacent duct insulation. Overlap damper s",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 301,
+      "text": "Seal penetrations through fire-rated assemblies. Comply with requirements in Section 078413 \"Penetration Firestopping.\"",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 302,
+      "text": "INSTALLATION OF MINERAL-FIBER INSULATION",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 303,
+      "text": "Blanket Insulation Installation on Ducts and Plenums: Secure with adhesive and insulation pins.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 304,
+      "text": "In first subparagraph below, many manufacturers do not recommend 100 percent coverage of adhesive because of the effect on the overall insulation system's fire-performance characteristics. Verify appl",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 305,
+      "text": "Apply adhesives according to manufacturer's recommended coverage rates per unit area, for 100 percent coverage of duct and plenum surfaces.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 306,
+      "text": "Revise first subparagraph below to allow adhesive to be omitted from top surface of horizontal rectangular ducts.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 307,
+      "text": "Apply adhesive to entire circumference of ducts and to all surfaces of fittings and transitions.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 308,
+      "text": "Install either capacitor-discharge-weld pins and speed washers or cupped-head, capacitor-discharge-weld pins on sides and bottom of horizontal ducts and sides of vertical ducts as follows:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 309,
+      "text": "On duct sides with dimensions 18 inches and smaller, place pins along longitudinal centerline of duct. Space 3 inches maximum from insulation end joints, and 16 inches o.c.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 310,
+      "text": "On duct sides with dimensions larger than 18 inches, place pins 16 inches o.c. each way, and 3 inches maximum from insulation joints. Install additional pins to hold insulation tightly against surface",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 311,
+      "text": "Pins may be omitted from top surface of horizontal, rectangular ducts and plenums.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 312,
+      "text": "Do not overcompress insulation during installation.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 313,
+      "text": "Impale insulation over pins and attach speed washers.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 314,
+      "text": "Cut excess portion of pins extending beyond speed washers or bend parallel with insulation surface. Cover exposed pins and washers with tape matching insulation facing.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 315,
+      "text": "For ducts and plenums with surface temperatures below ambient, install a continuous unbroken vapor barrier. Create a facing lap for longitudinal seams and end joints with insulation by removing 2 inch",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 316,
+      "text": "Repair punctures, tears, and penetrations with tape or mastic to maintain vapor-barrier seal.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 317,
+      "text": "Install vapor stops for ductwork and plenums operating below 50 deg F at 18-foot intervals. Vapor stops shall consist of vapor-barrier mastic applied in a Z-shaped pattern over insulation face, along ",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 318,
+      "text": "Overlap unfaced blankets a minimum of 2 inches on longitudinal seams and end joints. At end joints, secure with steel bands spaced a maximum of 18 inches o.c.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 319,
+      "text": "Install insulation on rectangular duct elbows and transitions with a full insulation section for each surface. Install insulation on round and flat-oval duct elbows with individually mitered gores cut",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 320,
+      "text": "Insulate duct stiffeners, hangers, and flanges that protrude beyond insulation surface with 6-inch- wide strips of same material used to insulate duct. Secure on alternating sides of stiffener, hanger",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 321,
+      "text": "Board Insulation Installation on Ducts and Plenums: Secure with adhesive and insulation pins.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 322,
+      "text": "In first subparagraph below, many manufacturers do not recommend 100 percent coverage of adhesive because of the effect on the overall insulation system's fire-performance characteristics. Verify appl",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 323,
+      "text": "Apply adhesives according to manufacturer's recommended coverage rates per unit area, for 100 percent coverage of duct and plenum surfaces.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 324,
+      "text": "Revise first subparagraph below to allow adhesive to be omitted from top surface of horizontal rectangular ducts.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 325,
+      "text": "Apply adhesive to entire circumference of ducts and to all surfaces of fittings and transitions.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 326,
+      "text": "Install either capacitor-discharge-weld pins and speed washers or cupped-head, capacitor-discharge-weld pins on sides and bottom of horizontal ducts and sides of vertical ducts as follows:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 327,
+      "text": "On duct sides with dimensions 18 inches and smaller, place pins along longitudinal centerline of duct. Space 3 inches maximum from insulation end joints, and 16 inches o.c.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 328,
+      "text": "On duct sides with dimensions larger than 18 inches, space pins 16 inches o.c. each way, and 3 inches maximum from insulation joints. Install additional pins to hold insulation tightly against surface",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 329,
+      "text": "Pins may be omitted from top surface of horizontal, rectangular ducts and plenums.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 330,
+      "text": "Do not overcompress insulation during installation.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 331,
+      "text": "Cut excess portion of pins extending beyond speed washers or bend parallel with insulation surface. Cover exposed pins and washers with tape matching insulation facing.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 332,
+      "text": "For ducts and plenums with surface temperatures below ambient, install a continuous unbroken vapor barrier. Create a facing lap for longitudinal seams and end joints with insulation by removing 2 inch",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 333,
+      "text": "Repair punctures, tears, and penetrations with tape or mastic to maintain vapor-barrier seal.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 334,
+      "text": "Install vapor stops for ductwork and plenums operating below 50 deg F at 18-foot intervals. Vapor stops shall consist of vapor-barrier mastic applied in a Z-shaped pattern over insulation face, along ",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 335,
+      "text": "Install insulation on rectangular duct elbows and transitions with a full insulation section for each surface. Groove and score insulation to fit as closely as possible to outside and inside radius of",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 336,
+      "text": "Insulate duct stiffeners, hangers, and flanges that protrude beyond insulation surface with 6-inch- wide strips of same material used to insulate duct. Secure on alternating sides of stiffener, hanger",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 337,
+      "text": "FIELD-APPLIED JACKET INSTALLATION",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 338,
+      "text": "Where FSK jackets are indicated, install as follows:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 339,
+      "text": "Draw jacket material smooth and tight.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 340,
+      "text": "Install lap or joint strips with same material as jacket.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 341,
+      "text": "Secure jacket to insulation with manufacturer's recommended adhesive.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 342,
+      "text": "Install jacket with 1-1/2-inch laps at longitudinal seams and 3-inch- wide joint strips at end joints.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 343,
+      "text": "Seal openings, punctures, and breaks in vapor-retarder jackets and exposed insulation with vapor-barrier mastic.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 344,
+      "text": "Where metal jackets are indicated, install with 2-inch overlap at longitudinal seams and end joints. Overlap longitudinal seams arranged to shed water. Seal end joints with weatherproof sealant recomm",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 345,
+      "text": "FINISHES",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 346,
+      "text": "Coordinate first paragraph below with Section 099113 \"Exterior Painting\" and Section 099123 \"Interior Painting.\" If PVC jackets are specified, consult jacket manufacturers to determine suitable paint ",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 347,
+      "text": "Insulation with ASJ, Glass-Cloth, or Other Paintable Jacket Material: Paint jacket with paint system identified below and as specified in Section 099113 \"Exterior Painting\" and Section 099123 \"Interio",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 348,
+      "text": "Retain paint system in subparagraphs below for a flat, latex-emulsion size over insulation covering an exterior that is subject to normal use and moderate environments.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 349,
+      "text": "Flat Acrylic Finish: Two finish coats over a primer that is compatible with jacket material and finish coat paint. Add fungicidal agent to render fabric mildew proof.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 350,
+      "text": "Finish Coat Material: Interior, flat, latex-emulsion size.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 351,
+      "text": "Flexible Elastomeric Thermal Insulation: After adhesive has fully cured, apply two coats of insulation manufacturer's recommended protective coating.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 352,
+      "text": "Color: Final color as selected by Architect. Vary first and second coats to allow visual inspection of the completed Work.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 353,
+      "text": "Do not field paint aluminum or stainless-steel jackets.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 354,
+      "text": "FIELD QUALITY CONTROL",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 355,
+      "text": "Inspections in this article are destructive. Retain if workmanship quality is an important requirement. Architect should be prepared to reject all work if defective work is discovered in sample inspec",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 356,
+      "text": "Retain one of first two paragraphs below to identify who shall perform tests and inspections. If retaining second option in first paragraph, or if retaining second paragraph, retain \"Field quality-con",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 357,
+      "text": "Testing Agency: Engage a qualified testing agency to perform tests and inspections.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 358,
+      "text": "Retain first paragraph below to require Contractor to perform tests and inspections.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 359,
+      "text": "Perform tests and inspections.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 360,
+      "text": "Retain first paragraph below to describe tests and inspections to be performed.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 361,
+      "text": "Tests and Inspections:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 362,
+      "text": "Inspect ductwork, randomly selected by Architect, by removing field-applied jacket and insulation in layers in reverse order of their installation. Extent of inspection shall be limited to one locatio",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 363,
+      "text": "See Section 014000 \"Quality Requirements\" for retesting and reinspecting requirements and Section 017300 \"Execution\" for requirements for correcting the Work.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 364,
+      "text": "All insulation applications will be considered defective Work if sample inspection reveals noncompliance with requirements.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 365,
+      "text": "Materials and thicknesses in schedules below are for single-layer applications. If multilayer applications are needed, insert additional requirements.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 366,
+      "text": "DUCT INSULATION SCHEDULE, GENERAL",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 367,
+      "text": "Plenums and Ducts Requiring Insulation:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 368,
+      "text": "Indoor, concealed supply and outdoor air.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 369,
+      "text": "Indoor, exposed supply and outdoor air.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 370,
+      "text": "Indoor, concealed return located in unconditioned space.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 371,
+      "text": "Indoor, exposed return located in unconditioned space.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 372,
+      "text": "Outdoor, concealed supply and return.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 373,
+      "text": "Outdoor, exposed supply and return.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 374,
+      "text": "Items Not Insulated:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 375,
+      "text": "Fibrous-glass ducts.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 376,
+      "text": "Metal ducts with duct liner of sufficient thickness to comply with energy code and ASHRAE/IESNA 90.1.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 377,
+      "text": "Factory-insulated flexible ducts.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 378,
+      "text": "Factory-insulated plenums and casings.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 379,
+      "text": "Flexible connectors.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 380,
+      "text": "Vibration-control devices.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 381,
+      "text": "Factory-insulated access panels and doors.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 382,
+      "text": "Duct and plenum insulation schedules in first two articles below specify commonly used insulation materials and thicknesses for each service type. LEED Prerequisite EA 2 requires that duct insulation ",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 383,
+      "text": "Flexible elastomeric and polyolefin thicknesses are limited to 1 inch (25 mm) to meet a flame-spread index of 25 and a smoke-developed index of 50. Condensation control and energy efficiency are limit",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 384,
+      "text": "Consider the exposure of installed insulation to damage. Concealed applications have less risk than exposed.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 385,
+      "text": "INDOOR DUCT AND PLENUM INSULATION SCHEDULE",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 386,
+      "text": "See the Insulation Evaluation tables in the Evaluations for rankings of different insulation types for different service ranges.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 387,
+      "text": "Retain \"one of\" option in paragraphs below to allow Contractor to select piping materials from those retained.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 388,
+      "text": "Concealed, supply-air duct and plenum insulation shall be one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 389,
+      "text": "Retain one or more of four subparagraphs below.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 390,
+      "text": "Mineral-Fiber Blanket: 1-1/2 inches thick and 0.75-lb/cu. Ft. nominal density.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 391,
+      "text": "Mineral-Fiber Board: 1-1/2 inches thick and 3.0-lb/cu. Ft. nominal density.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 392,
+      "text": "Concealed, return-air duct and plenum insulation shall be one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 393,
+      "text": "Retain one or more of four subparagraphs below.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 394,
+      "text": "Mineral-Fiber Blanket: 1-1/2 inches thick and 0.75-lb/cu. Ft. nominal density.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 395,
+      "text": "Mineral-Fiber Board: 1-1/2 inches thick and 3.0-lb/cu. Ft. nominal density.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 396,
+      "text": "Concealed, outdoor-air duct and plenum insulation shall be one of the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 397,
+      "text": "Retain one or more of four subparagraphs below.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 398,
+      "text": "Mineral-Fiber Blanket: 1-1/2 inches thick and 0.75-lb/cu. Ft. nominal density.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 399,
+      "text": "Mineral-Fiber Board: 1-1/2 inches thick and 3.0-lb/cu. Ft. nominal density.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 400,
+      "text": "Exposed, supply-air duct and plenum insulation shall be the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 401,
+      "text": "Retain one or more of five subparagraphs below.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 402,
+      "text": "Internally lined per Section 233113 \u201cMetal Ducts.\u201d",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 403,
+      "text": "Exposed, return-air duct and plenum insulation shall be the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 404,
+      "text": "Retain one or more of five subparagraphs below.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 405,
+      "text": "Internally lined per Section 233113 \u201cMetal Ducts.\u201d",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 406,
+      "text": "Exposed, outdoor-air duct and plenum insulation shall be the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 407,
+      "text": "Retain one or more of five subparagraphs below.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 408,
+      "text": "Internally lined per Section 233113 \u201cMetal Ducts.\u201d",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 409,
+      "text": "ABOVEGROUND, OUTDOOR DUCT AND PLENUM INSULATION SCHEDULE",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 410,
+      "text": "See the Insulation Evaluation tables in the Evaluations for rankings of different insulation types for different service ranges.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 411,
+      "text": "Retain \"one of\" option in paragraphs below to allow Contractor to select piping materials from those retained.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 412,
+      "text": "To comply with ASHRAE/IESNA 90.1, insulation should have an R-value of 8 or higher.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 413,
+      "text": "Insulation materials and thicknesses are identified below. If more than one material is listed for a duct system, selection from materials listed is Contractor's option.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 414,
+      "text": "Outdoor, supply-air duct and plenum insulation shall be the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 415,
+      "text": "Retain one or more of three subparagraphs below.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 416,
+      "text": "Internally lined per Section 233113 \u201cMetal Ducts.\u201d",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 417,
+      "text": "Outdoor, return-air duct and plenum insulation shall be the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 418,
+      "text": "Retain one or more of five subparagraphs below.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 419,
+      "text": "Internally lined per Section 233113 \u201cMetal Ducts.\u201d",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 420,
+      "text": "Outdoor, outdoor-air duct and plenum insulation shall be the following:",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 421,
+      "text": "Retain one or more of five subparagraphs below.",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 422,
+      "text": "Internally lined per Section 233113 \u201cMetal Ducts.\u201d",
+      "numPr": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 423,
+      "text": "END OF SECTION 230713",
+      "numPr": null,
+      "contains_sectPr": false
+    }
+  ]
+}
