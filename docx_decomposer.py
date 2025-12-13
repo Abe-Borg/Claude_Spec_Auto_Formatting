@@ -1207,12 +1207,35 @@ def main():
     # PHASE 2: APPLY CLASSIFICATIONS
     # -------------------------------
     if args.phase2_arch_extract and args.phase2_classifications:
-        log = []
+        log: List[str] = []
 
-        arch_registry = load_arch_style_registry(Path(args.phase2_arch_extract))
+        arch_root = resolve_arch_extract_root(Path(args.phase2_arch_extract))
+        arch_registry = load_arch_style_registry(arch_root)
 
         classifications = json.loads(
             Path(args.phase2_classifications).read_text(encoding="utf-8")
+        )
+
+        # Preflight report (visibility)
+        preflight_path = extract_dir / "phase2_preflight.json"
+        preflight = write_phase2_preflight(
+            extract_dir=extract_dir,
+            arch_root=arch_root,
+            arch_registry=arch_registry,
+            classifications=classifications,
+            out_path=preflight_path
+        )
+        print(f"Phase 2 preflight written: {preflight_path}")
+        if preflight["unmapped_roles"]:
+            print(f"WARNING: Unmapped roles: {preflight['unmapped_roles']}")
+
+        # Import architect styles into target doc BEFORE applying pStyle
+        needed_style_ids = sorted(set(arch_registry.values()))
+        import_arch_styles_into_target(
+            target_extract_dir=extract_dir,
+            arch_extract_dir=arch_root,
+            needed_style_ids=needed_style_ids,
+            log=log
         )
 
         snap = snapshot_stability(extract_dir)
@@ -1235,6 +1258,7 @@ def main():
 
         print(f"Phase 2 output written: {out}")
         return
+
 
 
 
@@ -1719,9 +1743,25 @@ def apply_phase2_classifications(
     blocks = list(iter_paragraph_xml_blocks(doc_text))
     para_blocks = [b[2] for b in blocks]
 
-    for item in classifications.get("classifications", []):
-        idx = item["paragraph_index"]
-        role = item["csi_role"]
+    items = classifications.get("classifications", [])
+    if not isinstance(items, list):
+        raise ValueError("phase2 classifications: 'classifications' must be a list")
+
+    for item in items:
+        if not isinstance(item, dict):
+            log.append(f"Invalid classification entry (not object): {item!r}")
+            continue
+
+        idx = item.get("paragraph_index")
+        role = item.get("csi_role")
+
+        if not isinstance(idx, int) or idx < 0 or idx >= len(para_blocks):
+            log.append(f"Invalid paragraph_index in classifications: {idx!r}")
+            continue
+
+        if not isinstance(role, str):
+            log.append(f"Invalid csi_role type at paragraph {idx}: {role!r}")
+            continue
 
         style_id = arch_style_registry.get(role)
         if not style_id:
@@ -1732,10 +1772,7 @@ def apply_phase2_classifications(
             log.append(f"Skipped sectPr paragraph at index {idx}")
             continue
 
-        para_blocks[idx] = apply_pstyle_to_paragraph_block(
-            para_blocks[idx], style_id
-        )
-
+        para_blocks[idx] = apply_pstyle_to_paragraph_block(para_blocks[idx], style_id)
 
     # Rebuild document.xml
     out = []
@@ -1745,8 +1782,8 @@ def apply_phase2_classifications(
         out.append(pb)
         last = e
     out.append(doc_text[last:])
-
     doc_path.write_text("".join(out), encoding="utf-8")
+
 
 
 def resolve_arch_extract_root(p: Path) -> Path:
@@ -2063,6 +2100,59 @@ def derive_style_def_from_paragraph(styleId: str, name: str, p_xml: str, based_o
     }
 
 
+def extract_style_block_raw(styles_xml_text: str, style_id: str) -> Optional[str]:
+    """
+    Extract the raw <w:style ...>...</w:style> block for a given styleId using regex.
+    This avoids ET rewriting / reformatting.
+    """
+    # styleId can include characters that need escaping in regex
+    sid = re.escape(style_id)
+    m = re.search(rf'(<w:style\b[^>]*w:styleId="{sid}"[^>]*>[\s\S]*?</w:style>)', styles_xml_text)
+    return m.group(1) + "\n" if m else None
+
+
+def import_arch_styles_into_target(
+    target_extract_dir: Path,
+    arch_extract_dir: Path,
+    needed_style_ids: List[str],
+    log: List[str]
+) -> None:
+    """
+    Copy specific style blocks from architect styles.xml into target styles.xml (idempotent).
+    """
+    arch_extract_dir = resolve_arch_extract_root(arch_extract_dir)
+
+    arch_styles_path = arch_extract_dir / "word" / "styles.xml"
+    tgt_styles_path = target_extract_dir / "word" / "styles.xml"
+
+    arch_styles_text = arch_styles_path.read_text(encoding="utf-8")
+    tgt_styles_text = tgt_styles_path.read_text(encoding="utf-8")
+
+    existing = set(re.findall(r'w:styleId="([^"]+)"', tgt_styles_text))
+
+    blocks: List[str] = []
+    for sid in needed_style_ids:
+        if sid in existing:
+            log.append(f"Style already present in target: {sid}")
+            continue
+
+        blk = extract_style_block_raw(arch_styles_text, sid)
+        if not blk:
+            log.append(f"Architect styles.xml missing styleId: {sid}")
+            continue
+
+        blocks.append(blk)
+        log.append(f"Imported style from architect: {sid}")
+
+    if not blocks:
+        return
+
+    tgt_new = insert_styles_into_styles_xml(tgt_styles_text, blocks)
+    if tgt_new != tgt_styles_text:
+        tgt_styles_path.write_text(tgt_new, encoding="utf-8")
+
+
+
 def insert_styles_into_styles_xml(styles_xml_text: str, style_blocks: List[str]) -> str:
     if not style_blocks:
         return styles_xml_text
@@ -2279,6 +2369,34 @@ def apply_instructions(extract_dir: Path, instructions: Dict[str, Any]) -> None:
     verify_stability(extract_dir, snap)
 
 
+def write_phase2_preflight(
+    extract_dir: Path,
+    arch_root: Path,
+    arch_registry: Dict[str, str],
+    classifications: Dict[str, Any],
+    out_path: Path
+) -> Dict[str, Any]:
+    # Count classifications per role
+    role_counts: Dict[str, int] = {}
+    for item in classifications.get("classifications", []):
+        r = item.get("csi_role")
+        if isinstance(r, str):
+            role_counts[r] = role_counts.get(r, 0) + 1
+
+    # Identify which roles are unmapped
+    needed_roles = sorted(role_counts.keys())
+    unmapped_roles = [r for r in needed_roles if r not in arch_registry]
+
+    report = {
+        "arch_extract_root": str(arch_root),
+        "target_extract_root": str(extract_dir),
+        "roles_in_classifications": role_counts,
+        "arch_style_registry": arch_registry,
+        "unmapped_roles": unmapped_roles,
+    }
+
+    out_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    return report
 
 
 def sanitize_style_def(sd: Dict[str, Any]) -> Dict[str, Any]:
