@@ -22,79 +22,44 @@ import difflib
 import re
 
 
-SLIM_MASTER_PROMPT = r"""You are a DOCX CSI-normalization planner.
-You will be given a slim JSON bundle that summarizes a Word document’s paragraphs, styles, and numbering.
-You MUST NOT output raw DOCX XML.
-You MUST output ONLY JSON instructions that my local script will apply.
+PHASE2_MASTER_PROMPT = r"""
+You are a CSI STRUCTURE CLASSIFIER for AEC specifications.
 
-Absolute rule:
-You must NOT include pPr or rPr (or any formatting properties) in create_styles.
-You are not allowed to describe or prescribe formatting.
-Instead, when a new style is needed, you must reference an exemplar paragraph using derive_from_paragraph_index.
-Any attempt to specify alignment, indentation, spacing, fonts, or numbering is forbidden.
+You will be given a slim JSON bundle of paragraphs from a mechanical or plumbing spec.
 
+Your job:
+- Identify CSI semantic roles ONLY.
 
-Goal: render-perfect output while normalizing CSI semantics using paragraph styles (w:pStyle).
+Allowed roles:
+- SectionTitle
+- PART
+- ARTICLE
+- PARAGRAPH
+- SUBPARAGRAPH
+- SUBSUBPARAGRAPH
 
 Rules:
-1) Do not propose changes to headers/footers or section properties (sectPr). Those must remain unchanged.
-2) Prefer reusing existing template styles if they match the current appearance.
-3) If a CSI role exists but paragraphs lack a style, propose creating a template-namespaced style that matches the current appearance:
-   - CSI_SectionTitle__ARCH
-   - CSI_Part__ARCH
-   - CSI_Article__ARCH
-   - CSI_Paragraph__ARCH
-   - CSI_Subparagraph__ARCH
-   - CSI_Subsubparagraph__ARCH
-4) If you create a new CSI_*__ARCH style, you must choose a derive_from_paragraph_index that is a “clean” exemplar of that role (not END OF SECTION, not blank, not a section break, not a weird edge-case).
-5) Determine hierarchy using text patterns AND numbering/indent hints:
-   - PART headings: “PART 1”, “PART 2”, “PART 3”
-   - Articles: “1.01”, “1.02”… (often under PART)
-   - Paragraphs: “A.” “B.” …
-   - Subparagraphs: “1.” “2.” … under A./B.
-   - Sub-subparagraphs: “a.” “b.” … under 1./2. and typically indented
-6) Output must be valid JSON only.
+- Do NOT create styles
+- Do NOT reference formatting
+- Do NOT guess if unclear
+- If ambiguous, omit the paragraph
+
+Return JSON only.
+"""
+
+PHASE2_RUN_INSTRUCTION = r"""
+Task:
+Classify CSI roles for paragraphs.
 
 Output schema:
 {
-  "create_styles": [
-    {
-      "styleId": "CSI_Article__ARCH",
-      "name": "CSI Article (Architect Template)",
-      "type": "paragraph",
-      "derive_from_paragraph_index": 44,
-      "basedOn": "<existing styleId or null>"
-    }
+  "classifications": [
+    { "paragraph_index": 12, "csi_role": "PART" }
   ],
-  "apply_pStyle": [
-    { "paragraph_index": 12, "styleId": "CSI_Part__ARCH" }
-  ],
-  "notes": ["..."]
+  "notes": []
 }
-
-
-Notes:
-- Use paragraph_index from the provided bundle.
-- Do not include paragraphs that are marked contains_sectPr=true.
-- For create_styles: derive_from_paragraph_index must reference a real paragraph_index from the bundle.
-- Never emit pPr/rPr in JSON.
 """
 
-SLIM_RUN_INSTRUCTION_DEFAULT = r"""Task:
-Using the slim bundle, normalize CSI semantics by ensuring consistent paragraph styles for:
-- Section Title
-- PART headings
-- Articles (1.01…)
-- Paragraphs (A., B.)
-- Subparagraphs (1., 2.)
-- Sub-subparagraphs (a., b.)
-
-Constraints:
-- Preserve visual formatting (render-perfect).
-- Do not change headers/footers or sectPr.
-- If you create styles, do NOT describe formatting. Instead, create styles by selecting an exemplar paragraph and setting derive_from_paragraph_index.
-- Return JSON instructions only (no prose, no XML, no markdown).
-"""
 
 
 class DocxDecomposer:
@@ -1664,6 +1629,78 @@ def build_slim_bundle(extract_dir: Path) -> Dict[str, Any]:
         "paragraphs": paragraphs,
         "style_catalog": style_catalog,
         "numbering_catalog": numbering_catalog
+    }
+
+
+
+
+def load_arch_style_registry(arch_extract_dir: Path) -> Dict[str, str]:
+    """
+    Reads architect styles.xml and returns a mapping of CSI role -> styleId.
+
+    This assumes Phase 1 already identified CSI roles and encoded them
+    in style names OR via a sidecar JSON you maintain.
+
+    For now: infer by styleId containing role keywords.
+    """
+    styles_path = arch_extract_dir / "word" / "styles.xml"
+    if not styles_path.exists():
+        raise FileNotFoundError("Architect styles.xml not found")
+
+    tree = ET.parse(styles_path)
+    root = tree.getroot()
+
+    role_map = {}
+    for st in root.findall(f".//{_q('style')}"):
+        sid = _get_attr(st, "styleId")
+        if not sid:
+            continue
+
+        sid_upper = sid.upper()
+        if "SECTION" in sid_upper:
+            role_map["SectionTitle"] = sid
+        elif "PART" in sid_upper:
+            role_map["PART"] = sid
+        elif "ARTICLE" in sid_upper:
+            role_map["ARTICLE"] = sid
+        elif "SUBSUB" in sid_upper:
+            role_map["SUBSUBPARAGRAPH"] = sid
+        elif "SUBPARA" in sid_upper:
+            role_map["SUBPARAGRAPH"] = sid
+        elif "PARA" in sid_upper:
+            role_map["PARAGRAPH"] = sid
+
+    return role_map
+
+
+def build_phase2_slim_bundle(extract_dir: Path, discipline: str) -> Dict[str, Any]:
+    doc_path = extract_dir / "word" / "document.xml"
+    doc_text = doc_path.read_text(encoding="utf-8")
+
+    paragraphs = []
+
+    for idx, (_s, _e, p_xml) in enumerate(iter_paragraph_xml_blocks(doc_text)):
+        if paragraph_contains_sectpr(p_xml):
+            continue
+
+        text = paragraph_text_from_block(p_xml)
+        if not text:
+            continue
+
+        numpr = paragraph_numpr_from_block(p_xml)
+
+        paragraphs.append({
+            "paragraph_index": idx,
+            "text": text[:200],
+            "numPr": numpr if (numpr.get("numId") or numpr.get("ilvl")) else None,
+            "contains_sectPr": False
+        })
+
+    return {
+        "document_meta": {
+            "discipline": discipline
+        },
+        "paragraphs": paragraphs
     }
 
 
