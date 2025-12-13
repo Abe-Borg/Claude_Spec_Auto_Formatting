@@ -7,6 +7,7 @@ containing XML and other files), documents the structure in markdown, and can
 reconstruct the original document from the extracted components.
 """
 
+
 import zipfile
 import os
 import shutil
@@ -94,59 +95,6 @@ Constraints:
 - If you create styles, do NOT describe formatting. Instead, create styles by selecting an exemplar paragraph and setting derive_from_paragraph_index.
 - Return JSON instructions only (no prose, no XML, no markdown).
 """
-
-
-
-
-MASTER_PROMPT = r"""You are a DOCX surgical editor.
-You will be given raw XML from specific DOCX parts.
-Your job is to return ONLY a JSON object describing file replacements.
-
-Goal: render-perfect Word output while normalizing CSI semantics using styles (not direct formatting).
-
-Allowed files to edit (default):
-- word/document.xml
-- word/styles.xml
-- word/numbering.xml
-
-Files that MUST NOT CHANGE (stability-critical):
-- word/header*.xml
-- word/footer*.xml
-
-Rules:
-1) Do NOT reformat XML. No pretty printing. No whitespace normalization.
-2) Do NOT reorder attributes. Do NOT change namespaces unless required.
-3) Prefer applying paragraph styles (w:pStyle) over adding direct paragraph/run formatting.
-4) If you detect CSI semantic roles (Section Title / PART / Article / Paragraph / Subparagraph / Sub-subparagraph) but paragraphs lack a style, you must either:
-   - map to an existing template style that matches the current appearance, or
-   - create a new template-namespaced style for that CSI role that matches the appearance currently on the page, and apply it consistently.
-5) Style naming: use template-namespaced CSI IDs:
-   - CSI_SectionTitle__ARCH
-   - CSI_Part__ARCH
-   - CSI_Article__ARCH
-   - CSI_Paragraph__ARCH
-   - CSI_Subparagraph__ARCH
-   - CSI_Subsubparagraph__ARCH
-6) Do NOT change headers/footers.
-7) Do NOT change section properties (w:sectPr) unless explicitly instructed.
-
-Output format:
-Return a single JSON object with:
-- edits: list of {path, type:"replace", sha256_before(optional), content}
-- notes: list of concise bullets describing changes
-Return JSON only. No other text.
-"""
-
-RUN_INSTRUCTION_DEFAULT = r"""Task: CSI normalization with render-perfect constraints.
-- Identify CSI roles: Section Title, PART headings, Articles (1.01…), Paragraphs (A., B.), Subparagraphs (1., 2.), Sub-subparagraphs (a., b.).
-- Use numbering context and indentation (w:numPr, w:ilvl, w:ind) to distinguish levels.
-- Ensure each role uses a consistent paragraph style.
-- If a role appears with direct formatting (no w:pStyle), promote that formatting into the appropriate CSI_*__ARCH style and apply it to all matching paragraphs.
-- Reuse existing styles where they already match the appearance.
-- Do not change headers/footers and do not change w:sectPr.
-Return JSON edits only.
-"""
-
 
 
 class DocxDecomposer:
