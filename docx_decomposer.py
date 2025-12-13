@@ -1771,41 +1771,51 @@ def resolve_arch_extract_root(p: Path) -> Path:
 
 def load_arch_style_registry(arch_extract_dir: Path) -> Dict[str, str]:
     """
-    Reads architect styles.xml and returns a mapping of CSI role -> styleId.
+    Reads architect styles.xml and returns role -> styleId.
 
-    This assumes Phase 1 already identified CSI roles and encoded them
-    in style names OR via a sidecar JSON you maintain.
+    Phase-2 rule: we do NOT create styles. We only map roles to existing styles.
+    We try to detect by styleId and by human-readable style name.
 
-    For now: infer by styleId containing role keywords.
+    NOTE: Order matters: SUBSUBPARAGRAPH must be checked before SUBPARAGRAPH,
+    and both before PARAGRAPH, or you'll collapse everything into PARAGRAPH.
     """
+    arch_extract_dir = resolve_arch_extract_root(arch_extract_dir)
     styles_path = arch_extract_dir / "word" / "styles.xml"
-    if not styles_path.exists():
-        raise FileNotFoundError("Architect styles.xml not found")
 
     tree = ET.parse(styles_path)
     root = tree.getroot()
 
-    role_map = {}
+    role_map: Dict[str, str] = {}
+
+    def norm(s: Optional[str]) -> str:
+        return (s or "").upper()
+
     for st in root.findall(f".//{_q('style')}"):
         sid = _get_attr(st, "styleId")
         if not sid:
             continue
 
-        sid_upper = sid.upper()
-        if "SECTION" in sid_upper:
-            role_map["SectionTitle"] = sid
-        elif "PART" in sid_upper:
-            role_map["PART"] = sid
-        elif "ARTICLE" in sid_upper:
-            role_map["ARTICLE"] = sid
-        elif "SUBSUB" in sid_upper:
-            role_map["SUBSUBPARAGRAPH"] = sid
-        elif "SUBPARA" in sid_upper:
-            role_map["SUBPARAGRAPH"] = sid
-        elif "PARA" in sid_upper:
-            role_map["PARAGRAPH"] = sid
+        name_el = st.find(_q("name"))
+        sname = _get_attr(name_el, "val") if name_el is not None else None
+
+        hay = norm(sid) + " " + norm(sname)
+
+        # IMPORTANT: most-specific first
+        if "SUBSUB" in hay or "SUB-SUB" in hay or "SUB SUB" in hay:
+            role_map.setdefault("SUBSUBPARAGRAPH", sid)
+        elif "SUBPARA" in hay or "SUB-PARA" in hay or "SUB PARA" in hay:
+            role_map.setdefault("SUBPARAGRAPH", sid)
+        elif "ARTICLE" in hay:
+            role_map.setdefault("ARTICLE", sid)
+        elif "PART" in hay:
+            role_map.setdefault("PART", sid)
+        elif "SECTIONTITLE" in hay or "SECTION TITLE" in hay or ("SECTION" in hay and "TITLE" in hay):
+            role_map.setdefault("SectionTitle", sid)
+        elif "PARA" in hay or "PARAGRAPH" in hay:
+            role_map.setdefault("PARAGRAPH", sid)
 
     return role_map
+
 
 
 # -------------------------------
