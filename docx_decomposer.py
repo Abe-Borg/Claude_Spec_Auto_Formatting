@@ -8,6 +8,7 @@ reconstruct the original document from the extracted components.
 """
 
 
+from html import parser
 import zipfile
 import os
 import shutil
@@ -1121,6 +1122,8 @@ def main():
     import argparse
     import sys
     import os
+    from pathlib import Path
+    import json
 
     parser = argparse.ArgumentParser(description="DOCX decomposer + LLM normalize workflow")
     parser.add_argument("docx_path", help="Path to input .docx")
@@ -1137,6 +1140,17 @@ def main():
     parser.add_argument("--output-docx", default=None, help="Output .docx path for reconstructed file")
 
     parser.add_argument("--use-extract-dir", default=None, help="Use an existing extracted folder (skip extract/delete)")
+
+    parser.add_argument("--phase2-arch-extract", help="Architect extracted folder")
+    parser.add_argument("--phase2-discipline", default="mechanical", help="mechanical|plumbing")
+    parser.add_argument("--phase2-classifications", help="Phase 2 LLM output JSON")
+    
+    parser.add_argument(
+        "--phase2-build-bundle",
+        action="store_true",
+        help="Write Phase 2 slim bundle for LLM classification"
+)
+
 
 
     # ✅ Parse args FIRST
@@ -1160,7 +1174,66 @@ def main():
     else:
         extract_dir = decomposer.extract(output_dir=args.extract_dir)
 
-    analysis_path = decomposer.save_analysis()
+    if not (args.phase2_arch_extract or args.phase2_build_bundle):
+        analysis_path = decomposer.save_analysis()
+
+
+
+
+    # -------------------------------
+    # PHASE 2: BUILD SLIM BUNDLE
+    # -------------------------------
+    if args.phase2_build_bundle:
+        bundle = build_phase2_slim_bundle(
+            extract_dir,
+            args.phase2_discipline
+        )
+
+        out_path = extract_dir / "phase2_slim_bundle.json"
+        out_path.write_text(json.dumps(bundle, indent=2), encoding="utf-8")
+
+        print(f"Phase 2 slim bundle written: {out_path}")
+        print("NEXT STEP:")
+        print("- Paste phase2_slim_bundle.json into Claude")
+        print("- Use PHASE2_MASTER_PROMPT + PHASE2_RUN_INSTRUCTION")
+        print("- Save output as phase2_classifications.json")
+        return
+
+
+
+    # -------------------------------
+    # PHASE 2: APPLY CLASSIFICATIONS
+    # -------------------------------
+    if args.phase2_arch_extract and args.phase2_classifications:
+        log = []
+
+        arch_registry = load_arch_style_registry(Path(args.phase2_arch_extract))
+
+        classifications = json.loads(
+            Path(args.phase2_classifications).read_text(encoding="utf-8")
+        )
+
+        snap = snapshot_stability(extract_dir)
+
+        apply_phase2_classifications(
+            extract_dir,
+            classifications,
+            arch_registry,
+            log
+        )
+
+        verify_stability(extract_dir, snap)
+
+        out = decomposer.reconstruct(output_path=args.output_docx)
+
+        if log:
+            log_path = extract_dir / "phase2_issues.log"
+            log_path.write_text("\n".join(log), encoding="utf-8")
+            print(f"Phase 2 completed with issues. See {log_path}")
+
+        print(f"Phase 2 output written: {out}")
+        return
+
 
 
     # -------------------------------
@@ -1632,6 +1705,46 @@ def build_slim_bundle(extract_dir: Path) -> Dict[str, Any]:
     }
 
 
+def apply_phase2_classifications(
+    extract_dir: Path,
+    classifications: Dict[str, Any],
+    arch_style_registry: Dict[str, str],
+    log: List[str]
+) -> None:
+    doc_path = extract_dir / "word" / "document.xml"
+    doc_text = doc_path.read_text(encoding="utf-8")
+
+    blocks = list(iter_paragraph_xml_blocks(doc_text))
+    para_blocks = [b[2] for b in blocks]
+
+    for item in classifications.get("classifications", []):
+        idx = item["paragraph_index"]
+        role = item["csi_role"]
+
+        style_id = arch_style_registry.get(role)
+        if not style_id:
+            log.append(f"Missing architect style for role: {role} (paragraph {idx})")
+            continue
+
+        if paragraph_contains_sectpr(para_blocks[idx]):
+            log.append(f"Skipped sectPr paragraph at index {idx}")
+            continue
+
+        para_blocks[idx] = apply_pstyle_to_paragraph_block(
+            para_blocks[idx], style_id
+        )
+
+
+    # Rebuild document.xml
+    out = []
+    last = 0
+    for (s, e, _), pb in zip(blocks, para_blocks):
+        out.append(doc_text[last:s])
+        out.append(pb)
+        last = e
+    out.append(doc_text[last:])
+
+    doc_path.write_text("".join(out), encoding="utf-8")
 
 
 def load_arch_style_registry(arch_extract_dir: Path) -> Dict[str, str]:
