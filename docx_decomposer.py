@@ -1179,6 +1179,9 @@ def main():
 
 
 
+
+
+
     # -------------------------------
     # PHASE 2: BUILD SLIM BUNDLE
     # -------------------------------
@@ -1785,25 +1788,144 @@ def load_arch_style_registry(arch_extract_dir: Path) -> Dict[str, str]:
     return role_map
 
 
+# -------------------------------
+# Phase 2: Boilerplate filtering (LLM input only)
+# -------------------------------
+
+BOILERPLATE_PATTERNS = [
+    # Specifier notes - bracketed formats
+    (r'\[Note to [Ss]pecifier[:\s][^\]]*\]', 'specifier_note'),
+    (r'\[Specifier[:\s][^\]]*\]', 'specifier_note'),
+    (r'\[SPECIFIER[:\s][^\]]*\]', 'specifier_note'),
+    (r'(?i)\*\*\s*note to specifier\s*\*\*[^\n]*(?:\n(?!\n)[^\n]*)*', 'specifier_note'),
+    (r'(?i)<<\s*note to specifier[^>]*>>', 'specifier_note'),
+    (r'(?i)^\s*note to specifier:.*$', 'specifier_note'),
+
+    # MasterSpec / AIA / ARCOM editorial instructions
+    (r'(?i)^Retain or delete this article.*$', 'masterspec_instruction'),
+    (r'(?i)^Retain [^\n]*paragraph[^\n]*below.*$', 'masterspec_instruction'),
+    (r'(?i)^Retain [^\n]*subparagraph[^\n]*below.*$', 'masterspec_instruction'),
+    (r'(?i)^Retain [^\n]*article[^\n]*below.*$', 'masterspec_instruction'),
+    (r'(?i)^Retain [^\n]*section[^\n]*below.*$', 'masterspec_instruction'),
+    (r'(?i)^Retain [^\n]*if .*$', 'masterspec_instruction'),
+    (r'(?i)^Retain one of.*$', 'masterspec_instruction'),
+    (r'(?i)^Retain one or more of.*$', 'masterspec_instruction'),
+    (r'(?i)^Revise this Section by deleting.*$', 'masterspec_instruction'),
+    (r'(?i)^Revise [^\n]*to suit [Pp]roject.*$', 'masterspec_instruction'),
+    (r'(?i)^This Section uses the term.*$', 'masterspec_instruction'),
+    (r'(?i)^Verify that Section titles.*$', 'masterspec_instruction'),
+    (r'(?i)^Coordinate [^\n]*paragraph[^\n]* with.*$', 'masterspec_instruction'),
+    (r'(?i)^Coordinate [^\n]*revision[^\n]* with.*$', 'masterspec_instruction'),
+    (r'(?i)^The list below matches.*$', 'masterspec_instruction'),
+    (r'(?i)^See [^\n]*Evaluations?[^\n]* for .*$', 'masterspec_instruction'),
+    (r'(?i)^See [^\n]*Article[^\n]* in the Evaluations.*$', 'masterspec_instruction'),
+    (r'(?i)^If retaining [^\n]*paragraph.*$', 'masterspec_instruction'),
+    (r'(?i)^If retaining [^\n]*subparagraph.*$', 'masterspec_instruction'),
+    (r'(?i)^If retaining [^\n]*article.*$', 'masterspec_instruction'),
+    (r'(?i)^When [^\n]*characteristics are important.*$', 'masterspec_instruction'),
+    (r'(?i)^Inspections in this article are.*$', 'masterspec_instruction'),
+    (r'(?i)^Materials and thicknesses in schedules below.*$', 'masterspec_instruction'),
+    (r'(?i)^Insulation materials and thicknesses are identified below.*$', 'masterspec_instruction'),
+    (r'(?i)^Do not duplicate requirements.*$', 'masterspec_instruction'),
+    (r'(?i)^Not all materials and thicknesses may be suitable.*$', 'masterspec_instruction'),
+    (r'(?i)^Consider the exposure of installed insulation.*$', 'masterspec_instruction'),
+    (r'(?i)^Flexible elastomeric and polyolefin thicknesses are limited.*$', 'masterspec_instruction'),
+    (r'(?i)^To comply with ASHRAE.*insulation should have.*$', 'masterspec_instruction'),
+    (r'(?i)^Architect should be prepared to reject.*$', 'masterspec_instruction'),
+
+    # Copyright notices
+    (r'(?i)^Copyright\s*©?\s*\d{4}.*$', 'copyright'),
+    (r'(?i)^©\s*\d{4}.*$', 'copyright'),
+    (r'(?i)^Exclusively published and distributed by.*$', 'copyright'),
+    (r'(?i)all rights reserved.*$', 'copyright'),
+    (r'(?i)proprietary\s+information.*$', 'copyright'),
+
+    # Separator lines
+    (r'^[\*]{4,}\s*$', 'separator'),
+    (r'^[-]{4,}\s*$', 'separator'),
+    (r'^[=]{4,}\s*$', 'separator'),
+
+    # Page artifacts
+    (r'(?i)^page\s+\d+\s*(?:of\s*\d+)?\s*$', 'page_number'),
+
+    # Revision marks
+    (r'(?i)\{revision[^\}]*\}', 'revision_mark'),
+
+    # Hidden text markers
+    (r'(?i)<<[^>]*hidden[^>]*>>', 'hidden_text'),
+]
+
+# Pre-compile for speed and to avoid repeated regex compilation
+_BOILERPLATE_RX = [(re.compile(pat, flags=re.MULTILINE), tag) for pat, tag in BOILERPLATE_PATTERNS]
+
+def strip_boilerplate_with_report(content: str) -> tuple[str, list[str]]:
+    """
+    Strip boilerplate from a paragraph string and return (cleaned_text, matched_tags).
+    Placeholders are NOT stripped here (your patterns do not remove generic [ ... ] placeholders).
+    """
+    cleaned = content
+    hits: list[str] = []
+
+    for rx, tag in _BOILERPLATE_RX:
+        if rx.search(cleaned):
+            hits.append(tag)
+            cleaned = rx.sub('', cleaned)
+
+    # Clean up whitespace
+    cleaned = re.sub(r'\n{3,}', '\n\n', cleaned)
+    cleaned = re.sub(r'[ \t]+\n', '\n', cleaned)
+    cleaned = cleaned.strip()
+
+    # Deduplicate tags (stable order)
+    if hits:
+        seen = set()
+        hits = [t for t in hits if not (t in seen or seen.add(t))]
+
+    return cleaned, hits
+
+
+
 def build_phase2_slim_bundle(extract_dir: Path, discipline: str) -> Dict[str, Any]:
     doc_path = extract_dir / "word" / "document.xml"
     doc_text = doc_path.read_text(encoding="utf-8")
 
     paragraphs = []
+    filter_report = {
+        "paragraphs_removed_entirely": [],   # [{paragraph_index, tags, original_text_preview}]
+        "paragraphs_stripped": []            # [{paragraph_index, tags}]
+    }
 
     for idx, (_s, _e, p_xml) in enumerate(iter_paragraph_xml_blocks(doc_text)):
         if paragraph_contains_sectpr(p_xml):
             continue
 
-        text = paragraph_text_from_block(p_xml)
-        if not text:
+        raw_text = paragraph_text_from_block(p_xml)
+        if not raw_text:
             continue
+
+        cleaned_text, tags = strip_boilerplate_with_report(raw_text)
+
+        # If boilerplate stripping makes it empty, do not send to LLM
+        if not cleaned_text:
+            if tags:
+                filter_report["paragraphs_removed_entirely"].append({
+                    "paragraph_index": idx,
+                    "tags": tags,
+                    "original_text_preview": raw_text[:120]
+                })
+            continue
+
+        if tags:
+            filter_report["paragraphs_stripped"].append({
+                "paragraph_index": idx,
+                "tags": tags
+            })
 
         numpr = paragraph_numpr_from_block(p_xml)
 
         paragraphs.append({
             "paragraph_index": idx,
-            "text": text[:200],
+            "text": cleaned_text[:200],
             "numPr": numpr if (numpr.get("numId") or numpr.get("ilvl")) else None,
             "contains_sectPr": False
         })
@@ -1812,8 +1934,10 @@ def build_phase2_slim_bundle(extract_dir: Path, discipline: str) -> Dict[str, An
         "document_meta": {
             "discipline": discipline
         },
+        "filter_report": filter_report,
         "paragraphs": paragraphs
     }
+
 
 
 def build_style_xml_block(style_def: Dict[str, Any]) -> str:
