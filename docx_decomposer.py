@@ -8,7 +8,6 @@ reconstruct the original document from the extracted components.
 """
 
 
-from html import parser
 import zipfile
 import os
 import shutil
@@ -1149,7 +1148,7 @@ def main():
         "--phase2-build-bundle",
         action="store_true",
         help="Write Phase 2 slim bundle for LLM classification"
-)
+    )
 
 
 
