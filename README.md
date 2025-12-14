@@ -1,272 +1,332 @@
-DOCX CSI Structural Normalizer — Architect-Template Learning Engine
-
+📘 README — Phase 2: MEP Specification Styling Engine
 Overview
 
-This project implements a safe, deterministic system for extracting structural meaning and architect-defined formatting from Microsoft Word (.docx) specification documents used in AEC workflows.
+Phase 2 applies architect-defined CSI paragraph styles to mechanical and plumbing specifications while preserving exact Word behavior and appearance.
 
-It was built to operate in environments where:
+This phase does not design styles.
+It consumes styles produced by Phase 1 and applies them deterministically.
 
-Architect Word templates are sacred
+The core principle is:
 
-Visual drift is unacceptable
+Change as little Word XML as possible while achieving exact visual and behavioral alignment with the architect’s template.
 
-Formatting is often inconsistent, implicit, or hand-applied
+Inputs
 
-CSI MasterFormat / SectionFormat / PageFormat structure is desired
+Phase 2 requires three inputs:
 
-Word’s internal formatting behavior is fragile and non-obvious
+Target MEP DOCX
+A mechanical or plumbing specification document (often inconsistent or poorly styled).
 
-The system does not normalize appearance.
-It learns structure and formatting from the architect’s document without changing how it looks.
+Architect Style Registry
+Produced by Phase 1:
 
-Core Problem
+arch_style_registry.json
 
-AEC specification documents must satisfy two competing requirements:
 
-Structural correctness
+Phase 2 Classifications JSON
+Output from the LLM:
 
-Sections, PARTs, Articles, Paragraphs, Subparagraphs, etc. must be explicitly identifiable
+{
+  "classifications": [
+    { "paragraph_index": 42, "csi_role": "PARAGRAPH" }
+  ]
+}
 
-Required for automation, analysis, downstream processing, and consistency
+Responsibilities (What Phase 2 Does)
+1. Extract DOCX Safely
 
-Visual immutability
+Unzips the DOCX into an editable workspace
 
-Architect-controlled templates must not change
-
-Hanging indents, spacing, numbering, headers/footers, and alignment must remain pixel-identical
-
-Naïve approaches (DOCX reconstruction, formatting enforcement, XML rewriting) consistently fail because Word relies on implicit inheritance and undocumented behavior.
-
-Final Architecture (Successful & Locked In)
-Principle
-
-The architect’s DOCX controls appearance.
-The system may only annotate structure and learn formatting — never invent it.
-
-What This Tool Does
-High-Level Capabilities
-
-Analyzes a DOCX spec without altering its appearance
-
-Identifies CSI structural roles:
-
-Section Title
-
-PART
-
-Article
-
-Paragraph
-
-Subparagraph
-
-Sub-subparagraph
-
-Learns actual formatting used by the architect for each role
-
-Creates real Word styles derived from exemplar paragraphs
-
-Applies styles in place with zero visual drift
-
-Produces a reusable formatting profile for downstream use
-
-What This Tool Explicitly Does NOT Do
-
-These are intentional and enforced:
-
-❌ No DOCX reconstruction
-
-❌ No formatting normalization
-
-❌ No paragraph spacing/alignment/indent edits
-
-❌ No numbering changes
-
-❌ No header/footer changes
-
-❌ No sectPr changes
-
-❌ No LLM-authored XML
-
-❌ No CSI visual enforcement
-
-If any of the above occur, the run fails.
-
-Pipeline Summary
-1. Extract (Once)
-
-DOCX is unzipped into an extracted directory
-
-Stability hashes are recorded for:
+Preserves:
 
 headers
 
 footers
 
-section properties (sectPr)
+w:sectPr
 
-relationships
+numbering definitions
 
-content types
+2. Build Slim Bundle
 
-2. Slim Structural Bundle
+Sends only paragraph text + indices to the LLM
 
-The system generates a minimal JSON representation:
+No XML
 
-Paragraph index
+No formatting
 
-Raw text
+No styles
 
-Numbering hints (read-only context)
-
-Existing styles (catalog only)
-
-Flags for sectPr containment
-
-No formatting data is sent to the LLM.
-
-3. LLM Classification (Structure Only)
+3. Classify CSI Roles (LLM)
 
 The LLM:
 
-Sees only the slim bundle
+Assigns CSI semantic roles only
 
-Classifies paragraphs into CSI roles
+Never references formatting
 
-Chooses exemplar paragraph indices per role
+Never creates styles
 
-Returns JSON instructions only
+Never guesses
 
-The LLM is forbidden from:
+Allowed roles:
 
-specifying formatting
+SectionID
+SectionTitle
+PART
+ARTICLE
+PARAGRAPH
+SUBPARAGRAPH
+SUBSUBPARAGRAPH
 
-emitting XML
+4. Load Architect Style Registry (STRICT)
 
-emitting pPr / rPr
+Reads arch_style_registry.json
 
-proposing visual changes
+No heuristics
 
-4. Local Style Derivation (Critical Step)
+No guessing
 
-The local script:
+Registry is the only source of truth
 
-Locates exemplar paragraphs chosen by the LLM
+If a role is missing → skip safely and log.
 
-Extracts their effective formatting:
+5. Import Architect Styles
 
-paragraph properties (w:pPr)
+Imports only styles actually used in the document
 
-excluding w:pStyle
+Includes all basedOn dependencies
 
-excluding w:numPr
+Materializes inherited properties:
 
-run properties (w:rPr) from representative runs
+<w:rPr> (font, size, etc.)
 
-Synthesizes real Word styles in styles.xml
+<w:pPr> (spacing, alignment)
 
-Preserves all existing formatting behavior
+Does not:
 
-These styles reflect exactly what the architect authored, whether via:
+modify numbering definitions
 
-real styles
+modify base styles
 
-hand formatting
+6. Preserve Dynamic Word Numbering
 
-inconsistent usage
+Before swapping w:pStyle, Phase 2:
 
-5. In-Place Mutation
+Detects if numbering comes from the current style
 
-Inserts w:pStyle into paragraphs by index
+Copies <w:numPr> from the style chain onto the paragraph
 
-Does not modify any other paragraph properties
+Ensures:
 
-Does not touch numbering, headers, footers, or section properties
+Pressing Enter continues a / b / c, 1 / 2 / 3, etc.
 
-6. Stability Verification (Hard Fail on Drift)
+This is critical for Word usability.
 
-Every run verifies:
+7. Apply Styles
 
-Paragraph XML unchanged except for w:pStyle
+Applies architect styles using only w:pStyle
 
-Headers unchanged
+Never edits runs
 
-Footers unchanged
+Never invents formatting
 
-sectPr unchanged
+8. Verify Stability
 
-Relationships unchanged
+Confirms headers, footers, and sectPr are unchanged
 
-[Content_Types].xml unchanged
+Fails loudly if invariants are violated
 
-If anything drifts → execution stops.
+9. Optional Outputs
 
-Resulting Output
+--rebuild-docx → rebuild final DOCX
 
-After a successful run, the document:
+--write-analysis → debug markdown (off by default)
 
-Looks pixel-identical
+Explicit Non-Goals
 
-Contains:
+Phase 2 does not:
 
-Explicit CSI structural tagging
+Create styles
 
-Architect-derived paragraph styles:
+Fix bad architect templates
 
-CSI_SectionTitle__ARCH
+Modify numbering.xml
 
-CSI_Part__ARCH
+Apply run-level formatting
 
-CSI_Article__ARCH
+Reconstruct DOCX XML
 
-CSI_Paragraph__ARCH
+Infer style intent
 
-CSI_Subparagraph__ARCH
+Merge Phase 1 logic
 
-CSI_Subsubparagraph__ARCH
+Relationship to Phase 1
+Phase	Responsibility
+Phase 1	Defines and labels architect intent
+Phase 2	Applies that intent to MEP specs
 
-These styles now represent the architect’s formatting intent in a reusable, machine-readable way.
+Phase 1 emits:
 
-Why This Matters
+arch_style_registry.json
 
-This tool solves a long-standing AEC problem:
 
-“How do we match an architect’s spec formatting without guessing, rewriting Word, or breaking their template?”
+Phase 2 consumes it verbatim.
 
-Answer:
+Philosophy
 
-Learn their formatting
+Word is stateful, undocumented, and fragile.
+We respect it by touching as little as possible.
 
-Encode it as styles
+⚠️ Known Invariants & Failure Modes
 
-Apply it mechanically later
+This document defines what must never break, and what to watch for when it does.
 
-Known Limitations (Intentional)
+🔒 Hard Invariants (Must Always Hold)
 
-No numbering normalization
+If any of these break, the run is invalid.
 
-No list-definition rewriting
+1. Headers / Footers Unchanged
 
-No spec generation
+No XML drift
 
-No visual enforcement
+No relationship changes
 
-These belong to later, opt-in phases.
+2. w:sectPr Untouched
 
-Design Philosophy
+No page setup changes
 
-Determinism over cleverness
+No section breaks altered
 
-Safety over convenience
+3. Numbering Definitions Untouched
 
-Structure before appearance
+numbering.xml is never edited
 
-Learn from the document — never override it
+All numbering preservation happens at paragraph-level only
 
-Fail fast if invariants are violated
+4. No Run-Level Formatting
 
-Status
+No <w:rPr> edits inside document.xml
 
-✅ Production-ready for structural learning
-✅ Successfully tested against multiple architect templates
-✅ Robust even on poorly authored specs
+All formatting via paragraph styles only
+
+5. Registry-Only Styling
+
+No guessing style IDs
+
+No scanning styles.xml heuristically
+
+Missing role → skip + log
+
+⚠️ Known Failure Modes (And Why They Happen)
+1. Numbering Stops When Pressing Enter
+
+Cause
+
+Numbering was style-linked
+
+w:pStyle was swapped without materializing <w:numPr>
+
+Fix
+
+Ensure ensure_explicit_numpr_from_current_style() runs before restyling
+
+2. Fonts Change After Styling
+
+Cause
+
+Architect style relied on inheritance / docDefaults
+
+Imported style lacked explicit <w:rPr>
+
+Fix
+
+Materialize effective <w:rPr> and <w:pPr> when importing styles
+
+3. Some Paragraphs Don’t Get Styled
+
+Cause
+
+Role missing from registry
+
+Role intentionally skipped (e.g., SKIP, END_OF_SECTION)
+
+Fix
+
+Expected behavior
+
+Logged in preflight
+
+4. Architect Template Uses Only “Normal”
+
+Cause
+
+Architect never defined styles
+
+Phase 1 Responsibility
+
+Derive styles from exemplars anyway
+
+Registry still emitted
+
+Phase 2 Behavior
+
+Works normally once registry exists
+
+5. Word Opens With “Repair” Warning
+
+Cause
+
+Invalid XML insertion
+
+Broken style dependency chain
+
+Fix
+
+Check:
+
+imported style blocks are intact
+
+all basedOn styles imported
+
+no workspace artifacts zipped into DOCX
+
+🧪 Acceptance Checklist (Before Cleanup)
+
+Before trimming code further, confirm:
+
+ Lists continue correctly on Enter
+
+ Fonts match architect intent
+
+ Styles pane shows CSI_*__ARCH styles
+
+ No extra files produced by default
+
+ Preflight reports only expected unmapped roles
+
+ Word opens cleanly without warnings
+
+📉 Cleanup Guidance (Future)
+
+When trimming Phase 2:
+
+Remove:
+
+heuristic code paths
+
+legacy analysis reports
+
+unused CLI modes
+
+Keep:
+
+extract
+
+classify
+
+import styles
+
+apply styles
+
+verify invariants
