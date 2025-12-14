@@ -44,7 +44,6 @@ def _is_docx_package_part(rel_path: "Path") -> bool:
     return False
 
 
-
 PHASE2_MASTER_PROMPT = r"""
 You are a CSI STRUCTURE CLASSIFIER for AEC specifications.
 
@@ -54,6 +53,7 @@ Your job:
 - Identify CSI semantic roles ONLY.
 
 Allowed roles:
+- SectionID
 - SectionTitle
 - PART
 - ARTICLE
@@ -82,6 +82,7 @@ Output schema:
   "notes": []
 }
 """
+
 
 
 
@@ -1260,14 +1261,24 @@ def main():
         if preflight["unmapped_roles"]:
             print(f"WARNING: Unmapped roles: {preflight['unmapped_roles']}")
 
+        # Only import styles for roles actually used by this document's classifications
+        used_roles = {
+            item.get("csi_role")
+            for item in classifications.get("classifications", [])
+            if isinstance(item, dict) and isinstance(item.get("csi_role"), str)
+        }
+
         # Import architect styles into target doc BEFORE applying pStyle
-        needed_style_ids = sorted(set(arch_registry.values()))
+        needed_style_ids = sorted({arch_registry[r] for r in used_roles if r in arch_registry})
         import_arch_styles_into_target(
             target_extract_dir=extract_dir,
             arch_extract_dir=arch_root,
             needed_style_ids=needed_style_ids,
             log=log
         )
+
+        if not needed_style_ids:
+            log.append("No architect styles needed for this doc (no mapped roles used).")
 
         snap = snapshot_stability(extract_dir)
 
@@ -1839,74 +1850,50 @@ def resolve_arch_extract_root(p: Path) -> Path:
 
 def load_arch_style_registry(arch_extract_dir: Path) -> Dict[str, str]:
     """
-    Phase 2 contract:
-    - Prefer a registry JSON emitted by Phase 1 (NO guessing).
-    - Fallback to heuristic inference from styles.xml ONLY if the registry is missing.
+    Phase 2 contract (STRICT):
+    - arch_style_registry.json must exist (emitted by Phase 1).
+    - NO inference / NO heuristics.
+    Returns: { role: styleId }
     """
     arch_extract_dir = Path(arch_extract_dir)
 
     # Allow passing the registry JSON directly
     if arch_extract_dir.is_file() and arch_extract_dir.suffix.lower() == ".json":
-        reg = json.loads(arch_extract_dir.read_text(encoding="utf-8"))
-        if isinstance(reg, dict):
-            return {str(k).strip(): str(v).strip() for k, v in reg.items() if isinstance(v, str)}
-        return {}
+        reg_path = arch_extract_dir
+        root_dir = arch_extract_dir.parent
+    else:
+        root_dir = resolve_arch_extract_root(arch_extract_dir)
+        reg_path = root_dir / "arch_style_registry.json"
 
-    # Preferred: registry produced by Phase 1
-    registry_candidates = [
-        arch_extract_dir / "arch_style_registry.json",
-        arch_extract_dir / "word" / "arch_style_registry.json",
-    ]
-    for cand in registry_candidates:
-        if cand.exists():
-            reg = json.loads(cand.read_text(encoding="utf-8"))
-            if isinstance(reg, dict):
-                return {str(k).strip(): str(v).strip() for k, v in reg.items() if isinstance(v, str)}
-            return {}
+    if not reg_path.exists():
+        raise FileNotFoundError(
+            f"arch_style_registry.json not found at {reg_path}. "
+            f"Run Phase 1 on the architect template and copy the extracted folder here."
+        )
 
-    # Fallback: infer from styles.xml (best-effort; may fail by design)
-    styles_path = arch_extract_dir / "word" / "styles.xml"
-    if not styles_path.exists():
-        raise FileNotFoundError("Architect styles.xml not found")
+    reg = json.loads(reg_path.read_text(encoding="utf-8"))
+    if not isinstance(reg, dict):
+        raise ValueError("arch_style_registry.json must be a JSON object")
 
-    tree = ET.parse(styles_path)
-    root = tree.getroot()
+    # Expected shape:
+    # { "version": 1, "source_docx": "...", "roles": { "PART": { "style_id": "X", ... }, ... } }
+    roles = reg.get("roles")
+    if not isinstance(roles, dict):
+        raise ValueError("arch_style_registry.json missing 'roles' object")
 
-    role_to_style: Dict[str, str] = {}
-
-    for st in root.findall(f".//{_q('style')}"):
-        stype = _get_attr(st, "type")
-        if stype != "paragraph":
+    out: Dict[str, str] = {}
+    for role, info in roles.items():
+        if not isinstance(role, str) or not isinstance(info, dict):
             continue
+        sid = info.get("style_id") or info.get("styleId")
+        if isinstance(sid, str) and sid.strip():
+            out[role.strip()] = sid.strip()
 
-        sid = _get_attr(st, "styleId")
-        if not sid:
-            continue
+    if not out:
+        raise ValueError("arch_style_registry.json contained no usable role->style mappings")
 
-        # Avoid mapping built-in defaults
-        if sid in {"Normal", "DefaultParagraphFont"}:
-            continue
+    return out
 
-        name_el = st.find(_q("name"))
-        sname = _get_attr(name_el, "val") if name_el is not None else ""
-        hay = f"{sid} {sname}".upper()
-
-        # If your Phase 1 names include CSI tokens, this works.
-        # If not, Phase 1 MUST provide arch_style_registry.json.
-        if "SECTION" in hay and "TITLE" in hay:
-            role_to_style["SectionTitle"] = sid
-        elif "PART" in hay:
-            role_to_style["PART"] = sid
-        elif "ARTICLE" in hay:
-            role_to_style["ARTICLE"] = sid
-        elif "SUBSUB" in hay:
-            role_to_style["SUBSUBPARAGRAPH"] = sid
-        elif "SUBPARA" in hay or "SUBPARAGRAPH" in hay:
-            role_to_style["SUBPARAGRAPH"] = sid
-        elif "PARA" in hay or "PARAGRAPH" in hay:
-            role_to_style["PARAGRAPH"] = sid
-
-    return role_to_style
 
 
 
@@ -2150,10 +2137,29 @@ def derive_style_def_from_paragraph(styleId: str, name: str, p_xml: str, based_o
         "styleId": styleId,
         "name": name,
         "type": "paragraph",
-        "based_on": based_on,
+        "basedOn": based_on,
         "pPr_inner": ppr_inner,
         "rPr_inner": rpr_inner,
     }
+
+
+def _collect_style_deps_from_arch(arch_styles_text: str, style_id: str, seen: Set[str]) -> None:
+    """
+    Recursively collect styleId dependencies via <w:basedOn w:val="..."/>.
+    """
+    if style_id in seen:
+        return
+    seen.add(style_id)
+
+    blk = extract_style_block_raw(arch_styles_text, style_id)
+    if not blk:
+        return
+
+    m = re.search(r'<w:basedOn\b[^>]*w:val="([^"]+)"', blk)
+    if m:
+        base = m.group(1)
+        if base and base not in seen:
+            _collect_style_deps_from_arch(arch_styles_text, base, seen)
 
 
 def extract_style_block_raw(styles_xml_text: str, style_id: str) -> Optional[str]:
@@ -2174,7 +2180,8 @@ def import_arch_styles_into_target(
     log: List[str]
 ) -> None:
     """
-    Copy specific style blocks from architect styles.xml into target styles.xml (idempotent).
+    Copy specific style blocks from architect styles.xml into target styles.xml (idempotent),
+    including basedOn dependencies.
     """
     arch_extract_dir = resolve_arch_extract_root(arch_extract_dir)
 
@@ -2186,10 +2193,14 @@ def import_arch_styles_into_target(
 
     existing = set(re.findall(r'w:styleId="([^"]+)"', tgt_styles_text))
 
-    blocks: List[str] = []
+    # Expand basedOn deps
+    expanded: Set[str] = set()
     for sid in needed_style_ids:
+        _collect_style_deps_from_arch(arch_styles_text, sid, expanded)
+
+    blocks: List[str] = []
+    for sid in sorted(expanded):
         if sid in existing:
-            log.append(f"Style already present in target: {sid}")
             continue
 
         blk = extract_style_block_raw(arch_styles_text, sid)
@@ -2206,6 +2217,7 @@ def import_arch_styles_into_target(
     tgt_new = insert_styles_into_styles_xml(tgt_styles_text, blocks)
     if tgt_new != tgt_styles_text:
         tgt_styles_path.write_text(tgt_new, encoding="utf-8")
+
 
 
 
