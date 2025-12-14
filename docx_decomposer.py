@@ -1239,8 +1239,17 @@ def main():
 
         log: List[str] = []
 
-        arch_root = resolve_arch_extract_root(Path(args.phase2_arch_extract))
-        arch_registry = load_arch_style_registry(arch_root)
+        arch_input = Path(args.phase2_arch_extract)
+
+        # Load registry (supports passing registry JSON directly)
+        arch_registry = load_arch_style_registry(arch_input)
+
+        # Determine arch extract root for styles.xml import
+        if arch_input.is_file() and arch_input.suffix.lower() == ".json":
+            arch_root = resolve_arch_extract_root(arch_input.parent)
+        else:
+            arch_root = resolve_arch_extract_root(arch_input)
+
 
         classifications = json.loads(Path(args.phase2_classifications).read_text(encoding="utf-8"))
 
@@ -2351,7 +2360,12 @@ def import_arch_styles_into_target(
             log.append(f"Architect styles.xml missing styleId: {sid}")
             continue
 
+        # HARDEN: make style self-contained (pPr/rPr) to prevent font drift
+        blk = materialize_arch_style_block(blk, sid, arch_styles_text)
+
         blocks.append(blk)
+
+
         log.append(f"Imported style from architect: {sid}")
 
     if not blocks:
