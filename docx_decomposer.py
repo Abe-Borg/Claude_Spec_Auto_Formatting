@@ -1161,14 +1161,6 @@ def main():
     parser.add_argument("docx_path", help="Path to input .docx")
     parser.add_argument("--extract-dir", default=None, help="Optional extraction directory")
 
-    # Full XML modes (LEGACY - disabled)
-    parser.add_argument("--normalize", action="store_true", help="(LEGACY) Create full LLM bundle.json + prompts")
-    parser.add_argument("--apply-edits", default=None, help="(LEGACY) Path to LLM edits JSON to apply")
-
-    # Slim instruction-based modes (LEGACY for your current goal - disabled)
-    parser.add_argument("--normalize-slim", action="store_true", help="(LEGACY) Write slim_bundle.json + slim prompts")
-    parser.add_argument("--apply-instructions", default=None, help="(LEGACY) Path to instruction JSON to apply")
-
     # Output docx (patched output)
     parser.add_argument("--output-docx", default=None, help="Output .docx path")
 
@@ -1191,6 +1183,12 @@ def main():
         action="store_true",
         help="(debug) write analysis.md"
     )
+
+    # Legacy args still accepted but *disabled*
+    parser.add_argument("--normalize", action="store_true", help="(LEGACY) disabled")
+    parser.add_argument("--apply-edits", default=None, help="(LEGACY) disabled")
+    parser.add_argument("--normalize-slim", action="store_true", help="(LEGACY) disabled")
+    parser.add_argument("--apply-instructions", default=None, help="(LEGACY) disabled")
 
     args = parser.parse_args()
 
@@ -1222,10 +1220,7 @@ def main():
     # PHASE 2: BUILD SLIM BUNDLE
     # -------------------------------
     if args.phase2_build_bundle:
-        bundle = build_phase2_slim_bundle(
-            extract_dir,
-            args.phase2_discipline
-        )
+        bundle = build_phase2_slim_bundle(extract_dir, args.phase2_discipline)
 
         out_path = extract_dir / "phase2_slim_bundle.json"
         out_path.write_text(json.dumps(bundle, indent=2), encoding="utf-8")
@@ -1240,16 +1235,14 @@ def main():
     # PHASE 2: APPLY CLASSIFICATIONS
     # -------------------------------
     if args.phase2_arch_extract and args.phase2_classifications:
-        from docx_patch import patch_docx  # you already created this
+        from docx_patch import patch_docx  # your surgical ZIP patch writer
 
         log: List[str] = []
 
         arch_root = resolve_arch_extract_root(Path(args.phase2_arch_extract))
         arch_registry = load_arch_style_registry(arch_root)
 
-        classifications = json.loads(
-            Path(args.phase2_classifications).read_text(encoding="utf-8")
-        )
+        classifications = json.loads(Path(args.phase2_classifications).read_text(encoding="utf-8"))
 
         # Preflight report (visibility)
         preflight_path = extract_dir / "phase2_preflight.json"
@@ -1264,13 +1257,12 @@ def main():
         if preflight.get("unmapped_roles"):
             print(f"WARNING: Unmapped roles: {preflight['unmapped_roles']}")
 
-        # Only import styles for roles actually used by this document's classifications
+        # Import only styles actually used by this doc's classifications
         used_roles = {
             item.get("csi_role")
             for item in classifications.get("classifications", [])
             if isinstance(item, dict) and isinstance(item.get("csi_role"), str)
         }
-
         needed_style_ids = sorted({arch_registry[r] for r in used_roles if r in arch_registry})
 
         import_arch_styles_into_target(
@@ -1279,22 +1271,32 @@ def main():
             needed_style_ids=needed_style_ids,
             log=log
         )
-
         if not needed_style_ids:
             log.append("No architect styles needed for this doc (no mapped roles used).")
 
+        # Snapshot invariants BEFORE we touch document.xml
         snap = snapshot_stability(extract_dir)
 
         apply_phase2_classifications(
-            extract_dir,
-            classifications,
-            arch_registry,
-            log
+            extract_dir=extract_dir,
+            classifications=classifications,
+            arch_style_registry=arch_registry,
+            log=log
         )
 
+        # Your existing stability checks (headers/footers + sectPr + document.xml.rels)
         verify_stability(extract_dir, snap)
 
-        # ✅ ALWAYS write final formatted docx by patching only edited parts
+        # Optional: your separate invariants module (if you created it)
+        # (This is the "no run-level <w:rPr> edits" guard, etc.)
+        try:
+            from phase2_invariants import verify_phase2_invariants
+            new_doc_xml_bytes = (extract_dir / "word" / "document.xml").read_bytes()
+            verify_phase2_invariants(src_docx=input_docx_path, new_document_xml=new_doc_xml_bytes)
+        except ModuleNotFoundError:
+            pass
+
+        # ALWAYS write final formatted docx by patching only edited parts
         output_docx_path = Path(args.output_docx) if args.output_docx else (
             input_docx_path.with_name(input_docx_path.stem + "_PHASE2_FORMATTED.docx")
         )
@@ -1310,7 +1312,6 @@ def main():
             replacements=replacements,
         )
 
-        # Optional: write log if you want it persisted (kept lightweight)
         issues_path = extract_dir / "phase2_issues.log"
         issues_path.write_text("\n".join(log) + "\n", encoding="utf-8")
 
@@ -1319,7 +1320,7 @@ def main():
         return
 
     # -------------------------------
-    # DISABLED MODES (NO REBUILD POLICY)
+    # LEGACY MODES DISABLED
     # -------------------------------
     if args.normalize_slim or args.apply_instructions or args.normalize or args.apply_edits:
         print("Error: Legacy modes are disabled under the NO-REBUILD policy.")
@@ -1338,6 +1339,7 @@ def main():
     print(f"Extracted to: {extract_dir}")
     if analysis_path:
         print(f"Analysis report: {analysis_path}")
+
 
 
 
