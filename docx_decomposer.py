@@ -1182,6 +1182,18 @@ def main():
         help="Write Phase 2 slim bundle for LLM classification"
     )
 
+    
+    parser.add_argument(
+    "--write-analysis",
+    action="store_true",
+    help="(debug) write analysis.md"
+    )
+
+    parser.add_argument(
+        "--rebuild-docx",
+        action="store_true",
+        help="Rebuild output docx (otherwise Phase2 only edits the extracted folder)"
+    )
 
 
     # ✅ Parse args FIRST
@@ -1205,8 +1217,10 @@ def main():
     else:
         extract_dir = decomposer.extract(output_dir=args.extract_dir)
 
-    if not (args.phase2_arch_extract or args.phase2_build_bundle):
+    analysis_path = None
+    if args.write_analysis and not (args.phase2_arch_extract or args.phase2_build_bundle):
         analysis_path = decomposer.save_analysis()
+
 
 
 
@@ -1291,15 +1305,13 @@ def main():
 
         verify_stability(extract_dir, snap)
 
-        out = decomposer.reconstruct(output_path=args.output_docx)
-
-        if log:
-            log_path = extract_dir / "phase2_issues.log"
-            log_path.write_text("\n".join(log), encoding="utf-8")
-            print(f"Phase 2 completed with issues. See {log_path}")
-
-        print(f"Phase 2 output written: {out}")
+        if args.rebuild_docx:
+            out = decomposer.reconstruct(output_path=args.output_docx)
+            print(f"Phase 2 output written: {out}")
+        else:
+            print("Phase 2 completed (no docx rebuild). Extracted folder updated.")
         return
+
 
 
 
@@ -1469,6 +1481,160 @@ def verify_stability(extract_dir: Path, snap: StabilitySnapshot) -> None:
     current_rels = snapshot_doc_rels_hash(extract_dir)
     if current_rels != snap.doc_rels_hash:
         raise ValueError("document.xml.rels stability check FAILED (can break header/footer).")
+
+
+
+def _extract_style_block(styles_xml_text: str, style_id: str) -> Optional[str]:
+    m = re.search(
+        rf'(<w:style\b[^>]*w:styleId="{re.escape(style_id)}"[\s\S]*?</w:style>)',
+        styles_xml_text,
+        flags=re.S
+    )
+    return m.group(1) if m else None
+
+def _extract_basedOn(style_block: str) -> Optional[str]:
+    m = re.search(r'<w:basedOn\b[^>]*w:val="([^"]+)"', style_block)
+    return m.group(1) if m else None
+
+def _extract_numpr_block(style_block: str) -> Optional[str]:
+    m = re.search(r'(<w:numPr\b[^>]*>[\s\S]*?</w:numPr>)', style_block, flags=re.S)
+    return m.group(1) if m else None
+
+def _paragraph_style_id(p_xml: str) -> Optional[str]:
+    m = re.search(r'<w:pStyle\b[^>]*w:val="([^"]+)"', p_xml)
+    return m.group(1) if m else None
+
+def _paragraph_has_numpr(p_xml: str) -> bool:
+    return "<w:numPr" in p_xml
+
+def _find_style_numpr_in_chain(styles_xml_text: str, style_id: str, max_hops: int = 50) -> Optional[str]:
+    seen = set()
+    cur = style_id
+    hops = 0
+    while cur and cur not in seen and hops < max_hops:
+        seen.add(cur)
+        hops += 1
+        block = _extract_style_block(styles_xml_text, cur)
+        if not block:
+            break
+        numpr = _extract_numpr_block(block)
+        if numpr:
+            return numpr
+        cur = _extract_basedOn(block)
+    return None
+
+def ensure_explicit_numpr_from_current_style(p_xml: str, styles_xml_text: str) -> str:
+    # never touch sectPr carrier paragraphs
+    if "<w:sectPr" in p_xml:
+        return p_xml
+
+    if _paragraph_has_numpr(p_xml):
+        return p_xml
+
+    cur_style = _paragraph_style_id(p_xml)
+    if not cur_style:
+        return p_xml
+
+    numpr = _find_style_numpr_in_chain(styles_xml_text, cur_style)
+    if not numpr:
+        return p_xml
+
+    # Prefer placing numPr right after existing pStyle (if present)
+    if re.search(r'(<w:pStyle\b[^>]*/>)', p_xml):
+        return re.sub(r'(<w:pStyle\b[^>]*/>)', rf"\1{numpr}", p_xml, count=1)
+
+    # Expand self-closing pPr
+    if re.search(r"<w:pPr\b[^>]*/>", p_xml):
+        return re.sub(r"<w:pPr\b[^>]*/>", f"<w:pPr>{numpr}</w:pPr>", p_xml, count=1)
+
+    # Insert into existing pPr
+    if "<w:pPr" in p_xml:
+        return re.sub(r'(<w:pPr\b[^>]*>)', rf"\1{numpr}", p_xml, count=1)
+
+    # Create pPr if missing
+    return re.sub(r'(<w:p\b[^>]*>)', rf"\1<w:pPr>{numpr}</w:pPr>", p_xml, count=1)
+
+
+def _strip_pstyle_and_numpr(ppr_inner: str) -> str:
+    if not ppr_inner:
+        return ""
+    out = re.sub(r"<w:pStyle\b[^>]*/>", "", ppr_inner)
+    out = re.sub(r"<w:numPr\b[^>]*>[\s\S]*?</w:numPr>", "", out, flags=re.S)
+    return out.strip()
+
+def _extract_tag_inner(xml: str, tag: str) -> Optional[str]:
+    m = re.search(rf"<{tag}\b[^>]*>([\s\S]*?)</{tag}>", xml, flags=re.S)
+    return m.group(1) if m else None
+
+def _docdefaults_rpr_inner(styles_xml_text: str) -> str:
+    m = re.search(
+        r"<w:docDefaults\b[\s\S]*?<w:rPrDefault\b[\s\S]*?<w:rPr\b[^>]*>([\s\S]*?)</w:rPr>[\s\S]*?</w:rPrDefault>",
+        styles_xml_text,
+        flags=re.S
+    )
+    return m.group(1).strip() if m else ""
+
+def _docdefaults_ppr_inner(styles_xml_text: str) -> str:
+    m = re.search(
+        r"<w:docDefaults\b[\s\S]*?<w:pPrDefault\b[\s\S]*?<w:pPr\b[^>]*>([\s\S]*?)</w:pPr>[\s\S]*?</w:pPrDefault>",
+        styles_xml_text,
+        flags=re.S
+    )
+    return _strip_pstyle_and_numpr(m.group(1).strip()) if m else ""
+
+def _effective_rpr_inner_in_arch(arch_styles_xml_text: str, style_id: str) -> str:
+    seen = set()
+    cur = style_id
+    hops = 0
+    while cur and cur not in seen and hops < 50:
+        seen.add(cur); hops += 1
+        blk = _extract_style_block(arch_styles_xml_text, cur)
+        if not blk:
+            break
+        inner = _extract_tag_inner(blk, "w:rPr")
+        if inner and inner.strip():
+            return inner.strip()
+        cur = _extract_basedOn(blk)
+    return _docdefaults_rpr_inner(arch_styles_xml_text)
+
+def _effective_ppr_inner_in_arch(arch_styles_xml_text: str, style_id: str) -> str:
+    seen = set()
+    cur = style_id
+    hops = 0
+    while cur and cur not in seen and hops < 50:
+        seen.add(cur); hops += 1
+        blk = _extract_style_block(arch_styles_xml_text, cur)
+        if not blk:
+            break
+        inner = _extract_tag_inner(blk, "w:pPr") or ""
+        inner = _strip_pstyle_and_numpr(inner)
+        if inner:
+            return inner
+        cur = _extract_basedOn(blk)
+    return _docdefaults_ppr_inner(arch_styles_xml_text)
+
+def materialize_arch_style_block(style_block: str, style_id: str, arch_styles_xml_text: str) -> str:
+    # Inject rPr only if missing entirely
+    if "<w:rPr" not in style_block:
+        eff = _effective_rpr_inner_in_arch(arch_styles_xml_text, style_id)
+        if eff.strip():
+            style_block = style_block.replace(
+                "</w:style>",
+                f"\n  <w:rPr>{eff}</w:rPr>\n</w:style>"
+            )
+
+    # Inject pPr only if missing entirely
+    if "<w:pPr" not in style_block:
+        effp = _effective_ppr_inner_in_arch(arch_styles_xml_text, style_id)
+        if effp.strip():
+            style_block = style_block.replace(
+                "</w:style>",
+                f"\n  <w:pPr>{effp}</w:pPr>\n</w:style>"
+            )
+
+    return style_block
+
+
 
 
 def build_llm_bundle(extract_dir: Path) -> dict:
@@ -1780,7 +1946,11 @@ def apply_phase2_classifications(
     log: List[str]
 ) -> None:
     doc_path = extract_dir / "word" / "document.xml"
+    styles_xml_text = (extract_dir / "word" / "styles.xml").read_text(encoding="utf-8")
     doc_text = doc_path.read_text(encoding="utf-8")
+
+    # Load styles once so we can preserve style-linked numbering before swapping styles
+    styles_xml_text = (extract_dir / "word" / "styles.xml").read_text(encoding="utf-8")
 
     blocks = list(iter_paragraph_xml_blocks(doc_text))
     para_blocks = [b[2] for b in blocks]
@@ -1807,6 +1977,7 @@ def apply_phase2_classifications(
 
         style_id = arch_style_registry.get(role)
         if not style_id:
+            # Your preflight already expects SKIP / END_OF_SECTION to be unmapped :contentReference[oaicite:0]{index=0}
             log.append(f"Missing architect style for role: {role} (paragraph {idx})")
             continue
 
@@ -1814,7 +1985,12 @@ def apply_phase2_classifications(
             log.append(f"Skipped sectPr paragraph at index {idx}")
             continue
 
-        para_blocks[idx] = apply_pstyle_to_paragraph_block(para_blocks[idx], style_id)
+        # KEY FIX: preserve "dynamic numbering" by materializing style-linked numPr
+        pb = para_blocks[idx]
+        pb = ensure_explicit_numpr_from_current_style(pb, styles_xml_text)
+
+        # Now safely swap pStyle
+        para_blocks[idx] = apply_pstyle_to_paragraph_block(pb, style_id)
 
     # Rebuild document.xml
     out = []
@@ -1825,6 +2001,7 @@ def apply_phase2_classifications(
         last = e
     out.append(doc_text[last:])
     doc_path.write_text("".join(out), encoding="utf-8")
+
 
 
 
@@ -2408,7 +2585,12 @@ def apply_instructions(extract_dir: Path, instructions: Dict[str, Any]) -> None:
             raise ValueError(f"paragraph_index out of range: {idx}")
         if paragraph_contains_sectpr(para_blocks[idx]):
             raise ValueError(f"Refusing to apply style to paragraph {idx} because it contains sectPr.")
-        para_blocks[idx] = apply_pstyle_to_paragraph_block(para_blocks[idx], sid)
+        
+        pb = ensure_explicit_numpr_from_current_style(para_blocks[idx], styles_xml_text)
+        para_blocks[idx] = apply_pstyle_to_paragraph_block(pb, style_id)
+
+
+
 
     # STEP 4: Full paragraph drift check (only pStyle may differ)
     for idx in idx_map.keys():
