@@ -1155,48 +1155,43 @@ def main():
     import os
     from pathlib import Path
     import json
+    from typing import List
 
     parser = argparse.ArgumentParser(description="DOCX decomposer + LLM normalize workflow")
     parser.add_argument("docx_path", help="Path to input .docx")
     parser.add_argument("--extract-dir", default=None, help="Optional extraction directory")
 
-    # Full XML modes
-    parser.add_argument("--normalize", action="store_true", help="Create full LLM bundle.json + prompts")
-    parser.add_argument("--apply-edits", default=None, help="Path to LLM edits JSON to apply")
+    # Full XML modes (LEGACY - disabled)
+    parser.add_argument("--normalize", action="store_true", help="(LEGACY) Create full LLM bundle.json + prompts")
+    parser.add_argument("--apply-edits", default=None, help="(LEGACY) Path to LLM edits JSON to apply")
 
-    # Slim instruction-based modes (RECOMMENDED)
-    parser.add_argument("--normalize-slim", action="store_true", help="Write slim_bundle.json + slim prompts")
-    parser.add_argument("--apply-instructions", default=None, help="Path to Claude instruction JSON to apply")
+    # Slim instruction-based modes (LEGACY for your current goal - disabled)
+    parser.add_argument("--normalize-slim", action="store_true", help="(LEGACY) Write slim_bundle.json + slim prompts")
+    parser.add_argument("--apply-instructions", default=None, help="(LEGACY) Path to instruction JSON to apply")
 
-    parser.add_argument("--output-docx", default=None, help="Output .docx path for reconstructed file")
+    # Output docx (patched output)
+    parser.add_argument("--output-docx", default=None, help="Output .docx path")
 
+    # Reuse existing extracted folder
     parser.add_argument("--use-extract-dir", default=None, help="Use an existing extracted folder (skip extract/delete)")
 
+    # Phase 2
     parser.add_argument("--phase2-arch-extract", help="Architect extracted folder")
     parser.add_argument("--phase2-discipline", default="mechanical", help="mechanical|plumbing")
     parser.add_argument("--phase2-classifications", help="Phase 2 LLM output JSON")
-    
     parser.add_argument(
         "--phase2-build-bundle",
         action="store_true",
         help="Write Phase 2 slim bundle for LLM classification"
     )
 
-    
+    # Debug
     parser.add_argument(
-    "--write-analysis",
-    action="store_true",
-    help="(debug) write analysis.md"
-    )
-
-    parser.add_argument(
-        "--rebuild-docx",
+        "--write-analysis",
         action="store_true",
-        help="Rebuild output docx (otherwise Phase2 only edits the extracted folder)"
+        help="(debug) write analysis.md"
     )
 
-
-    # ✅ Parse args FIRST
     args = parser.parse_args()
 
     # Validate input path
@@ -1204,10 +1199,12 @@ def main():
         print(f"Error: File not found: {args.docx_path}")
         sys.exit(1)
 
+    input_docx_path = Path(args.docx_path)
+
     # Create decomposer
     decomposer = DocxDecomposer(args.docx_path)
 
-    # If using an existing extraction folder, skip extract/delete
+    # Use existing extraction folder or extract fresh
     if args.use_extract_dir:
         extract_dir = Path(args.use_extract_dir)
         if not extract_dir.exists():
@@ -1220,13 +1217,6 @@ def main():
     analysis_path = None
     if args.write_analysis and not (args.phase2_arch_extract or args.phase2_build_bundle):
         analysis_path = decomposer.save_analysis()
-
-
-
-
-
-
-
 
     # -------------------------------
     # PHASE 2: BUILD SLIM BUNDLE
@@ -1242,17 +1232,16 @@ def main():
 
         print(f"Phase 2 slim bundle written: {out_path}")
         print("NEXT STEP:")
-        print("- Paste phase2_slim_bundle.json into Claude")
-        print("- Use PHASE2_MASTER_PROMPT + PHASE2_RUN_INSTRUCTION")
+        print("- Paste phase2_slim_bundle.json into LLM")
         print("- Save output as phase2_classifications.json")
         return
-
-
 
     # -------------------------------
     # PHASE 2: APPLY CLASSIFICATIONS
     # -------------------------------
     if args.phase2_arch_extract and args.phase2_classifications:
+        from docx_patch import patch_docx  # you already created this
+
         log: List[str] = []
 
         arch_root = resolve_arch_extract_root(Path(args.phase2_arch_extract))
@@ -1272,7 +1261,7 @@ def main():
             out_path=preflight_path
         )
         print(f"Phase 2 preflight written: {preflight_path}")
-        if preflight["unmapped_roles"]:
+        if preflight.get("unmapped_roles"):
             print(f"WARNING: Unmapped roles: {preflight['unmapped_roles']}")
 
         # Only import styles for roles actually used by this document's classifications
@@ -1282,8 +1271,8 @@ def main():
             if isinstance(item, dict) and isinstance(item.get("csi_role"), str)
         }
 
-        # Import architect styles into target doc BEFORE applying pStyle
         needed_style_ids = sorted({arch_registry[r] for r in used_roles if r in arch_registry})
+
         import_arch_styles_into_target(
             target_extract_dir=extract_dir,
             arch_extract_dir=arch_root,
@@ -1305,76 +1294,51 @@ def main():
 
         verify_stability(extract_dir, snap)
 
-        if args.rebuild_docx:
-            out = decomposer.reconstruct(output_path=args.output_docx)
-            print(f"Phase 2 output written: {out}")
-        else:
-            print("Phase 2 completed (no docx rebuild). Extracted folder updated.")
-        return
-
-
-
-
-
-    # -------------------------------
-    # SLIM NORMALIZE MODE (PRIMARY)
-    # -------------------------------
-    if args.normalize_slim:
-        decomposer.write_slim_normalize_bundle()
-        print("\nNEXT STEP:")
-        print("- Paste prompts_slim/master_prompt.txt")
-        print("- Paste prompts_slim/run_instruction.txt")
-        print("- Paste slim_bundle.json")
-        print("- Into Claude Opus 4.5")
-        print("- Save Claude output as instructions.json")
-        print("- Then run with --apply-instructions instructions.json")
-        return
-
-    # -------------------------------
-    # APPLY SLIM INSTRUCTIONS
-    # -------------------------------
-    if args.apply_instructions:
-        out = decomposer.apply_instructions_and_rebuild(
-            args.apply_instructions,
-            output_docx_path=args.output_docx
+        # ✅ ALWAYS write final formatted docx by patching only edited parts
+        output_docx_path = Path(args.output_docx) if args.output_docx else (
+            input_docx_path.with_name(input_docx_path.stem + "_PHASE2_FORMATTED.docx")
         )
-        print(f"\nRebuilt docx: {out}")
-        return
 
-    # -------------------------------
-    # FULL XML NORMALIZE (LEGACY)
-    # -------------------------------
-    if args.normalize:
-        decomposer.write_normalize_bundle()
-        print("\nNEXT STEP:")
-        print(f"- Open: {extract_dir / 'bundle.json'}")
-        print(f"- Open: {extract_dir / 'prompts' / 'master_prompt.txt'}")
-        print("- Paste those into Claude")
-        return
+        replacements = {
+            "word/document.xml": (extract_dir / "word" / "document.xml").read_bytes(),
+            "word/styles.xml":   (extract_dir / "word" / "styles.xml").read_bytes(),
+        }
 
-    # -------------------------------
-    # APPLY FULL XML EDITS (LEGACY)
-    # -------------------------------
-    if args.apply_edits:
-        out = decomposer.apply_edits_and_rebuild(
-            args.apply_edits,
-            output_docx_path=args.output_docx
+        patch_docx(
+            src_docx=input_docx_path,
+            out_docx=output_docx_path,
+            replacements=replacements,
         )
-        print(f"\nRebuilt docx: {out}")
-        print(f"Diffs written to: {extract_dir / 'patches'}")
+
+        # Optional: write log if you want it persisted (kept lightweight)
+        issues_path = extract_dir / "phase2_issues.log"
+        issues_path.write_text("\n".join(log) + "\n", encoding="utf-8")
+
+        print(f"Phase 2 output written: {output_docx_path}")
+        print(f"Phase 2 log written:    {issues_path}")
         return
 
     # -------------------------------
-    # DEFAULT: simple extract + rebuild
+    # DISABLED MODES (NO REBUILD POLICY)
     # -------------------------------
-    reconstructed_path = decomposer.reconstruct(output_path=args.output_docx)
-    print("\n" + "=" * 60)
-    print("SUMMARY")
-    print("=" * 60)
-    print(f"Original document:      {args.docx_path}")
-    print(f"Extracted to:           {extract_dir}")
-    print(f"Analysis report:        {analysis_path}")
-    print(f"Reconstructed document: {reconstructed_path}")
+    if args.normalize_slim or args.apply_instructions or args.normalize or args.apply_edits:
+        print("Error: Legacy modes are disabled under the NO-REBUILD policy.")
+        print("Use Phase 2 only:")
+        print("  --phase2-build-bundle")
+        print("  --phase2-arch-extract <arch_extract> --phase2-classifications <json> [--output-docx out.docx]")
+        sys.exit(2)
+
+    # -------------------------------
+    # DEFAULT: do nothing destructive
+    # -------------------------------
+    print("No action specified.")
+    print("Use one of:")
+    print("  --phase2-build-bundle")
+    print("  --phase2-arch-extract <arch_extract> --phase2-classifications <json> [--output-docx out.docx]")
+    print(f"Extracted to: {extract_dir}")
+    if analysis_path:
+        print(f"Analysis report: {analysis_path}")
+
 
 
 
