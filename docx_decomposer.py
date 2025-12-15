@@ -226,73 +226,7 @@ class DocxDecomposer:
     
 
     
-    def _add_styles_xml_complete(self):
-        """COMPLETE analysis of styles.xml."""
-        styles_path = self.extract_dir / "word" / "styles.xml"
-        
-        if not styles_path.exists():
-            return
-        
-        self.markdown_report.append("## word/styles.xml - COMPLETE ANALYSIS\n")
-        
-        try:
-            tree, root, namespaces = self._parse_xml_with_namespaces(styles_path)
-            
-            self.markdown_report.append("### File Metadata")
-            self.markdown_report.append(f"- **Size:** {styles_path.stat().st_size:,} bytes")
-            self.markdown_report.append("")
-            
-            w_ns = namespaces.get('w', 'http://schemas.openxmlformats.org/wordprocessingml/2006/main')
-            ns = {'w': w_ns}
-            
-            # Get all styles
-            styles = root.findall('.//w:style', ns)
-            
-            self.markdown_report.append(f"### Total Styles: {len(styles)}\n")
-            
-            for i, style in enumerate(styles, 1):
-                style_type = style.get(f'{{{w_ns}}}type', 'unknown')
-                style_id = style.get(f'{{{w_ns}}}styleId', 'unknown')
-                default = style.get(f'{{{w_ns}}}default', '0')
-                custom_style = style.get(f'{{{w_ns}}}customStyle', '0')
-                
-                self.markdown_report.append(f"#### Style {i}: `{style_id}`\n")
-                self.markdown_report.append(f"- **Type:** `{style_type}`")
-                self.markdown_report.append(f"- **Default:** `{default}`")
-                self.markdown_report.append(f"- **Custom:** `{custom_style}`")
-                
-                # Style name
-                name_elem = style.find('w:name', ns)
-                if name_elem is not None:
-                    self.markdown_report.append(f"- **Name:** `{name_elem.get(f'{{{w_ns}}}val', 'N/A')}`")
-                
-                # Based on
-                based_on = style.find('w:basedOn', ns)
-                if based_on is not None:
-                    self.markdown_report.append(f"- **Based On:** `{based_on.get(f'{{{w_ns}}}val', 'N/A')}`")
-                
-                # Next style
-                next_style = style.find('w:next', ns)
-                if next_style is not None:
-                    self.markdown_report.append(f"- **Next:** `{next_style.get(f'{{{w_ns}}}val', 'N/A')}`")
-                
-                # UI Priority
-                ui_priority = style.find('w:uiPriority', ns)
-                if ui_priority is not None:
-                    self.markdown_report.append(f"- **UI Priority:** `{ui_priority.get(f'{{{w_ns}}}val', 'N/A')}`")
-                
-                # Properties
-                self.markdown_report.append("\n**Properties:**")
-                for child in style:
-                    tag_name = child.tag.split('}')[-1] if '}' in child.tag else child.tag
-                    if tag_name not in ['name', 'basedOn', 'next', 'uiPriority']:
-                        attrs = ', '.join([f"{k.split('}')[-1]}={v}" for k, v in child.attrib.items()])
-                        self.markdown_report.append(f"- `{tag_name}` {f'({attrs})' if attrs else ''}")
-                
-                self.markdown_report.append("")
-        
-        except Exception as e:
-            self.markdown_report.append(f"Error: {e}\n")
+    
     
     def _add_settings_xml_complete(self):
         """COMPLETE analysis of settings.xml."""
