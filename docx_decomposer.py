@@ -136,27 +136,7 @@ class DocxDecomposer:
 
     
 
-    def write_slim_normalize_bundle(self, output_path=None):
-        if self.extract_dir is None:
-            raise ValueError("Must call extract() before write_slim_normalize_bundle()")
-
-        if output_path is None:
-            output_path = self.extract_dir / "slim_bundle.json"
-        else:
-            output_path = Path(output_path)
-
-        prompts_dir = self.extract_dir / "prompts_slim"
-        prompts_dir.mkdir(parents=True, exist_ok=True)
-
-        bundle = build_slim_bundle(self.extract_dir)
-        output_path.write_text(json.dumps(bundle, indent=2), encoding="utf-8")
-
-        (prompts_dir / "master_prompt.txt").write_text(SLIM_MASTER_PROMPT, encoding="utf-8")
-        (prompts_dir / "run_instruction.txt").write_text(SLIM_RUN_INSTRUCTION_DEFAULT, encoding="utf-8")
-
-        print(f"Slim bundle written: {output_path}")
-        print(f"Slim prompts written: {prompts_dir}")
-        return output_path, prompts_dir
+    
 
     def apply_instructions_and_rebuild(self, instructions_json_path, output_docx_path=None):
         if self.extract_dir is None:
