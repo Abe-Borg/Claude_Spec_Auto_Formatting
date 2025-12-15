@@ -173,44 +173,7 @@ class DocxDecomposer:
         print(f"Analysis saved to: {output_path}")
         return output_path
     
-    def reconstruct(self, output_path=None):
-        """
-        Reconstruct the .docx file from the extracted components.
-        
-        Args:
-            output_path: Path for the reconstructed .docx file. If None, uses default name.
-        
-        Returns:
-            Path to the reconstructed .docx file
-        """
-        if self.extract_dir is None:
-            raise ValueError("Must call extract() before reconstruct()")
-        
-        if output_path is None:
-            output_path = self.extract_dir.parent / f"{self.extract_dir.name}_reconstructed.docx"
-        else:
-            output_path = Path(output_path)
-        
-        print(f"Reconstructing document from {self.extract_dir}...")
-        
-        # Create a new ZIP file
-        with zipfile.ZipFile(output_path, 'w', zipfile.ZIP_DEFLATED) as docx:
-            for file_path in self.extract_dir.rglob("*"):
-                if not file_path.is_file():
-                    continue
-
-                rel_path = file_path.relative_to(self.extract_dir)
-
-                # Only include legitimate DOCX parts
-                if not _is_docx_package_part(rel_path):
-                    continue
-
-                # Force forward slashes inside the ZIP (Word expects this)
-                docx.write(file_path, arcname=rel_path.as_posix())
-
-
-        print(f"Reconstruction complete: {output_path}")
-        return output_path
+    
 
 
     def write_normalize_bundle(self, bundle_path=None, prompts_dir=None):
