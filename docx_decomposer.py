@@ -249,27 +249,7 @@ class DocxDecomposer:
     
     
     
-    def _add_raw_xml_dumps(self):
-        """Add complete raw XML dumps for all XML files."""
-        self.markdown_report.append("## RAW XML DUMPS\n")
-        self.markdown_report.append("Complete, unprocessed XML content for every XML file.\n")
-        
-        all_xml = sorted(self.extract_dir.rglob('*.xml'))
-        
-        for xml_file in all_xml:
-            rel_path = xml_file.relative_to(self.extract_dir)
-            self.markdown_report.append(f"### `{rel_path}` - RAW XML\n")
-            
-            try:
-                with open(xml_file, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                
-                self.markdown_report.append("```xml")
-                self.markdown_report.append(content)
-                self.markdown_report.append("```\n")
-            
-            except Exception as e:
-                self.markdown_report.append(f"Error reading file: {e}\n")
+    
     
     def save_analysis(self, output_path=None):
         """
