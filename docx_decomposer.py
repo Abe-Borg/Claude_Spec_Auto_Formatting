@@ -129,19 +129,6 @@ class DocxDecomposer:
         return output_dir
     
 
-    
-    
-    
-
-
-    
-
-    
-
-
-
-
-
 def main():
     import argparse
     import sys
@@ -335,9 +322,6 @@ def main():
         print(f"Analysis report: {analysis_path}")
 
 
-
-
-
 def sha256_bytes(b: bytes) -> str:
     return hashlib.sha256(b).hexdigest()
 
@@ -379,7 +363,6 @@ def snapshot_stability(extract_dir: Path) -> StabilitySnapshot:
     )
 
 
-
 def verify_stability(extract_dir: Path, snap: StabilitySnapshot) -> None:
     current_hf = snapshot_headers_footers(extract_dir)
     if current_hf != snap.header_footer_hashes:
@@ -399,7 +382,6 @@ def verify_stability(extract_dir: Path, snap: StabilitySnapshot) -> None:
     current_rels = snapshot_doc_rels_hash(extract_dir)
     if current_rels != snap.doc_rels_hash:
         raise ValueError("document.xml.rels stability check FAILED (can break header/footer).")
-
 
 
 def _extract_style_block(styles_xml_text: str, style_id: str) -> Optional[str]:
@@ -553,11 +535,6 @@ def materialize_arch_style_block(style_block: str, style_id: str, arch_styles_xm
     return style_block
 
 
-
-
-
-
-
 W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 
 
@@ -617,12 +594,6 @@ def paragraph_ppr_hints_from_block(p_xml: str) -> Dict[str, Any]:
     if spacing:
         hints["spacing"] = spacing
     return hints
-
-
-
-
-
-
 
 
 def apply_phase2_classifications(
@@ -687,8 +658,6 @@ def apply_phase2_classifications(
         last = e
     out.append(doc_text[last:])
     doc_path.write_text("".join(out), encoding="utf-8")
-
-
 
 
 def resolve_arch_extract_root(p: Path) -> Path:
@@ -756,8 +725,6 @@ def load_arch_style_registry(arch_extract_dir: Path) -> Dict[str, str]:
         raise ValueError("arch_style_registry.json contained no usable role->style mappings")
 
     return out
-
-
 
 
 
@@ -857,7 +824,6 @@ def strip_boilerplate_with_report(content: str) -> tuple[str, list[str]]:
     return cleaned, hits
 
 
-
 def build_phase2_slim_bundle(extract_dir: Path, discipline: str) -> Dict[str, Any]:
     doc_path = extract_dir / "word" / "document.xml"
     doc_text = doc_path.read_text(encoding="utf-8")
@@ -910,14 +876,6 @@ def build_phase2_slim_bundle(extract_dir: Path, discipline: str) -> Dict[str, An
         "filter_report": filter_report,
         "paragraphs": paragraphs
     }
-
-
-
-
-
-
-
-
 
 
 def _collect_style_deps_from_arch(arch_styles_text: str, style_id: str, seen: Set[str]) -> None:
@@ -999,8 +957,6 @@ def import_arch_styles_into_target(
     tgt_new = insert_styles_into_styles_xml(tgt_styles_text, blocks)
     if tgt_new != tgt_styles_text:
         tgt_styles_path.write_text(tgt_new, encoding="utf-8")
-
-
 
 
 def insert_styles_into_styles_xml(styles_xml_text: str, style_blocks: List[str]) -> str:
@@ -1109,8 +1065,6 @@ def sanitize_style_def(sd: Dict[str, Any]) -> Dict[str, Any]:
     clean = dict(sd)
     clean.pop("pPr", None)   # REMOVE paragraph formatting
     return clean
-
-
 
 
 def snapshot_doc_rels_hash(extract_dir: Path) -> str:
