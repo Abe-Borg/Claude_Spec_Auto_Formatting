@@ -560,12 +560,6 @@ def materialize_arch_style_block(style_block: str, style_id: str, arch_styles_xm
 
 W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 
-def _get_attr(elem, local_name: str) -> Optional[str]:
-    # WordprocessingML attributes use w:val etc (namespaced). ET shows {ns}val.
-    return elem.get(f"{{{W_NS}}}{local_name}")
-
-def _q(tag: str) -> str:
-    return f"{{{W_NS}}}{tag}"
 
 def iter_paragraph_xml_blocks(document_xml_text: str):
     # Non-greedy paragraph blocks. Works well for DOCX document.xml.
