@@ -383,48 +383,6 @@ def snapshot_stability(extract_dir: Path) -> StabilitySnapshot:
     )
 
 
-ALLOWED_EDIT_PATHS = {
-    "word/document.xml",
-    "word/styles.xml",
-    "word/numbering.xml",
-    # NOTE: headers/footers are intentionally NOT allowed to be edited by LLM.
-}
-
-def apply_llm_edits(extract_dir: Path, edits_json: dict, diff_dir: Path) -> None:
-    diff_dir.mkdir(parents=True, exist_ok=True)
-
-    edits = edits_json.get("edits", [])
-    if not isinstance(edits, list) or not edits:
-        raise ValueError("No edits found in LLM response JSON.")
-
-    for edit in edits:
-        rel_path = edit["path"].replace("\\", "/")
-        if rel_path not in ALLOWED_EDIT_PATHS:
-            raise ValueError(f"Edit path not allowed: {rel_path}")
-
-        target = extract_dir / rel_path
-        if not target.exists():
-            raise FileNotFoundError(f"Target file not found in package: {rel_path}")
-
-        before = target.read_text(encoding="utf-8")
-        after = edit["content"]
-
-        sha_before = edit.get("sha256_before")
-        if sha_before and sha256_text(before) != sha_before:
-            raise ValueError(f"sha256_before mismatch for {rel_path}")
-
-        # Write replacement exactly as provided
-        target.write_text(after, encoding="utf-8")
-
-        # Emit diff
-        diff = difflib.unified_diff(
-            before.splitlines(keepends=True),
-            after.splitlines(keepends=True),
-            fromfile=f"a/{rel_path}",
-            tofile=f"b/{rel_path}",
-        )
-        diff_path = diff_dir / (rel_path.replace("/", "__") + ".diff")
-        diff_path.write_text("".join(diff), encoding="utf-8")
 
 def verify_stability(extract_dir: Path, snap: StabilitySnapshot) -> None:
     current_hf = snapshot_headers_footers(extract_dir)
