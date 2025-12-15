@@ -1396,65 +1396,7 @@ def apply_pstyle_to_paragraph_block(p_xml: str, styleId: str) -> str:
     return p_xml
 
 
-def validate_instructions(instructions: Dict[str, Any]) -> None:
-    allowed_keys = {"create_styles", "apply_pStyle", "notes"}
-    extra = set(instructions.keys()) - allowed_keys
-    if extra:
-        raise ValueError(f"Invalid instruction keys: {extra}")
 
-    # Validate create_styles (LLM must NOT provide formatting; only exemplar mapping)
-    seen_style_ids = set()
-    for sd in instructions.get("create_styles", []):
-        if not isinstance(sd, dict):
-            raise ValueError("create_styles entries must be objects")
-
-        sid = sd.get("styleId")
-        if not sid or not isinstance(sid, str):
-            raise ValueError("create_styles entries must have styleId (string)")
-        if sid in seen_style_ids:
-            raise ValueError(f"Duplicate styleId: {sid}")
-        seen_style_ids.add(sid)
-
-        # LLM is forbidden from specifying formatting directly
-        if "pPr" in sd or "rPr" in sd or "pPr_inner" in sd or "rPr_inner" in sd:
-            raise ValueError(f"Style {sid}: LLM formatting fields are forbidden (pPr/rPr). Use derive_from_paragraph_index only.")
-
-        allowed_style_fields = {"styleId", "name", "type", "derive_from_paragraph_index", "basedOn", "role"}
-        extra_style_fields = set(sd.keys()) - allowed_style_fields
-        if extra_style_fields:
-            raise ValueError(f"Style {sid}: invalid fields: {extra_style_fields}")
-
-        stype = sd.get("type", "paragraph")
-        if stype != "paragraph":
-            raise ValueError(f"Style {sid}: only paragraph styles are supported (type='paragraph').")
-
-        src = sd.get("derive_from_paragraph_index")
-        if src is None or not isinstance(src, int) or src < 0:
-            raise ValueError(f"Style {sid}: derive_from_paragraph_index must be a non-negative integer.")
-
-        if "basedOn" in sd and sd["basedOn"] is not None and not isinstance(sd["basedOn"], str):
-            raise ValueError(f"Style {sid}: basedOn must be a string if provided.")
-
-        if "name" in sd and sd["name"] is not None and not isinstance(sd["name"], str):
-            raise ValueError(f"Style {sid}: name must be a string if provided.")
-
-        if "role" in sd and sd["role"] is not None and not isinstance(sd["role"], str):
-            raise ValueError(f"Style {sid}: role must be a string if provided.")
-
-    # Validate apply_pStyle
-    seen_para = set()
-    for ap in instructions.get("apply_pStyle", []):
-        if not isinstance(ap, dict):
-            raise ValueError("apply_pStyle entries must be objects")
-        idx = ap.get("paragraph_index")
-        sid = ap.get("styleId")
-        if not isinstance(idx, int) or idx < 0:
-            raise ValueError(f"Invalid paragraph_index: {idx}")
-        if not isinstance(sid, str):
-            raise ValueError(f"Invalid styleId for paragraph {idx}")
-        if idx in seen_para:
-            raise ValueError(f"Duplicate paragraph_index: {idx}")
-        seen_para.add(idx)
 
 
 def apply_instructions(extract_dir: Path, instructions: Dict[str, Any]) -> None:
