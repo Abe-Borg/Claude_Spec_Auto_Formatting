@@ -131,24 +131,6 @@ class DocxDecomposer:
 
     
     
-    
-    
-    def _parse_xml_with_namespaces(self, file_path):
-        """Parse XML and return tree with namespace mapping."""
-        tree = ET.parse(file_path)
-        root = tree.getroot()
-        
-        # Extract all namespaces
-        namespaces = {}
-        for event, elem in ET.iterparse(file_path, events=['start-ns']):
-            prefix, uri = elem
-            if prefix:
-                namespaces[prefix] = uri
-            else:
-                namespaces['default'] = uri
-        
-        return tree, root, namespaces
-    
     def _element_to_dict(self, element, namespaces):
         """Convert XML element to detailed dict representation."""
         result = {
