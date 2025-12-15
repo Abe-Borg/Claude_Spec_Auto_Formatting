@@ -555,49 +555,6 @@ def materialize_arch_style_block(style_block: str, style_id: str, arch_styles_xm
 
 
 
-def build_llm_bundle(extract_dir: Path) -> dict:
-    paths = [
-        "word/document.xml",
-        "word/styles.xml",
-        "word/numbering.xml",
-    ]
-
-    # Include headers/footers for analysis ONLY (not editable)
-    hf_paths = []
-    wf = extract_dir / "word"
-    for p in sorted(wf.glob("header*.xml")) + sorted(wf.glob("footer*.xml")):
-        hf_paths.append(str(p.relative_to(extract_dir)).replace("\\", "/"))
-
-    payload = {"editable": {}, "read_only": {}}
-
-    for rel in paths:
-        p = extract_dir / rel
-        if p.exists():
-            txt = p.read_text(encoding="utf-8")
-            payload["editable"][rel] = {
-                "sha256": sha256_text(txt),
-                "content": txt
-            }
-
-    for rel in hf_paths:
-        p = extract_dir / rel
-        txt = p.read_text(encoding="utf-8")
-        payload["read_only"][rel] = {
-            "sha256": sha256_text(txt),
-            "content": txt
-        }
-
-    # settings.xml is optional; include read-only unless you are debugging layout
-    settings_rel = "word/settings.xml"
-    sp = extract_dir / settings_rel
-    if sp.exists():
-        txt = sp.read_text(encoding="utf-8")
-        payload["read_only"][settings_rel] = {
-            "sha256": sha256_text(txt),
-            "content": txt
-        }
-
-    return payload
 
 
 
