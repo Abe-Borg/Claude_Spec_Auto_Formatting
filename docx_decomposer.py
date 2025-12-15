@@ -180,50 +180,7 @@ class DocxDecomposer:
         
         return result
     
-    def _add_content_types_complete(self):
-        """COMPLETE analysis of content types."""
-        content_types_path = self.extract_dir / "[Content_Types].xml"
-        
-        if not content_types_path.exists():
-            return
-        
-        self.markdown_report.append("## [Content_Types].xml - COMPLETE ANALYSIS\n")
-        
-        try:
-            tree, root, namespaces = self._parse_xml_with_namespaces(content_types_path)
-            
-            self.markdown_report.append("### File Metadata")
-            self.markdown_report.append(f"- **Size:** {content_types_path.stat().st_size:,} bytes")
-            self.markdown_report.append(f"- **Root Element:** `{root.tag}`")
-            self.markdown_report.append(f"- **Namespaces:** {namespaces}")
-            self.markdown_report.append("")
-            
-            # Parse without namespace for easier reading
-            for elem in root.iter():
-                if '}' in elem.tag:
-                    elem.tag = elem.tag.split('}', 1)[1]
-            
-            defaults = root.findall('.//Default')
-            overrides = root.findall('.//Override')
-            
-            self.markdown_report.append(f"### Default Content Types ({len(defaults)} entries)\n")
-            for i, default in enumerate(defaults, 1):
-                ext = default.get('Extension')
-                content_type = default.get('ContentType')
-                self.markdown_report.append(f"{i}. **Extension:** `.{ext}`")
-                self.markdown_report.append(f"   - **Content-Type:** `{content_type}`")
-                self.markdown_report.append("")
-            
-            self.markdown_report.append(f"### Override Content Types ({len(overrides)} entries)\n")
-            for i, override in enumerate(overrides, 1):
-                part_name = override.get('PartName')
-                content_type = override.get('ContentType')
-                self.markdown_report.append(f"{i}. **Part:** `{part_name}`")
-                self.markdown_report.append(f"   - **Content-Type:** `{content_type}`")
-                self.markdown_report.append("")
-        
-        except Exception as e:
-            self.markdown_report.append(f"Error: {e}\n")
+   
     
     def _add_all_relationships(self):
         """COMPLETE analysis of ALL relationship files."""
