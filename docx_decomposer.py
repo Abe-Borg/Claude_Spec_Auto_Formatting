@@ -156,31 +156,6 @@ class DocxDecomposer:
                 extension = "    " if is_last_item else "│   "
                 self._print_tree(item, prefix + extension, is_last_item)
     
-    def _add_complete_file_inventory(self):
-        """Complete inventory of every single file."""
-        self.markdown_report.append("## Complete File Inventory\n")
-        
-        all_files = sorted(self.extract_dir.rglob('*'))
-        
-        for file_path in all_files:
-            if file_path.is_file():
-                rel_path = file_path.relative_to(self.extract_dir)
-                size = file_path.stat().st_size
-                
-                # Determine file type
-                if file_path.suffix == '.xml':
-                    file_type = "XML Document"
-                elif file_path.suffix == '.rels':
-                    file_type = "Relationships"
-                elif file_path.suffix in ['.jpeg', '.jpg', '.png', '.gif']:
-                    file_type = "Image"
-                else:
-                    file_type = "Other"
-                
-                self.markdown_report.append(f"### `{rel_path}`")
-                self.markdown_report.append(f"- **Type:** {file_type}")
-                self.markdown_report.append(f"- **Size:** {size:,} bytes ({size/1024:.2f} KB)")
-                self.markdown_report.append("")
     
     def _parse_xml_with_namespaces(self, file_path):
         """Parse XML and return tree with namespace mapping."""
