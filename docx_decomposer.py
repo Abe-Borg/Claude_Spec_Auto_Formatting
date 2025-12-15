@@ -1152,9 +1152,7 @@ def build_phase2_slim_bundle(extract_dir: Path, discipline: str) -> Dict[str, An
 
 
 
-def strip_pstyle_from_paragraph(p_xml: str) -> str:
-    # Remove any <w:pStyle .../> tags for drift comparison
-    return re.sub(r"<w:pStyle\b[^>]*/>", "", p_xml)
+
 
 
 
