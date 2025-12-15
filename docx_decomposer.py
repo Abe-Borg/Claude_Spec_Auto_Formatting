@@ -243,54 +243,7 @@ class DocxDecomposer:
         for child in element:
             self._document_element_recursive(child, depth + 1, max_depth)
     
-    def _add_doc_properties_complete(self):
-        """COMPLETE analysis of document properties."""
-        self.markdown_report.append("## Document Properties - COMPLETE ANALYSIS\n")
-        
-        # Core properties
-        core_path = self.extract_dir / "docProps" / "core.xml"
-        if core_path.exists():
-            self.markdown_report.append("### docProps/core.xml\n")
-            
-            try:
-                tree, root, namespaces = self._parse_xml_with_namespaces(core_path)
-                
-                self.markdown_report.append(f"**Size:** {core_path.stat().st_size:,} bytes")
-                self.markdown_report.append("")
-                
-                for child in root:
-                    tag_name = child.tag.split('}')[-1] if '}' in child.tag else child.tag
-                    text = child.text.strip() if child.text else 'N/A'
-                    attrs = ', '.join([f"{k.split('}')[-1]}={v}" for k, v in child.attrib.items()])
-                    
-                    self.markdown_report.append(f"**{tag_name}:** `{text}` {f'({attrs})' if attrs else ''}")
-                
-                self.markdown_report.append("")
-            
-            except Exception as e:
-                self.markdown_report.append(f"Error: {e}\n")
-        
-        # App properties
-        app_path = self.extract_dir / "docProps" / "app.xml"
-        if app_path.exists():
-            self.markdown_report.append("### docProps/app.xml\n")
-            
-            try:
-                tree, root, namespaces = self._parse_xml_with_namespaces(app_path)
-                
-                self.markdown_report.append(f"**Size:** {app_path.stat().st_size:,} bytes")
-                self.markdown_report.append("")
-                
-                for child in root:
-                    tag_name = child.tag.split('}')[-1] if '}' in child.tag else child.tag
-                    text = child.text.strip() if child.text else 'N/A'
-                    
-                    self.markdown_report.append(f"**{tag_name}:** `{text}`")
-                
-                self.markdown_report.append("")
-            
-            except Exception as e:
-                self.markdown_report.append(f"Error: {e}\n")
+    
     
     def _add_custom_xml_complete(self):
         """COMPLETE analysis of custom XML."""
