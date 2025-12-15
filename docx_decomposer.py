@@ -132,60 +132,7 @@ class DocxDecomposer:
     
     
     
-    
-   
-    
-    
-    
 
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-    def write_normalize_bundle(self, bundle_path=None, prompts_dir=None):
-        """
-        Create a focused bundle for LLM editing and write prompts to disk.
-        Produces:
-          - bundle.json (editable + read_only xml + sha256)
-          - prompts/master_prompt.txt
-          - prompts/run_instruction.txt
-        """
-        if self.extract_dir is None:
-            raise ValueError("Must call extract() before write_normalize_bundle()")
-
-        if bundle_path is None:
-            bundle_path = self.extract_dir / "bundle.json"
-        else:
-            bundle_path = Path(bundle_path)
-
-        if prompts_dir is None:
-            prompts_dir = self.extract_dir / "prompts"
-        else:
-            prompts_dir = Path(prompts_dir)
-
-        prompts_dir.mkdir(parents=True, exist_ok=True)
-
-        bundle = build_llm_bundle(self.extract_dir)
-
-        bundle_path.write_text(json.dumps(bundle, indent=2), encoding="utf-8")
-        (prompts_dir / "master_prompt.txt").write_text(MASTER_PROMPT, encoding="utf-8")
-        (prompts_dir / "run_instruction.txt").write_text(RUN_INSTRUCTION_DEFAULT, encoding="utf-8")
-
-        print(f"Normalize bundle written: {bundle_path}")
-        print(f"Prompts written in: {prompts_dir}")
-        return bundle_path, prompts_dir
 
     def apply_edits_and_rebuild(self, edits_json_path, output_docx_path=None):
         """
