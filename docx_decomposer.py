@@ -628,57 +628,7 @@ def paragraph_ppr_hints_from_block(p_xml: str) -> Dict[str, Any]:
 
 
 
-def build_slim_bundle(extract_dir: Path) -> Dict[str, Any]:
-    # Stability hashes
-    snap = snapshot_stability(extract_dir)
 
-    doc_path = extract_dir / "word" / "document.xml"
-    doc_text = doc_path.read_text(encoding="utf-8")
-
-    paragraphs = []
-    used_style_ids: Set[str] = set()
-    used_num_ids: Set[str] = set()
-
-    for idx, (_s, _e, p_xml) in enumerate(iter_paragraph_xml_blocks(doc_text)):
-        txt = paragraph_text_from_block(p_xml)
-        pStyle = paragraph_pstyle_from_block(p_xml)
-        numpr = paragraph_numpr_from_block(p_xml)
-        hints = paragraph_ppr_hints_from_block(p_xml)
-        contains_sect = paragraph_contains_sectpr(p_xml)
-
-        if pStyle:
-            used_style_ids.add(pStyle)
-        if numpr.get("numId"):
-            used_num_ids.add(numpr["numId"])
-
-        # Keep summary compact: cap text length
-        if len(txt) > 200:
-            txt = txt[:200] + "…"
-
-        paragraphs.append({
-            "paragraph_index": idx,
-            "text": txt,
-            "pStyle": pStyle,
-            "numPr": numpr if (numpr.get("numId") or numpr.get("ilvl")) else None,
-            "pPr_hints": hints if hints else None,
-            "contains_sectPr": contains_sect
-        })
-
-    styles_path = extract_dir / "word" / "styles.xml"
-    style_catalog = build_style_catalog(styles_path, used_style_ids) if styles_path.exists() else {}
-
-    numbering_path = extract_dir / "word" / "numbering.xml"
-    numbering_catalog = build_numbering_catalog(numbering_path, used_num_ids)
-
-    return {
-        "stability": {
-            "header_footer_hashes": snap.header_footer_hashes,
-            "sectPr_hash": snap.sectpr_hash
-        },
-        "paragraphs": paragraphs,
-        "style_catalog": style_catalog,
-        "numbering_catalog": numbering_catalog
-    }
 
 
 def apply_phase2_classifications(
