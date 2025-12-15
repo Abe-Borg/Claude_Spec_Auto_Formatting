@@ -1157,33 +1157,7 @@ def strip_pstyle_from_paragraph(p_xml: str) -> str:
     return re.sub(r"<w:pStyle\b[^>]*/>", "", p_xml)
 
 
-def extract_paragraph_ppr_inner(p_xml: str) -> str:
-    """Return inner XML of <w:pPr>..</w:pPr> in a paragraph, or '' if none."""
-    # Self-closing
-    if re.search(r"<w:pPr\b[^>]*/>", p_xml):
-        return ""
-    m = re.search(r"<w:pPr\b[^>]*>(.*?)</w:pPr>", p_xml, flags=re.S)
-    if not m:
-        return ""
-    inner = m.group(1)
-    # Remove style assignment and numbering from captured style attributes
-    inner = re.sub(r"<w:pStyle\b[^>]*/>", "", inner)
-    inner = re.sub(r"<w:numPr\b[^>]*>.*?</w:numPr>", "", inner, flags=re.S)
-    return inner.strip()
 
-
-def extract_paragraph_rpr_inner(p_xml: str) -> str:
-    """Return inner XML of the first meaningful <w:rPr> inside a paragraph, or '' if none."""
-    # Find first run that contains a text node
-    for rm in re.finditer(r"<w:r\b[^>]*>(.*?)</w:r>", p_xml, flags=re.S):
-        run_inner = rm.group(1)
-        if "<w:t" not in run_inner:
-            continue
-        m = re.search(r"<w:rPr\b[^>]*>(.*?)</w:rPr>", run_inner, flags=re.S)
-        if m:
-            return m.group(1).strip()
-        # If the run has no rPr, keep searching
-    return ""
 
 
 def derive_style_def_from_paragraph(styleId: str, name: str, p_xml: str, based_on: Optional[str] = None) -> Dict[str, Any]:
