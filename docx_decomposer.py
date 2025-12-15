@@ -371,10 +371,6 @@ def main():
     else:
         extract_dir = decomposer.extract(output_dir=args.extract_dir)
 
-    analysis_path = None
-    if args.write_analysis and not (args.phase2_arch_extract or args.phase2_build_bundle):
-        analysis_path = decomposer.save_analysis()
-
     # -------------------------------
     # PHASE 2: BUILD SLIM BUNDLE
     # -------------------------------
