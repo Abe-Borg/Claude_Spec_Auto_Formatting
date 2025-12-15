@@ -131,20 +131,7 @@ class DocxDecomposer:
 
     
     
-    def _element_to_dict(self, element, namespaces):
-        """Convert XML element to detailed dict representation."""
-        result = {
-            'tag': element.tag,
-            'attributes': dict(element.attrib),
-            'text': element.text.strip() if element.text and element.text.strip() else None,
-            'tail': element.tail.strip() if element.tail and element.tail.strip() else None,
-            'children': []
-        }
-        
-        for child in element:
-            result['children'].append(self._element_to_dict(child, namespaces))
-        
-        return result
+    
     
    
     
