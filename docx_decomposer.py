@@ -244,31 +244,7 @@ class DocxDecomposer:
             self._document_element_recursive(child, depth + 1, max_depth)
     
     
-    def _add_web_settings_complete(self):
-        """COMPLETE analysis of webSettings.xml."""
-        web_path = self.extract_dir / "word" / "webSettings.xml"
-        
-        if not web_path.exists():
-            return
-        
-        self.markdown_report.append("## word/webSettings.xml - COMPLETE ANALYSIS\n")
-        
-        try:
-            tree, root, namespaces = self._parse_xml_with_namespaces(web_path)
-            
-            self.markdown_report.append(f"**Size:** {web_path.stat().st_size:,} bytes")
-            self.markdown_report.append("")
-            
-            for child in root:
-                tag_name = child.tag.split('}')[-1] if '}' in child.tag else child.tag
-                attrs = ', '.join([f"{k.split('}')[-1]}={v}" for k, v in child.attrib.items()])
-                
-                self.markdown_report.append(f"**{tag_name}:** {attrs if attrs else '(no attributes)'}")
-            
-            self.markdown_report.append("")
-        
-        except Exception as e:
-            self.markdown_report.append(f"Error: {e}\n")
+    
     
     def _add_other_xml_files(self):
         """Analyze any other XML files not covered."""
