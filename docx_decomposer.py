@@ -177,11 +177,7 @@ def main():
         help="(debug) write analysis.md"
     )
 
-    # Legacy args still accepted but *disabled*
-    parser.add_argument("--normalize", action="store_true", help="(LEGACY) disabled")
-    parser.add_argument("--apply-edits", default=None, help="(LEGACY) disabled")
-    parser.add_argument("--normalize-slim", action="store_true", help="(LEGACY) disabled")
-    parser.add_argument("--apply-instructions", default=None, help="(LEGACY) disabled")
+ 
 
     args = parser.parse_args()
 
