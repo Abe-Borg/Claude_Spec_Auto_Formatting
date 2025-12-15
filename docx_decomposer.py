@@ -226,36 +226,6 @@ class DocxDecomposer:
     
 
     
-    def _add_theme_complete(self):
-        """COMPLETE analysis of theme files."""
-        theme_dir = self.extract_dir / "word" / "theme"
-        
-        if not theme_dir.exists():
-            return
-        
-        self.markdown_report.append("## word/theme/ - COMPLETE ANALYSIS\n")
-        
-        theme_files = list(theme_dir.glob('*.xml'))
-        
-        for theme_file in sorted(theme_files):
-            rel_path = theme_file.relative_to(self.extract_dir)
-            self.markdown_report.append(f"### `{rel_path}`\n")
-            
-            try:
-                tree, root, namespaces = self._parse_xml_with_namespaces(theme_file)
-                
-                self.markdown_report.append(f"**Size:** {theme_file.stat().st_size:,} bytes")
-                self.markdown_report.append(f"**Root Element:** `{root.tag}`")
-                self.markdown_report.append("")
-                
-                # Recursively document all elements
-                self._document_element_recursive(root, 0)
-                
-                self.markdown_report.append("")
-            
-            except Exception as e:
-                self.markdown_report.append(f"Error: {e}\n")
-    
     def _document_element_recursive(self, element, depth, max_depth=5):
         """Recursively document an XML element and its children."""
         if depth > max_depth:
