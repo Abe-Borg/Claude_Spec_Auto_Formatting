@@ -1149,49 +1149,7 @@ def build_phase2_slim_bundle(extract_dir: Path, discipline: str) -> Dict[str, An
 
 
 
-def build_style_xml_block(style_def: Dict[str, Any]) -> str:
-    """Build a <w:style> block. Formatting is supplied ONLY by local derivation."""
-    sid = style_def.get("styleId")
-    name = style_def.get("name") or sid
-    based_on = style_def.get("basedOn")
-    stype = style_def.get("type") or "paragraph"
-    ppr_inner = style_def.get("pPr_inner") or ""
-    rpr_inner = style_def.get("rPr_inner") or ""
 
-    if not sid or not isinstance(sid, str):
-        raise ValueError("styleId is required")
-    if stype != "paragraph":
-        raise ValueError("Only paragraph styles are supported")
-
-    parts: List[str] = []
-    parts.append(f'<w:style w:type="{stype}" w:styleId="{sid}">')
-    parts.append(f'  <w:name w:val="{xml_escape(name)}"/>')
-    if based_on:
-        parts.append(f'  <w:basedOn w:val="{xml_escape(based_on)}"/>')
-    parts.append('  <w:qFormat/>')
-
-    # Paragraph properties (captured from exemplar)
-    if ppr_inner.strip():
-        parts.append('  <w:pPr>')
-        parts.append(ppr_inner.strip())
-        parts.append('  </w:pPr>')
-
-    # Run properties (captured from exemplar)
-    if rpr_inner.strip():
-        parts.append('  <w:rPr>')
-        parts.append(rpr_inner.strip())
-        parts.append('  </w:rPr>')
-
-    parts.append('</w:style>')
-    return "\n".join(parts) + "\n"
-
-
-def xml_escape(s: str) -> str:
-    return (s.replace("&", "&amp;")
-             .replace("<", "&lt;")
-             .replace(">", "&gt;")
-             .replace('"', "&quot;")
-             .replace("'", "&apos;"))
 
 
 def strip_pstyle_from_paragraph(p_xml: str) -> str:
