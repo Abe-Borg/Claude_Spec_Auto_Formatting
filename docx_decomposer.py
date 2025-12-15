@@ -230,43 +230,7 @@ class DocxDecomposer:
     
     
     
-    def _add_font_table_complete(self):
-        """COMPLETE analysis of fontTable.xml."""
-        font_path = self.extract_dir / "word" / "fontTable.xml"
-        
-        if not font_path.exists():
-            return
-        
-        self.markdown_report.append("## word/fontTable.xml - COMPLETE ANALYSIS\n")
-        
-        try:
-            tree, root, namespaces = self._parse_xml_with_namespaces(font_path)
-            
-            self.markdown_report.append("### File Metadata")
-            self.markdown_report.append(f"- **Size:** {font_path.stat().st_size:,} bytes")
-            self.markdown_report.append("")
-            
-            w_ns = namespaces.get('w', 'http://schemas.openxmlformats.org/wordprocessingml/2006/main')
-            ns = {'w': w_ns}
-            
-            fonts = root.findall('.//w:font', ns)
-            
-            self.markdown_report.append(f"### Total Fonts: {len(fonts)}\n")
-            
-            for i, font in enumerate(fonts, 1):
-                font_name = font.get(f'{{{w_ns}}}name', 'unknown')
-                
-                self.markdown_report.append(f"#### Font {i}: `{font_name}`\n")
-                
-                for child in font:
-                    tag_name = child.tag.split('}')[-1] if '}' in child.tag else child.tag
-                    attrs = ', '.join([f"{k.split('}')[-1]}={v}" for k, v in child.attrib.items()])
-                    self.markdown_report.append(f"- **{tag_name}:** {attrs if attrs else '(no attributes)'}")
-                
-                self.markdown_report.append("")
-        
-        except Exception as e:
-            self.markdown_report.append(f"Error: {e}\n")
+    
     
     def _add_numbering_complete(self):
         """COMPLETE analysis of numbering.xml."""
