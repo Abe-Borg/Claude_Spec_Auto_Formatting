@@ -128,14 +128,6 @@ class DocxDecomposer:
         print(f"Extraction complete: {len(list(output_dir.rglob('*')))} items extracted")
         return output_dir
     
-    def _add_header(self):
-        """Add markdown header."""
-        self.markdown_report.append(f"# Word Document Structure Analysis")
-        self.markdown_report.append(f"\n**Source Document:** `{self.docx_path.name}`")
-        self.markdown_report.append(f"**Analysis Date:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-        self.markdown_report.append(f"**Extraction Directory:** `{self.extract_dir}`")
-        self.markdown_report.append("\n---\n")
-    
     def _add_directory_tree(self):
         """Add directory tree structure."""
         self.markdown_report.append("## Directory Structure\n")
