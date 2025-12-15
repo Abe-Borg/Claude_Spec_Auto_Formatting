@@ -138,15 +138,7 @@ class DocxDecomposer:
 
     
 
-    def apply_instructions_and_rebuild(self, instructions_json_path, output_docx_path=None):
-        if self.extract_dir is None:
-            raise ValueError("Must call extract() before apply_instructions_and_rebuild()")
 
-        instructions_json_path = Path(instructions_json_path)
-        instructions = json.loads(instructions_json_path.read_text(encoding="utf-8"))
-
-        apply_instructions(self.extract_dir, instructions)
-        return self.reconstruct(output_path=output_docx_path)
 
 
 
