@@ -603,7 +603,6 @@ def apply_phase2_classifications(
     log: List[str]
 ) -> None:
     doc_path = extract_dir / "word" / "document.xml"
-    styles_xml_text = (extract_dir / "word" / "styles.xml").read_text(encoding="utf-8")
     doc_text = doc_path.read_text(encoding="utf-8")
 
     # Load styles once so we can preserve style-linked numbering before swapping styles

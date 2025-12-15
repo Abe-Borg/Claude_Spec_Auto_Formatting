@@ -29,6 +29,34 @@ def patch_docx(
         else:
             rep_bytes[k] = v
 
+    # Phase 2 hard invariants — enforce at patch boundary
+    FORBIDDEN_PREFIXES = (
+        "word/header",
+        "word/footer",
+    )
+
+    FORBIDDEN_EXACT = {
+        "word/numbering.xml",
+    }
+
+    ALLOWED_PATCHES = {
+        "word/document.xml",
+        "word/styles.xml",
+    }
+
+    for name in rep_bytes:
+        if name in FORBIDDEN_EXACT:
+            raise RuntimeError(f"Forbidden patch target: {name}")
+
+        if name.startswith(FORBIDDEN_PREFIXES):
+            raise RuntimeError(f"Forbidden patch target: {name}")
+
+        if name not in ALLOWED_PATCHES:
+            raise RuntimeError(
+                f"Illegal patch target (Phase 2 allows only document.xml and styles.xml): {name}"
+            )
+
+
     out_docx.parent.mkdir(parents=True, exist_ok=True)
     if out_docx.exists():
         out_docx.unlink()
@@ -42,6 +70,11 @@ def patch_docx(
             missing = [name for name in rep_bytes.keys() if name not in src_names]
             if missing:
                 raise FileNotFoundError(f"Replacement targets not found in docx: {missing}")
+            
+            # Ensure we are not accidentally dropping entries
+            # (ZIP write loop must write every original entry)
+            assert len(src_names) == len(zin.infolist())
+
 
             for info in zin.infolist():
                 name = info.filename
