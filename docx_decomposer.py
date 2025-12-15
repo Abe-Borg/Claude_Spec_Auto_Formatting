@@ -228,49 +228,7 @@ class DocxDecomposer:
     
     
     
-    def _add_settings_xml_complete(self):
-        """COMPLETE analysis of settings.xml."""
-        settings_path = self.extract_dir / "word" / "settings.xml"
-        
-        if not settings_path.exists():
-            return
-        
-        self.markdown_report.append("## word/settings.xml - COMPLETE ANALYSIS\n")
-        
-        try:
-            tree, root, namespaces = self._parse_xml_with_namespaces(settings_path)
-            
-            self.markdown_report.append("### File Metadata")
-            self.markdown_report.append(f"- **Size:** {settings_path.stat().st_size:,} bytes")
-            self.markdown_report.append("")
-            
-            self.markdown_report.append("### All Settings\n")
-            
-            for child in root:
-                tag_name = child.tag.split('}')[-1] if '}' in child.tag else child.tag
-                attrs = dict(child.attrib)
-                
-                self.markdown_report.append(f"**{tag_name}:**")
-                
-                if attrs:
-                    for k, v in attrs.items():
-                        attr_name = k.split('}')[-1] if '}' in k else k
-                        self.markdown_report.append(f"- {attr_name}: `{v}`")
-                
-                if child.text and child.text.strip():
-                    self.markdown_report.append(f"- Text: `{child.text.strip()}`")
-                
-                if len(child) > 0:
-                    self.markdown_report.append("- Child elements:")
-                    for subchild in child:
-                        subchild_name = subchild.tag.split('}')[-1] if '}' in subchild.tag else subchild.tag
-                        subchild_attrs = ', '.join([f"{k.split('}')[-1]}={v}" for k, v in subchild.attrib.items()])
-                        self.markdown_report.append(f"  - `{subchild_name}` {f'({subchild_attrs})' if subchild_attrs else ''}")
-                
-                self.markdown_report.append("")
-        
-        except Exception as e:
-            self.markdown_report.append(f"Error: {e}\n")
+    
     
     def _add_font_table_complete(self):
         """COMPLETE analysis of fontTable.xml."""
