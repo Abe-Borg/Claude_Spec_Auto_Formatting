@@ -130,18 +130,7 @@ class DocxDecomposer:
     
 
     
-    def _print_tree(self, directory, prefix="", is_last=True):
-        """Recursively print directory tree."""
-        items = sorted(directory.iterdir(), key=lambda x: (not x.is_dir(), x.name))
-        
-        for i, item in enumerate(items):
-            is_last_item = (i == len(items) - 1)
-            current_prefix = "└── " if is_last_item else "├── "
-            self.markdown_report.append(f"{prefix}{current_prefix}{item.name}")
-            
-            if item.is_dir():
-                extension = "    " if is_last_item else "│   "
-                self._print_tree(item, prefix + extension, is_last_item)
+    
     
     
     def _parse_xml_with_namespaces(self, file_path):
