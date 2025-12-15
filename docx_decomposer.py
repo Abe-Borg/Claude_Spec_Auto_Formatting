@@ -1158,22 +1158,6 @@ def strip_pstyle_from_paragraph(p_xml: str) -> str:
 
 
 
-
-
-def derive_style_def_from_paragraph(styleId: str, name: str, p_xml: str, based_on: Optional[str] = None) -> Dict[str, Any]:
-    """Derive a paragraph style definition from an exemplar paragraph block."""
-    ppr_inner = extract_paragraph_ppr_inner(p_xml)
-    rpr_inner = extract_paragraph_rpr_inner(p_xml)
-    return {
-        "styleId": styleId,
-        "name": name,
-        "type": "paragraph",
-        "basedOn": based_on,
-        "pPr_inner": ppr_inner,
-        "rPr_inner": rpr_inner,
-    }
-
-
 def _collect_style_deps_from_arch(arch_styles_text: str, style_id: str, seen: Set[str]) -> None:
     """
     Recursively collect styleId dependencies via <w:basedOn w:val="..."/>.
