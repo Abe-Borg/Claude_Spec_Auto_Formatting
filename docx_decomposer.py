@@ -248,33 +248,6 @@ class DocxDecomposer:
     
     
     
-    def _add_binary_files(self):
-        """Analyze binary files (images, etc.)."""
-        self.markdown_report.append("## Binary Files Analysis\n")
-        
-        binary_extensions = {'.jpeg', '.jpg', '.png', '.gif', '.bmp', '.tiff', '.emf', '.wmf'}
-        all_files = list(self.extract_dir.rglob('*'))
-        binary_files = [f for f in all_files if f.is_file() and f.suffix.lower() in binary_extensions]
-        
-        if not binary_files:
-            self.markdown_report.append("No binary files found.\n")
-            return
-        
-        for bin_file in sorted(binary_files):
-            rel_path = bin_file.relative_to(self.extract_dir)
-            size = bin_file.stat().st_size
-            
-            self.markdown_report.append(f"### `{rel_path}`")
-            self.markdown_report.append(f"- **Type:** {bin_file.suffix.upper()}")
-            self.markdown_report.append(f"- **Size:** {size:,} bytes ({size/1024:.2f} KB)")
-            
-            # Read file signature (magic bytes)
-            with open(bin_file, 'rb') as f:
-                magic = f.read(16)
-                hex_magic = ' '.join([f'{b:02x}' for b in magic])
-                self.markdown_report.append(f"- **Magic Bytes:** `{hex_magic}`")
-            
-            self.markdown_report.append("")
     
     def _add_raw_xml_dumps(self):
         """Add complete raw XML dumps for all XML files."""
