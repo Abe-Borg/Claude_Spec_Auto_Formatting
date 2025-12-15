@@ -177,47 +177,7 @@ class DocxDecomposer:
     
    
     
-    def _add_all_relationships(self):
-        """COMPLETE analysis of ALL relationship files."""
-        self.markdown_report.append("## Relationships - COMPLETE ANALYSIS\n")
-        
-        # Find all .rels files
-        rels_files = list(self.extract_dir.rglob('*.rels'))
-        
-        for rels_file in sorted(rels_files):
-            rel_path = rels_file.relative_to(self.extract_dir)
-            self.markdown_report.append(f"### `{rel_path}`\n")
-            
-            try:
-                tree, root, namespaces = self._parse_xml_with_namespaces(rels_file)
-                
-                self.markdown_report.append(f"**File Size:** {rels_file.stat().st_size:,} bytes")
-                self.markdown_report.append(f"**Namespaces:** {namespaces}")
-                self.markdown_report.append("")
-                
-                # Remove namespace for easier parsing
-                for elem in root.iter():
-                    if '}' in elem.tag:
-                        elem.tag = elem.tag.split('}', 1)[1]
-                
-                relationships = root.findall('.//Relationship')
-                
-                self.markdown_report.append(f"**Total Relationships:** {len(relationships)}\n")
-                
-                for i, rel in enumerate(relationships, 1):
-                    rel_id = rel.get('Id')
-                    rel_type = rel.get('Type')
-                    target = rel.get('Target')
-                    target_mode = rel.get('TargetMode', 'Internal')
-                    
-                    self.markdown_report.append(f"{i}. **Relationship ID:** `{rel_id}`")
-                    self.markdown_report.append(f"   - **Type:** `{rel_type}`")
-                    self.markdown_report.append(f"   - **Target:** `{target}`")
-                    self.markdown_report.append(f"   - **Target Mode:** `{target_mode}`")
-                    self.markdown_report.append("")
-            
-            except Exception as e:
-                self.markdown_report.append(f"Error parsing: {e}\n")
+    
     
 
     
