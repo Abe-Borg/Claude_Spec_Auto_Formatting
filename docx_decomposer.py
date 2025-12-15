@@ -626,59 +626,7 @@ def paragraph_ppr_hints_from_block(p_xml: str) -> Dict[str, Any]:
 
 
 
-def build_numbering_catalog(numbering_xml_path: Path, used_num_ids: Set[str]) -> Dict[str, Any]:
-    if not numbering_xml_path.exists():
-        return {}
 
-    tree = ET.parse(numbering_xml_path)
-    root = tree.getroot()
-
-    # map numId -> abstractNumId
-    num_map: Dict[str, str] = {}
-    for num in root.findall(f".//{_q('num')}"):
-        numId = _get_attr(num, "numId")
-        abs_el = num.find(_q("abstractNumId"))
-        if numId and abs_el is not None:
-            absId = _get_attr(abs_el, "val")
-            if absId:
-                num_map[numId] = absId
-
-    abs_needed = {num_map[n] for n in used_num_ids if n in num_map}
-
-    # extract abstractNum level patterns
-    abstracts: Dict[str, Any] = {}
-    for absn in root.findall(f".//{_q('abstractNum')}"):
-        absId = _get_attr(absn, "abstractNumId")
-        if not absId or absId not in abs_needed:
-            continue
-        lvls = []
-        for lvl in absn.findall(_q("lvl")):
-            ilvl = _get_attr(lvl, "ilvl")
-            numFmt = lvl.find(_q("numFmt"))
-            lvlText = lvl.find(_q("lvlText"))
-            pPr = lvl.find(_q("pPr"))
-            lvl_entry = {
-                "ilvl": ilvl,
-                "numFmt": _get_attr(numFmt, "val") if numFmt is not None else None,
-                "lvlText": _get_attr(lvlText, "val") if lvlText is not None else None,
-                "pPr": {}
-            }
-            if pPr is not None:
-                ind = pPr.find(_q("ind"))
-                if ind is not None:
-                    lvl_entry["pPr"]["ind"] = {k: ind.get(f"{{{W_NS}}}{k}") for k in ["left","hanging","firstLine"] if ind.get(f"{{{W_NS}}}{k}") is not None}
-                jc = pPr.find(_q("jc"))
-                if jc is not None:
-                    lvl_entry["pPr"]["jc"] = _get_attr(jc, "val")
-            lvls.append(lvl_entry)
-        abstracts[absId] = {"abstractNumId": absId, "levels": lvls}
-
-    nums: Dict[str, Any] = {}
-    for numId in sorted(used_num_ids):
-        absId = num_map.get(numId)
-        nums[numId] = {"numId": numId, "abstractNumId": absId}
-
-    return {"nums": nums, "abstracts": abstracts}
 
 def build_slim_bundle(extract_dir: Path) -> Dict[str, Any]:
     # Stability hashes
