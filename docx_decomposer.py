@@ -139,22 +139,7 @@ class DocxDecomposer:
     
 
     
-    def _document_element_recursive(self, element, depth, max_depth=5):
-        """Recursively document an XML element and its children."""
-        if depth > max_depth:
-            return
-        
-        indent = "  " * depth
-        tag_name = element.tag.split('}')[-1] if '}' in element.tag else element.tag
-        attrs = ', '.join([f"{k.split('}')[-1]}={v}" for k, v in element.attrib.items()])
-        
-        self.markdown_report.append(f"{indent}- **{tag_name}** {f'({attrs})' if attrs else ''}")
-        
-        if element.text and element.text.strip():
-            self.markdown_report.append(f"{indent}  - Text: `{element.text.strip()[:100]}`")
-        
-        for child in element:
-            self._document_element_recursive(child, depth + 1, max_depth)
+
     
     
     
