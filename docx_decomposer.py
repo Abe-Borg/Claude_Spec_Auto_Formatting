@@ -128,12 +128,7 @@ class DocxDecomposer:
         print(f"Extraction complete: {len(list(output_dir.rglob('*')))} items extracted")
         return output_dir
     
-    def _add_directory_tree(self):
-        """Add directory tree structure."""
-        self.markdown_report.append("## Directory Structure\n")
-        self.markdown_report.append("```")
-        self._print_tree(self.extract_dir, prefix="")
-        self.markdown_report.append("```\n")
+
     
     def _print_tree(self, directory, prefix="", is_last=True):
         """Recursively print directory tree."""
