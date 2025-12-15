@@ -149,29 +149,7 @@ class DocxDecomposer:
     
     
     
-    def save_analysis(self, output_path=None):
-        """
-        Save the markdown analysis to a file.
-        
-        Args:
-            output_path: Path to save the markdown file. If None, uses default name.
-        
-        Returns:
-            Path to the saved markdown file
-        """
-        if not self.markdown_report:
-            self.analyze_structure()
-        
-        if output_path is None:
-            output_path = self.extract_dir.parent / f"{self.extract_dir.name}_analysis.md"
-        else:
-            output_path = Path(output_path)
-        
-        with open(output_path, 'w', encoding='utf-8') as f:
-            f.write("\n".join(self.markdown_report))
-        
-        print(f"Analysis saved to: {output_path}")
-        return output_path
+    
     
     
 
