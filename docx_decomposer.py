@@ -244,36 +244,6 @@ class DocxDecomposer:
             self._document_element_recursive(child, depth + 1, max_depth)
     
     
-    
-    def _add_custom_xml_complete(self):
-        """COMPLETE analysis of custom XML."""
-        custom_dir = self.extract_dir / "customXml"
-        
-        if not custom_dir.exists():
-            return
-        
-        self.markdown_report.append("## customXml/ - COMPLETE ANALYSIS\n")
-        
-        xml_files = list(custom_dir.glob('*.xml'))
-        
-        for xml_file in sorted(xml_files):
-            rel_path = xml_file.relative_to(self.extract_dir)
-            self.markdown_report.append(f"### `{rel_path}`\n")
-            
-            try:
-                tree, root, namespaces = self._parse_xml_with_namespaces(xml_file)
-                
-                self.markdown_report.append(f"**Size:** {xml_file.stat().st_size:,} bytes")
-                self.markdown_report.append(f"**Root Element:** `{root.tag}`")
-                self.markdown_report.append("")
-                
-                self._document_element_recursive(root, 0, max_depth=10)
-                
-                self.markdown_report.append("")
-            
-            except Exception as e:
-                self.markdown_report.append(f"Error: {e}\n")
-    
     def _add_web_settings_complete(self):
         """COMPLETE analysis of webSettings.xml."""
         web_path = self.extract_dir / "word" / "webSettings.xml"
