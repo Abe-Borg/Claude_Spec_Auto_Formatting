@@ -246,41 +246,7 @@ class DocxDecomposer:
     
     
     
-    def _add_other_xml_files(self):
-        """Analyze any other XML files not covered."""
-        self.markdown_report.append("## Other XML Files - COMPLETE ANALYSIS\n")
-        
-        covered_files = {
-            'document.xml', 'styles.xml', 'settings.xml', 'fontTable.xml',
-            'numbering.xml', 'webSettings.xml', 'stylesWithEffects.xml',
-            'core.xml', 'app.xml', '[Content_Types].xml'
-        }
-        
-        all_xml = list(self.extract_dir.rglob('*.xml'))
-        other_xml = [f for f in all_xml if f.name not in covered_files and 'theme' not in str(f) and 'customXml' not in str(f)]
-        
-        if not other_xml:
-            self.markdown_report.append("No other XML files found.\n")
-            return
-        
-        for xml_file in sorted(other_xml):
-            rel_path = xml_file.relative_to(self.extract_dir)
-            self.markdown_report.append(f"### `{rel_path}`\n")
-            
-            try:
-                tree, root, namespaces = self._parse_xml_with_namespaces(xml_file)
-                
-                self.markdown_report.append(f"**Size:** {xml_file.stat().st_size:,} bytes")
-                self.markdown_report.append(f"**Root Element:** `{root.tag}`")
-                self.markdown_report.append(f"**Namespaces:** {namespaces}")
-                self.markdown_report.append("")
-                
-                self._document_element_recursive(root, 0, max_depth=10)
-                
-                self.markdown_report.append("")
-            
-            except Exception as e:
-                self.markdown_report.append(f"Error: {e}\n")
+    
     
     def _add_binary_files(self):
         """Analyze binary files (images, etc.)."""
