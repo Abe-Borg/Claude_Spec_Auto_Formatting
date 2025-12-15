@@ -134,33 +134,7 @@ class DocxDecomposer:
     
 
 
-    def apply_edits_and_rebuild(self, edits_json_path, output_docx_path=None):
-        """
-        Apply LLM edits, verify stability (headers/footers + sectPr), then rebuild docx.
-        Emits diffs under extract_dir/patches by default.
-        """
-        if self.extract_dir is None:
-            raise ValueError("Must call extract() before apply_edits_and_rebuild()")
-
-        edits_json_path = Path(edits_json_path)
-        if not edits_json_path.exists():
-            raise FileNotFoundError(f"Edits JSON not found: {edits_json_path}")
-
-        # Take stability snapshot BEFORE applying edits
-        snap = snapshot_stability(self.extract_dir)
-
-        # Load edits JSON
-        edits = json.loads(edits_json_path.read_text(encoding="utf-8"))
-
-        # Apply edits + write diffs
-        patches_dir = self.extract_dir / "patches"
-        apply_llm_edits(self.extract_dir, edits, patches_dir)
-
-        # Verify stability AFTER applying edits
-        verify_stability(self.extract_dir, snap)
-
-        # Rebuild docx
-        return self.reconstruct(output_path=output_docx_path)
+    
 
     def write_slim_normalize_bundle(self, output_path=None):
         if self.extract_dir is None:
