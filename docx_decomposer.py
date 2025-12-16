@@ -268,15 +268,6 @@ def main():
         # Your existing stability checks (headers/footers + sectPr + document.xml.rels)
         verify_stability(extract_dir, snap)
 
-        # Optional: your separate invariants module (if you created it)
-        # (This is the "no run-level <w:rPr> edits" guard, etc.)
-        try:
-            from phase2_invariants import verify_phase2_invariants
-            new_doc_xml_bytes = (extract_dir / "word" / "document.xml").read_bytes()
-            verify_phase2_invariants(src_docx=input_docx_path, new_document_xml=new_doc_xml_bytes)
-        except ModuleNotFoundError:
-            pass
-
         # ALWAYS write final formatted docx by patching only edited parts
         output_docx_path = Path(args.output_docx) if args.output_docx else (
             input_docx_path.with_name(input_docx_path.stem + "_PHASE2_FORMATTED.docx")
@@ -292,6 +283,19 @@ def main():
             out_docx=output_docx_path,
             replacements=replacements,
         )
+
+        # Optional: additional invariants (sectPr, no run-level edits, headers/footers unchanged).
+        # This requires the final output docx to validate header/footer byte stability.
+        try:
+            from phase2_invariants import verify_phase2_invariants
+            new_doc_xml_bytes = (extract_dir / "word" / "document.xml").read_bytes()
+            verify_phase2_invariants(
+                src_docx=input_docx_path,
+                new_document_xml=new_doc_xml_bytes,
+                new_docx=output_docx_path,
+            )
+        except ModuleNotFoundError:
+            pass
 
         issues_path = extract_dir / "phase2_issues.log"
         issues_path.write_text("\n".join(log) + "\n", encoding="utf-8")
@@ -513,15 +517,97 @@ def _effective_ppr_inner_in_arch(arch_styles_xml_text: str, style_id: str) -> st
         cur = _extract_basedOn(blk)
     return _docdefaults_ppr_inner(arch_styles_xml_text)
 
-def materialize_arch_style_block(style_block: str, style_id: str, arch_styles_xml_text: str) -> str:
-    # Inject rPr only if missing entirely
+def _rpr_contains_tag(rpr_inner: str, tag: str) -> bool:
+    return re.search(rf"<w:{re.escape(tag)}\b", rpr_inner) is not None
+
+
+def _extract_rpr_inner(style_block: str) -> Optional[str]:
+    return _extract_tag_inner(style_block, "w:rPr")
+
+
+def _inject_missing_rpr_children(style_block: str, missing_children_xml: str) -> str:
+    """Insert missing rPr children (already as raw XML) just before </w:rPr>."""
+    if not missing_children_xml.strip():
+        return style_block
+    if "</w:rPr>" not in style_block:
+        return style_block
+    return style_block.replace("</w:rPr>", f"{missing_children_xml}</w:rPr>")
+
+
+def _materialize_minimal_typography(style_block: str, style_id: str, arch_styles_xml_text: str) -> str:
+    """
+    Make imported styles resilient across documents by ensuring a minimal set of
+    typography-related rPr children exist (fonts, sizes, language).
+
+    IMPORTANT:
+    - Does NOT invent values.
+    - Only copies missing nodes from the *effective* rPr in the architect template
+      (style chain or docDefaults).
+    - Avoids rewriting the whole block.
+    """
+    eff_rpr = _effective_rpr_inner_in_arch(arch_styles_xml_text, style_id).strip()
+    if not eff_rpr:
+        return style_block
+
+    # If the style has no rPr at all, inject the full effective rPr.
     if "<w:rPr" not in style_block:
-        eff = _effective_rpr_inner_in_arch(arch_styles_xml_text, style_id)
-        if eff.strip():
-            style_block = style_block.replace(
-                "</w:style>",
-                f"\n  <w:rPr>{eff}</w:rPr>\n</w:style>"
-            )
+        return style_block.replace(
+            "</w:style>",
+            f"\n  <w:rPr>{eff_rpr}</w:rPr>\n</w:style>"
+        )
+
+    cur_rpr = _extract_rpr_inner(style_block) or ""
+
+    # Copy a *minimal* stable subset. These are the most common sources of
+    # cross-document drift when docDefaults/themes differ.
+    allow = [
+        "rFonts",   # explicit font faces
+        "sz",       # font size
+        "szCs",     # complex script font size
+        "lang",     # language
+        "ascii",    # sometimes appears as w:ascii via rFonts; kept here defensively
+    ]
+
+    # Extract candidate child nodes from eff_rpr.
+    # We keep the raw node, including attributes.
+    missing_nodes: List[str] = []
+
+    def _get_child_node(tag: str) -> Optional[str]:
+        # self-closing or paired tags
+        m = re.search(rf"(<w:{tag}\b[^>]*/>)", eff_rpr)
+        if m:
+            return m.group(1)
+        m = re.search(rf"(<w:{tag}\b[^>]*>[\s\S]*?</w:{tag}>)", eff_rpr)
+        if m:
+            return m.group(1)
+        return None
+
+    for tag in ["rFonts", "sz", "szCs", "lang"]:
+        if _rpr_contains_tag(cur_rpr, tag):
+            continue
+        node = _get_child_node(tag)
+        if node:
+            missing_nodes.append(node)
+
+    if not missing_nodes:
+        return style_block
+
+    insertion = "".join(missing_nodes)
+    return _inject_missing_rpr_children(style_block, insertion)
+
+
+def materialize_arch_style_block(style_block: str, style_id: str, arch_styles_xml_text: str) -> str:
+    """
+    Phase 2: import-time style hardening.
+
+    Goal: ensure styles imported from the architect template remain visually stable
+    when applied in a different document, without touching runs or numbering.xml.
+
+    Strategy:
+    - If pPr/rPr are missing entirely, inject effective ones.
+    - Even when rPr exists, ensure a minimal set of typography nodes are present
+      (rFonts/sz/szCs/lang) based on *effective* arch rPr.
+    """
 
     # Inject pPr only if missing entirely
     if "<w:pPr" not in style_block:
@@ -531,6 +617,9 @@ def materialize_arch_style_block(style_block: str, style_id: str, arch_styles_xm
                 "</w:style>",
                 f"\n  <w:pPr>{effp}</w:pPr>\n</w:style>"
             )
+
+    # Typography materialization (may inject full rPr if absent, or add missing children)
+    style_block = _materialize_minimal_typography(style_block, style_id, arch_styles_xml_text)
 
     return style_block
 
@@ -611,6 +700,21 @@ def apply_phase2_classifications(
     blocks = list(iter_paragraph_xml_blocks(doc_text))
     para_blocks = [b[2] for b in blocks]
 
+    # Priority-4 hardening: build a "diff contract" snapshot of paragraph blocks.
+    # We allow Phase 2 to change ONLY:
+    #   - <w:pStyle w:val="..."/>
+    #   - (optional) insertion of <w:numPr> to materialize existing style-linked numbering
+    # Everything else inside each <w:p> must remain byte-identical.
+    def _normalize_paragraph_for_contract(p_xml: str) -> str:
+        out = p_xml
+        # Remove pStyle (either self closing or with attrs)
+        out = re.sub(r"<w:pStyle\b[^>]*/>", "", out)
+        # Remove any numPr blocks (we may insert them)
+        out = re.sub(r"<w:numPr\b[^>]*>[\s\S]*?</w:numPr>", "", out, flags=re.S)
+        return out
+
+    contract_before = [_normalize_paragraph_for_contract(p) for p in para_blocks]
+
     items = classifications.get("classifications", [])
     if not isinstance(items, list):
         raise ValueError("phase2 classifications: 'classifications' must be a list")
@@ -633,9 +737,12 @@ def apply_phase2_classifications(
 
         style_id = arch_style_registry.get(role)
         if not style_id:
-            # Your preflight already expects SKIP / END_OF_SECTION to be unmapped :contentReference[oaicite:0]{index=0}
-            log.append(f"Missing architect style for role: {role} (paragraph {idx})")
-            continue
+            # Priority-1 hardening: fail fast on unmapped roles (preflight should catch these).
+            raise ValueError(
+                f"Phase 2 classifications referenced role '{role}' at paragraph {idx}, "
+                "but the architect style registry has no mapping for that role. "
+                "Fix the registry or remove the classification entry."
+            )
 
         if paragraph_contains_sectpr(para_blocks[idx]):
             log.append(f"Skipped sectPr paragraph at index {idx}")
@@ -647,6 +754,26 @@ def apply_phase2_classifications(
 
         # Now safely swap pStyle
         para_blocks[idx] = apply_pstyle_to_paragraph_block(pb, style_id)
+
+    # Priority-4 hardening: enforce the diff contract.
+    contract_after = [_normalize_paragraph_for_contract(p) for p in para_blocks]
+    if len(contract_before) != len(contract_after):
+        raise RuntimeError("Internal error: paragraph count changed during Phase 2 application")
+
+    for i, (b, a) in enumerate(zip(contract_before, contract_after)):
+        if b != a:
+            # Provide a small diff to help debugging.
+            diff = "\n".join(difflib.unified_diff(
+                b.splitlines(),
+                a.splitlines(),
+                fromfile=f"before:p[{i}]",
+                tofile=f"after:p[{i}]",
+                lineterm=""
+            ))
+            raise ValueError(
+                "Phase 2 invariant violation: paragraph content changed outside allowed edits "
+                f"(pStyle/numPr) at paragraph index {i}.\n" + diff[:4000]
+            )
 
     # Rebuild document.xml
     out = []
@@ -933,14 +1060,21 @@ def import_arch_styles_into_target(
         _collect_style_deps_from_arch(arch_styles_text, sid, expanded)
 
     blocks: List[str] = []
+    missing: List[str] = []
     for sid in sorted(expanded):
         if sid in existing:
             continue
 
         blk = extract_style_block_raw(arch_styles_text, sid)
         if not blk:
-            log.append(f"Architect styles.xml missing styleId: {sid}")
+            missing.append(sid)
             continue
+
+        # Guardrail: paragraph styles must not carry numbering properties.
+        # If present (some templates do this), strip it to avoid clobbering Word list runtime.
+        if "<w:numPr" in blk:
+            log.append(f"WARNING: Stripped <w:numPr> from imported style: {sid}")
+            blk = re.sub(r"<w:numPr\b[^>]*>[\s\S]*?</w:numPr>", "", blk, flags=re.S)
 
         # HARDEN: make style self-contained (pPr/rPr) to prevent font drift
         blk = materialize_arch_style_block(blk, sid, arch_styles_text)
@@ -949,6 +1083,15 @@ def import_arch_styles_into_target(
 
 
         log.append(f"Imported style from architect: {sid}")
+
+    # Priority-1 hardening: if the architect template is missing any required style or dependency,
+    # fail fast rather than emitting a partially formatted output.
+    if missing:
+        missing_sorted = ", ".join(sorted(set(missing)))
+        raise ValueError(
+            "Architect styles.xml is missing required styleIds needed for Phase 2 import: "
+            f"{missing_sorted}"
+        )
 
     if not blocks:
         return
