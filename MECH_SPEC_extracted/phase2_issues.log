@@ -1,0 +1,31 @@
+============================================================
+BEGIN ENVIRONMENT APPLICATION
+============================================================
+
+[1/4] Applying theme...
+Replacing target theme1.xml with architect theme
+
+[2/4] Applying settings/compat...
+Replaced compat flags with architect values
+
+[3/4] Applying font table...
+Added 2 font declarations from architect
+
+[4/4] Applying docDefaults...
+Replaced existing docDefaults with architect values
+
+============================================================
+END ENVIRONMENT APPLICATION
+============================================================
+WARNING: Stripped <w:numPr> from imported style: CSILevel1
+Imported style from architect: CSILevel1
+WARNING: Stripped <w:numPr> from imported style: CSILevel2
+Imported style from architect: CSILevel2
+WARNING: Stripped <w:numPr> from imported style: CSILevel3
+Imported style from architect: CSILevel3
+WARNING: Stripped <w:numPr> from imported style: CSILevel4
+Imported style from architect: CSILevel4
+WARNING: Stripped <w:numPr> from imported style: CSILevel5
+Imported style from architect: CSILevel5
+Unmapped CSI role 'SectionID' at paragraph 0 (skipped)
+Unmapped CSI role 'SectionID' at paragraph 423 (skipped)
