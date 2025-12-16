@@ -487,19 +487,61 @@ def _docdefaults_ppr_inner(styles_xml_text: str) -> str:
     return _strip_pstyle_and_numpr(m.group(1).strip()) if m else ""
 
 def _effective_rpr_inner_in_arch(arch_styles_xml_text: str, style_id: str) -> str:
-    seen = set()
-    cur = style_id
-    hops = 0
-    while cur and cur not in seen and hops < 50:
-        seen.add(cur); hops += 1
-        blk = _extract_style_block(arch_styles_xml_text, cur)
-        if not blk:
-            break
-        inner = _extract_tag_inner(blk, "w:rPr")
-        if inner and inner.strip():
-            return inner.strip()
-        cur = _extract_basedOn(blk)
-    return _docdefaults_rpr_inner(arch_styles_xml_text)
+    """
+    Return a *minimal* effective rPr inner XML for the FORCE typography set only.
+
+    We resolve each child tag independently through the basedOn chain, then fall back
+    to docDefaults. This avoids the bug where a derived style contains <w:rPr> but
+    doesn't specify (for example) <w:rFonts>, causing inherited font settings to be missed.
+    """
+    force_tags = ("rFonts", "sz", "szCs", "lang")
+
+    def _extract_child_node(inner_xml: str, tag: str) -> Optional[str]:
+        if not inner_xml:
+            return None
+        # Self-closing: <w:tag .../>
+        m = re.search(rf"(<w:{re.escape(tag)}\b[^>]*/>)", inner_xml)
+        if m:
+            return m.group(1)
+        # Paired: <w:tag ...>...</w:tag>
+        m = re.search(
+            rf"(<w:{re.escape(tag)}\b[^>]*>[\s\S]*?</w:{re.escape(tag)}>)",
+            inner_xml,
+            flags=re.S
+        )
+        if m:
+            return m.group(1)
+        return None
+
+    def _resolve(tag: str) -> Optional[str]:
+        seen = set()
+        cur = style_id
+        hops = 0
+        while cur and cur not in seen and hops < 50:
+            seen.add(cur)
+            hops += 1
+            blk = _extract_style_block(arch_styles_xml_text, cur)
+            if not blk:
+                break
+            rpr_inner = _extract_tag_inner(blk, "w:rPr") or ""
+            node = _extract_child_node(rpr_inner, tag)
+            if node:
+                return node
+            cur = _extract_basedOn(blk)
+
+        # fall back to docDefaults
+        docdef_inner = _docdefaults_rpr_inner(arch_styles_xml_text)
+        return _extract_child_node(docdef_inner, tag)
+
+    nodes: List[str] = []
+    for t in force_tags:
+        node = _resolve(t)
+        if node:
+            nodes.append(node)
+
+    return "".join(nodes)
+
+
 
 def _effective_ppr_inner_in_arch(arch_styles_xml_text: str, style_id: str) -> str:
     seen = set()
@@ -531,7 +573,9 @@ def _inject_missing_rpr_children(style_block: str, missing_children_xml: str) ->
         return style_block
     if "</w:rPr>" not in style_block:
         return style_block
-    return style_block.replace("</w:rPr>", f"{missing_children_xml}</w:rPr>")
+    # Replace only the first closing tag (avoid accidental insertion into nested rPr blocks)
+    return style_block.replace("</w:rPr>", f"{missing_children_xml}</w:rPr>", 1)
+
 
 
 def _materialize_minimal_typography(style_block: str, style_id: str, arch_styles_xml_text: str) -> str:
@@ -541,43 +585,34 @@ def _materialize_minimal_typography(style_block: str, style_id: str, arch_styles
 
     IMPORTANT:
     - Does NOT invent values.
-    - Only copies missing nodes from the *effective* rPr in the architect template
-      (style chain or docDefaults).
+    - Only copies missing nodes from the *effective* arch style chain + docDefaults.
     - Avoids rewriting the whole block.
     """
     eff_rpr = _effective_rpr_inner_in_arch(arch_styles_xml_text, style_id).strip()
     if not eff_rpr:
         return style_block
 
-    # If the style has no rPr at all, inject the full effective rPr.
+    # If the style has no rPr at all, inject the minimal effective rPr.
     if "<w:rPr" not in style_block:
         return style_block.replace(
             "</w:style>",
             f"\n  <w:rPr>{eff_rpr}</w:rPr>\n</w:style>"
         )
 
+    # Expand self-closing rPr to open/close so we can inject children.
+    if re.search(r"<w:rPr\b[^>]*/>", style_block):
+        style_block = re.sub(r"<w:rPr\b[^>]*/>", "<w:rPr></w:rPr>", style_block, count=1)
+
     cur_rpr = _extract_rpr_inner(style_block) or ""
 
-    # Copy a *minimal* stable subset. These are the most common sources of
-    # cross-document drift when docDefaults/themes differ.
-    allow = [
-        "rFonts",   # explicit font faces
-        "sz",       # font size
-        "szCs",     # complex script font size
-        "lang",     # language
-        "ascii",    # sometimes appears as w:ascii via rFonts; kept here defensively
-    ]
-
-    # Extract candidate child nodes from eff_rpr.
-    # We keep the raw node, including attributes.
     missing_nodes: List[str] = []
 
     def _get_child_node(tag: str) -> Optional[str]:
-        # self-closing or paired tags
+        # self-closing or paired tags, searched within eff_rpr
         m = re.search(rf"(<w:{tag}\b[^>]*/>)", eff_rpr)
         if m:
             return m.group(1)
-        m = re.search(rf"(<w:{tag}\b[^>]*>[\s\S]*?</w:{tag}>)", eff_rpr)
+        m = re.search(rf"(<w:{tag}\b[^>]*>[\s\S]*?</w:{tag}>)", eff_rpr, flags=re.S)
         if m:
             return m.group(1)
         return None
@@ -604,13 +639,16 @@ def materialize_arch_style_block(style_block: str, style_id: str, arch_styles_xm
     when applied in a different document, without touching runs or numbering.xml.
 
     Strategy:
-    - If pPr/rPr are missing entirely, inject effective ones.
-    - Even when rPr exists, ensure a minimal set of typography nodes are present
-      (rFonts/sz/szCs/lang) based on *effective* arch rPr.
+    - Inject pPr only for paragraph styles, and only if missing entirely.
+    - Materialize a minimal typography FORCE set into rPr:
+        w:rFonts, w:sz, w:szCs, w:lang
+      Values are copied from the *effective* architect chain + docDefaults.
     """
+    m = re.search(r'<w:style\b[^>]*w:type="([^"]+)"', style_block)
+    stype = m.group(1) if m else None
 
-    # Inject pPr only if missing entirely
-    if "<w:pPr" not in style_block:
+    # Inject pPr only if missing entirely (paragraph styles only)
+    if stype == "paragraph" and "<w:pPr" not in style_block:
         effp = _effective_ppr_inner_in_arch(arch_styles_xml_text, style_id)
         if effp.strip():
             style_block = style_block.replace(
@@ -618,7 +656,7 @@ def materialize_arch_style_block(style_block: str, style_id: str, arch_styles_xm
                 f"\n  <w:pPr>{effp}</w:pPr>\n</w:style>"
             )
 
-    # Typography materialization (may inject full rPr if absent, or add missing children)
+    # Typography materialization
     style_block = _materialize_minimal_typography(style_block, style_id, arch_styles_xml_text)
 
     return style_block
@@ -696,20 +734,17 @@ def apply_phase2_classifications(
 
     # Load styles once so we can preserve style-linked numbering before swapping styles
     styles_xml_text = (extract_dir / "word" / "styles.xml").read_text(encoding="utf-8")
+    style_ids_in_styles = set(re.findall(r'w:styleId="([^"]+)"', styles_xml_text))
 
     blocks = list(iter_paragraph_xml_blocks(doc_text))
     para_blocks = [b[2] for b in blocks]
 
-    # Priority-4 hardening: build a "diff contract" snapshot of paragraph blocks.
-    # We allow Phase 2 to change ONLY:
+    # Allow Phase 2 to change ONLY:
     #   - <w:pStyle w:val="..."/>
     #   - (optional) insertion of <w:numPr> to materialize existing style-linked numbering
-    # Everything else inside each <w:p> must remain byte-identical.
     def _normalize_paragraph_for_contract(p_xml: str) -> str:
         out = p_xml
-        # Remove pStyle (either self closing or with attrs)
         out = re.sub(r"<w:pStyle\b[^>]*/>", "", out)
-        # Remove any numPr blocks (we may insert them)
         out = re.sub(r"<w:numPr\b[^>]*>[\s\S]*?</w:numPr>", "", out, flags=re.S)
         return out
 
@@ -735,34 +770,36 @@ def apply_phase2_classifications(
             log.append(f"Invalid csi_role type at paragraph {idx}: {role!r}")
             continue
 
-        # style_id = arch_style_registry.get(role)   Not sure what to do with this block, LLM help me out.
-        # if not style_id:
-        #     # Priority-1 hardening: fail fast on unmapped roles (preflight should catch these).
-        #     raise ValueError(
-        #         f"Phase 2 classifications referenced role '{role}' at paragraph {idx}, "
-        #         "but the architect style registry has no mapping for that role. "
-        #         "Fix the registry or remove the classification entry."
-        #     )
+        style_id = arch_style_registry.get(role)
+        if not style_id:
+            log.append(f"Unmapped CSI role '{role}' at paragraph {idx} (skipped)")
+            continue
+
+        if style_id not in style_ids_in_styles:
+            raise ValueError(
+                f"Phase 2 needs styleId '{style_id}' for role '{role}' at paragraph {idx}, "
+                "but that styleId is not present in target word/styles.xml. "
+                "Import failed or registry mismatch."
+            )
 
         if paragraph_contains_sectpr(para_blocks[idx]):
             log.append(f"Skipped sectPr paragraph at index {idx}")
             continue
 
-        # KEY FIX: preserve "dynamic numbering" by materializing style-linked numPr
+        # Preserve list continuation by materializing style-linked numPr *before* swapping styles.
         pb = para_blocks[idx]
         pb = ensure_explicit_numpr_from_current_style(pb, styles_xml_text)
 
         # Now safely swap pStyle
         para_blocks[idx] = apply_pstyle_to_paragraph_block(pb, style_id)
 
-    # Priority-4 hardening: enforce the diff contract.
+    # Enforce the diff contract.
     contract_after = [_normalize_paragraph_for_contract(p) for p in para_blocks]
     if len(contract_before) != len(contract_after):
         raise RuntimeError("Internal error: paragraph count changed during Phase 2 application")
 
     for i, (b, a) in enumerate(zip(contract_before, contract_after)):
         if b != a:
-            # Provide a small diff to help debugging.
             diff = "\n".join(difflib.unified_diff(
                 b.splitlines(),
                 a.splitlines(),
