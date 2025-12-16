@@ -735,14 +735,14 @@ def apply_phase2_classifications(
             log.append(f"Invalid csi_role type at paragraph {idx}: {role!r}")
             continue
 
-        style_id = arch_style_registry.get(role)
-        if not style_id:
-            # Priority-1 hardening: fail fast on unmapped roles (preflight should catch these).
-            raise ValueError(
-                f"Phase 2 classifications referenced role '{role}' at paragraph {idx}, "
-                "but the architect style registry has no mapping for that role. "
-                "Fix the registry or remove the classification entry."
-            )
+        # style_id = arch_style_registry.get(role)   Not sure what to do with this block, LLM help me out.
+        # if not style_id:
+        #     # Priority-1 hardening: fail fast on unmapped roles (preflight should catch these).
+        #     raise ValueError(
+        #         f"Phase 2 classifications referenced role '{role}' at paragraph {idx}, "
+        #         "but the architect style registry has no mapping for that role. "
+        #         "Fix the registry or remove the classification entry."
+        #     )
 
         if paragraph_contains_sectpr(para_blocks[idx]):
             log.append(f"Skipped sectPr paragraph at index {idx}")
