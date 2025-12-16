@@ -4,7 +4,6 @@ from __future__ import annotations
 from pathlib import Path
 import zipfile
 from typing import Dict, Union
-from arch_env_applier import apply_environment_to_target
 
 BytesOrStr = Union[bytes, str]
 
@@ -40,9 +39,15 @@ def patch_docx(
         "word/numbering.xml",
     }
 
+    # Expanded to include environment parts
     ALLOWED_PATCHES = {
         "word/document.xml",
         "word/styles.xml",
+        "word/theme/theme1.xml",
+        "word/settings.xml",
+        "word/fontTable.xml",
+        "[Content_Types].xml",
+        "word/_rels/document.xml.rels",
     }
 
     for name in rep_bytes:
@@ -54,7 +59,8 @@ def patch_docx(
 
         if name not in ALLOWED_PATCHES:
             raise RuntimeError(
-                f"Illegal patch target (Phase 2 allows only document.xml and styles.xml): {name}"
+                f"Illegal patch target: {name}\n"
+                f"Allowed: {sorted(ALLOWED_PATCHES)}"
             )
 
 
@@ -68,19 +74,21 @@ def patch_docx(
             zout.comment = zin.comment
 
             src_names = set(zin.namelist())
-            missing = [name for name in rep_bytes.keys() if name not in src_names]
-            if missing:
-                raise FileNotFoundError(f"Replacement targets not found in docx: {missing}")
+            
+            # For new parts (like theme1.xml if it didn't exist), we'll add them
+            new_parts = [name for name in rep_bytes.keys() if name not in src_names]
+            existing_replacements = [name for name in rep_bytes.keys() if name in src_names]
             
             # Ensure we are not accidentally dropping entries
-            # (ZIP write loop must write every original entry)
             assert len(src_names) == len(zin.infolist())
-
 
             for info in zin.infolist():
                 name = info.filename
                 data = rep_bytes.get(name, zin.read(name))
 
                 # Preserve per-entry compression type where possible
-                # (Word doesn't require it, but this reduces drift)
                 zout.writestr(info, data, compress_type=info.compress_type)
+            
+            # Add any new parts that didn't exist in source
+            for new_name in new_parts:
+                zout.writestr(new_name, rep_bytes[new_name])

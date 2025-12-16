@@ -210,6 +210,7 @@ def main():
     # -------------------------------
     if args.phase2_arch_extract and args.phase2_classifications:
         from docx_patch import patch_docx  # your surgical ZIP patch writer
+        from arch_env_applier import apply_environment_to_target
 
         log: List[str] = []
 
@@ -240,15 +241,9 @@ def main():
         if preflight.get("unmapped_roles"):
             print(f"WARNING: Unmapped roles: {preflight['unmapped_roles']}")
 
-        # Import only styles actually used by this doc's classifications
-        used_roles = {
-            item.get("csi_role")
-            for item in classifications.get("classifications", [])
-            if isinstance(item, dict) and isinstance(item.get("csi_role"), str)
-        }
-        needed_style_ids = sorted({arch_registry[r] for r in used_roles if r in arch_registry})
-
-
+        # ─────────────────────────────────────────────────────────────────
+        # NEW: Apply formatting environment BEFORE importing styles
+        # ─────────────────────────────────────────────────────────────────
         arch_template_registry_path = arch_root / "arch_template_registry.json"
         if arch_template_registry_path.exists():
             env_registry = json.loads(arch_template_registry_path.read_text(encoding="utf-8"))
@@ -257,10 +252,18 @@ def main():
                 registry=env_registry,
                 log=log
             )
+            print(f"Applied environment from: {arch_template_registry_path}")
         else:
             log.append("WARNING: No arch_template_registry.json found; skipping environment application")
+            print(f"WARNING: arch_template_registry.json not found at {arch_template_registry_path}")
 
-
+        # Import only styles actually used by this doc's classifications
+        used_roles = {
+            item.get("csi_role")
+            for item in classifications.get("classifications", [])
+            if isinstance(item, dict) and isinstance(item.get("csi_role"), str)
+        }
+        needed_style_ids = sorted({arch_registry[r] for r in used_roles if r in arch_registry})
 
         import_arch_styles_into_target(
             target_extract_dir=extract_dir,
@@ -293,6 +296,30 @@ def main():
             "word/document.xml": (extract_dir / "word" / "document.xml").read_bytes(),
             "word/styles.xml":   (extract_dir / "word" / "styles.xml").read_bytes(),
         }
+
+        # Add environment parts if they were modified
+        theme_path = extract_dir / "word" / "theme" / "theme1.xml"
+        if theme_path.exists():
+            replacements["word/theme/theme1.xml"] = theme_path.read_bytes()
+        
+        settings_path = extract_dir / "word" / "settings.xml"
+        if settings_path.exists():
+            replacements["word/settings.xml"] = settings_path.read_bytes()
+        
+        font_table_path = extract_dir / "word" / "fontTable.xml"
+        if font_table_path.exists():
+            replacements["word/fontTable.xml"] = font_table_path.read_bytes()
+        
+        # Content types may have been updated for new theme
+        content_types_path = extract_dir / "[Content_Types].xml"
+        if content_types_path.exists():
+            replacements["[Content_Types].xml"] = content_types_path.read_bytes()
+        
+        # Rels may have been updated for new theme relationship
+        rels_path = extract_dir / "word" / "_rels" / "document.xml.rels"
+        if rels_path.exists():
+            replacements["word/_rels/document.xml.rels"] = rels_path.read_bytes()
+
 
         patch_docx(
             src_docx=input_docx_path,
