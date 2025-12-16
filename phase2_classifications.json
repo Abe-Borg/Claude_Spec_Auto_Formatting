@@ -215,7 +215,7 @@
     { "paragraph_index": 277, "csi_role": "SUBPARAGRAPH" },
     { "paragraph_index": 278, "csi_role": "SUBPARAGRAPH" },
     { "paragraph_index": 279, "csi_role": "SUBPARAGRAPH" },
-    { "paragraph_index": 280, "csi_role": "SUBPARAGRAPH" },
+    { "paragraph_index": 280, "csi_role": "SUBSUBPARAGRAPH" },
     { "paragraph_index": 281, "csi_role": "SUBPARAGRAPH" },
     { "paragraph_index": 282, "csi_role": "SUBPARAGRAPH" },
     { "paragraph_index": 283, "csi_role": "PARAGRAPH" },
@@ -233,7 +233,6 @@
     { "paragraph_index": 295, "csi_role": "SUBPARAGRAPH" },
     { "paragraph_index": 296, "csi_role": "SUBPARAGRAPH" },
     { "paragraph_index": 297, "csi_role": "PARAGRAPH" },
-    { "paragraph_index": 298, "csi_role": "PARAGRAPH" },
     { "paragraph_index": 299, "csi_role": "PARAGRAPH" },
     { "paragraph_index": 300, "csi_role": "SUBPARAGRAPH" },
     { "paragraph_index": 301, "csi_role": "SUBPARAGRAPH" },
@@ -328,12 +327,16 @@
     { "paragraph_index": 417, "csi_role": "PARAGRAPH" },
     { "paragraph_index": 419, "csi_role": "SUBPARAGRAPH" },
     { "paragraph_index": 420, "csi_role": "PARAGRAPH" },
-    { "paragraph_index": 422, "csi_role": "SUBPARAGRAPH" }
+    { "paragraph_index": 422, "csi_role": "SUBPARAGRAPH" },
+    { "paragraph_index": 423, "csi_role": "SectionID" }
   ],
   "notes": [
-    "Paragraph 0 classified as SectionID based on 'SECTION 230713 – DUCT INSULATION' format",
-    "Paragraphs 6, 55, 254 classified as PART based on 'GENERAL', 'PRODUCTS', 'EXECUTION' headings",
-    "Editorial/instructional paragraphs (47, 64, 65, 73, 83, 85, 87, 93, 103, 108, 109, 113, 149, 160, 165, 166, 167, 171, 173, 175, 177, 197, 199, 247, 304, 306, 322, 324, 382) omitted as they are MasterSpec editor notes not part of the final specification",
-    "Paragraph 423 'END OF SECTION 230713' omitted as it is a document terminator, not a CSI structural element"
+    "Section 230713 - Duct Insulation follows standard CSI 3-part format",
+    "PART 1 - GENERAL (paragraph_index 6)",
+    "PART 2 - PRODUCTS (paragraph_index 55)",
+    "PART 3 - EXECUTION (paragraph_index 254)",
+    "Some paragraphs contain MasterSpec editing notes that were filtered in the slim bundle",
+    "Paragraph 0 identified as SectionID containing section number and title",
+    "Paragraph 423 (END OF SECTION) also marked as SectionID per CSI convention"
   ]
 }
