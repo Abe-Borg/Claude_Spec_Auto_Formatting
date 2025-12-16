@@ -46,35 +46,45 @@ def _is_docx_package_part(rel_path: "Path") -> bool:
     return False
 
 
-PHASE2_MASTER_PROMPT = r"""
+PHASE2_MASTER_PROMPT = r'''
 You are a CSI STRUCTURE CLASSIFIER for AEC specifications.
 
-You will be given a slim JSON bundle of paragraphs from a mechanical or plumbing spec.
+You will be given:
+1. A slim JSON bundle of paragraphs from a mechanical or plumbing spec
+2. A list of AVAILABLE ROLES that the target architect template supports
 
 Your job:
-- Identify CSI semantic roles ONLY.
+- Classify paragraphs into CSI semantic roles
+- ONLY use roles from the available_roles list
+- If a paragraph's natural role is not in available_roles, use the closest parent role or omit it
 
-Allowed roles:
-- SectionID
-- SectionTitle
-- PART
-- ARTICLE
-- PARAGRAPH
-- SUBPARAGRAPH
-- SUBSUBPARAGRAPH
+CSI Hierarchy (for reference):
+- SectionID: Section number line (e.g., "SECTION 23 05 13")
+- SectionTitle: Section name line (e.g., "COMMON MOTOR REQUIREMENTS FOR HVAC EQUIPMENT")
+- PART: Part headings (PART 1, PART 2, PART 3)
+- ARTICLE: Article numbers (1.01, 2.03, etc.)
+- PARAGRAPH: Lettered paragraphs (A., B., C.)
+- SUBPARAGRAPH: Numbered under letters (1., 2., 3.)
+- SUBSUBPARAGRAPH: Lettered under numbers (a., b., c.)
+
+Fallback rules when a role is not available:
+- If SectionID not available but SectionTitle is -> classify section numbers as SectionTitle
+- If SUBSUBPARAGRAPH not available -> classify as SUBPARAGRAPH
+- If SUBPARAGRAPH not available -> classify as PARAGRAPH
+- When in doubt, omit the paragraph rather than misclassify
 
 Rules:
-- Do NOT create styles
+- Do NOT create new roles outside of available_roles
 - Do NOT reference formatting
 - Do NOT guess if unclear
 - If ambiguous, omit the paragraph
 
 Return JSON only.
-"""
+'''
 
-PHASE2_RUN_INSTRUCTION = r"""
+PHASE2_RUN_INSTRUCTION = r'''
 Task:
-Classify CSI roles for paragraphs.
+Classify CSI roles for paragraphs using ONLY the roles listed in available_roles.
 
 Output schema:
 {
@@ -83,7 +93,12 @@ Output schema:
   ],
   "notes": []
 }
-"""
+
+IMPORTANT:
+- Every csi_role value MUST be one of the strings in available_roles
+- If a paragraph doesn't fit any available role, omit it from classifications
+- Do not invent roles that aren't in available_roles
+'''
 
 
 
@@ -193,16 +208,44 @@ def main():
     # -------------------------------
     # PHASE 2: BUILD SLIM BUNDLE
     # -------------------------------
+    
     if args.phase2_build_bundle:
-        bundle = build_phase2_slim_bundle(extract_dir, args.phase2_discipline)
+        # Load available roles from architect registry if provided
+        available_roles = None
+        if args.phase2_arch_extract:
+            arch_path = Path(args.phase2_arch_extract)
+            available_roles = load_available_roles_from_registry(arch_path)
+            if available_roles:
+                print(f"Available roles from architect template: {available_roles}")
+            else:
+                print("WARNING: Could not load architect registry, using all standard roles")
+        
+        bundle = build_phase2_slim_bundle(
+            extract_dir, 
+            args.phase2_discipline,
+            available_roles=available_roles
+        )
 
         out_path = extract_dir / "phase2_slim_bundle.json"
         out_path.write_text(json.dumps(bundle, indent=2), encoding="utf-8")
 
+        # Also write the prompts for convenience
+        prompts_dir = extract_dir / "phase2_prompts"
+        prompts_dir.mkdir(exist_ok=True)
+        (prompts_dir / "master_prompt.txt").write_text(PHASE2_MASTER_PROMPT.strip(), encoding="utf-8")
+        (prompts_dir / "run_instruction.txt").write_text(PHASE2_RUN_INSTRUCTION.strip(), encoding="utf-8")
+
         print(f"Phase 2 slim bundle written: {out_path}")
-        print("NEXT STEP:")
-        print("- Paste phase2_slim_bundle.json into LLM")
-        print("- Save output as phase2_classifications.json")
+        print(f"Phase 2 prompts written to: {prompts_dir}")
+        print("")
+        print("NEXT STEPS:")
+        print("1. Open your LLM (Claude/ChatGPT)")
+        print("2. Paste the content of: master_prompt.txt")
+        print("3. Paste the content of: phase2_slim_bundle.json") 
+        print("4. Paste the content of: run_instruction.txt")
+        print("5. Save LLM JSON output as: phase2_classifications.json")
+        print("6. Run Phase 2 apply:")
+        print(f'   python docx_decomposer.py {args.docx_path} --phase2-arch-extract <arch_folder> --phase2-classifications phase2_classifications.json')
         return
 
     # -------------------------------
@@ -886,6 +929,33 @@ def resolve_arch_extract_root(p: Path) -> Path:
     return p
 
 
+
+def load_available_roles_from_registry(registry_path: Path) -> Optional[List[str]]:
+    """
+    Load the list of available role names from arch_style_registry.json.
+    
+    Args:
+        registry_path: Path to arch_style_registry.json or the extracted folder containing it
+    
+    Returns:
+        List of role names (e.g., ["SectionTitle", "PART", "ARTICLE", ...])
+        Returns None if registry not found.
+    """
+    registry_path = Path(registry_path)
+    
+    # Handle both direct JSON path and folder path
+    if registry_path.is_dir():
+        registry_path = registry_path / "arch_style_registry.json"
+    
+    if not registry_path.exists():
+        return None
+    
+    registry = json.loads(registry_path.read_text(encoding="utf-8"))
+    roles = registry.get("roles", {})
+    
+    return sorted(roles.keys())
+
+
 def load_arch_style_registry(arch_extract_dir: Path) -> Dict[str, str]:
     """
     Phase 2 contract (STRICT):
@@ -1030,14 +1100,30 @@ def strip_boilerplate_with_report(content: str) -> tuple[str, list[str]]:
     return cleaned, hits
 
 
-def build_phase2_slim_bundle(extract_dir: Path, discipline: str) -> Dict[str, Any]:
+def build_phase2_slim_bundle(
+    extract_dir: Path,
+    discipline: str,
+    available_roles: Optional[List[str]] = None
+) -> Dict[str, Any]:
+    """
+    Build the slim bundle for Phase 2 LLM classification.
+    
+    Args:
+        extract_dir: Path to extracted DOCX folder
+        discipline: "mechanical" or "plumbing"
+        available_roles: List of role names available in the architect template.
+                        If None, all standard roles are allowed.
+    
+    Returns:
+        Dict containing document_meta, available_roles, filter_report, and paragraphs
+    """
     doc_path = extract_dir / "word" / "document.xml"
     doc_text = doc_path.read_text(encoding="utf-8")
 
     paragraphs = []
     filter_report = {
-        "paragraphs_removed_entirely": [],   # [{paragraph_index, tags, original_text_preview}]
-        "paragraphs_stripped": []            # [{paragraph_index, tags}]
+        "paragraphs_removed_entirely": [],
+        "paragraphs_stripped": []
     }
 
     for idx, (_s, _e, p_xml) in enumerate(iter_paragraph_xml_blocks(doc_text)):
@@ -1050,7 +1136,6 @@ def build_phase2_slim_bundle(extract_dir: Path, discipline: str) -> Dict[str, An
 
         cleaned_text, tags = strip_boilerplate_with_report(raw_text)
 
-        # If boilerplate stripping makes it empty, do not send to LLM
         if not cleaned_text:
             if tags:
                 filter_report["paragraphs_removed_entirely"].append({
@@ -1075,10 +1160,23 @@ def build_phase2_slim_bundle(extract_dir: Path, discipline: str) -> Dict[str, An
             "contains_sectPr": False
         })
 
+    # Default roles if none specified
+    if available_roles is None:
+        available_roles = [
+            "SectionID",
+            "SectionTitle", 
+            "PART",
+            "ARTICLE",
+            "PARAGRAPH",
+            "SUBPARAGRAPH",
+            "SUBSUBPARAGRAPH"
+        ]
+
     return {
         "document_meta": {
             "discipline": discipline
         },
+        "available_roles": available_roles,
         "filter_report": filter_report,
         "paragraphs": paragraphs
     }
