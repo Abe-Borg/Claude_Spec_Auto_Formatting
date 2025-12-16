@@ -4,6 +4,7 @@ from __future__ import annotations
 from pathlib import Path
 import zipfile
 from typing import Dict, Union
+from arch_env_applier import apply_environment_to_target
 
 BytesOrStr = Union[bytes, str]
 

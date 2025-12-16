@@ -21,6 +21,8 @@ import json
 import difflib
 import re
 
+from arch_env_applier import apply_environment_to_target
+
 
 # -----------------------------------------------------------------------------
 # DOCX packaging safety
@@ -245,6 +247,20 @@ def main():
             if isinstance(item, dict) and isinstance(item.get("csi_role"), str)
         }
         needed_style_ids = sorted({arch_registry[r] for r in used_roles if r in arch_registry})
+
+
+        arch_template_registry_path = arch_root / "arch_template_registry.json"
+        if arch_template_registry_path.exists():
+            env_registry = json.loads(arch_template_registry_path.read_text(encoding="utf-8"))
+            apply_environment_to_target(
+                target_extract_dir=extract_dir,
+                registry=env_registry,
+                log=log
+            )
+        else:
+            log.append("WARNING: No arch_template_registry.json found; skipping environment application")
+
+
 
         import_arch_styles_into_target(
             target_extract_dir=extract_dir,
