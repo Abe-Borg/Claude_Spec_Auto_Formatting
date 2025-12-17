@@ -209,6 +209,37 @@ def build_numbering_import_plan(
     }
 
 
+def inject_font_into_numbering_rpr(xml: str, font_name: str = "Arial", font_size: str = "20") -> str:
+    """
+    Inject font specifications into all <w:rPr> blocks within numbering levels.
+    
+    This ensures list numbers render in the correct font, regardless of
+    what Word's cascade would otherwise inherit.
+    
+    Args:
+        xml: The numbering XML (abstractNum or num block)
+        font_name: Font family name (default "Arial")
+        font_size: Font size in half-points (default "20" = 10pt)
+    
+    Returns:
+        XML with font specs injected into rPr blocks
+    """
+    font_xml = f'<w:rFonts w:ascii="{font_name}" w:hAnsi="{font_name}" w:eastAsia="{font_name}" w:cs="{font_name}"/><w:sz w:val="{font_size}"/><w:szCs w:val="{font_size}"/>'
+    
+    def inject_into_rpr(match):
+        rpr_block = match.group(0)
+        # Check if rFonts already exists
+        if '<w:rFonts' in rpr_block:
+            return rpr_block  # Already has font, don't override
+        # Inject font specs right after <w:rPr>
+        return rpr_block.replace('<w:rPr>', f'<w:rPr>{font_xml}', 1)
+    
+    # Find and process all rPr blocks in lvl elements
+    result = re.sub(r'<w:rPr>[\s\S]*?</w:rPr>', inject_into_rpr, xml)
+    
+    return result
+
+
 def inject_numbering_into_xml(
     target_numbering_xml: str,
     abstract_nums_to_import: List[Dict],
@@ -219,14 +250,28 @@ def inject_numbering_into_xml(
     
     abstractNums go before the first <w:num> element.
     nums go at the end, before </w:numbering>.
+    
+    Also injects font specifications into rPr blocks to ensure list numbers
+    render in the correct font.
     """
     result = target_numbering_xml
+    
+    # Inject fonts into the numbering definitions before adding them
+    abstract_nums_with_fonts = []
+    for an in abstract_nums_to_import:
+        xml_with_fonts = inject_font_into_numbering_rpr(an["xml"])
+        abstract_nums_with_fonts.append(xml_with_fonts)
+    
+    nums_with_fonts = []
+    for n in nums_to_import:
+        xml_with_fonts = inject_font_into_numbering_rpr(n["xml"])
+        nums_with_fonts.append(xml_with_fonts)
     
     # Find insertion point for abstractNums (before first <w:num>)
     first_num_match = re.search(r'<w:num\s', result)
     if first_num_match:
         insert_pos = first_num_match.start()
-        abstract_xml = "\n".join(an["xml"] for an in abstract_nums_to_import)
+        abstract_xml = "\n".join(abstract_nums_with_fonts)
         if abstract_xml:
             result = result[:insert_pos] + abstract_xml + "\n" + result[insert_pos:]
     
@@ -234,7 +279,7 @@ def inject_numbering_into_xml(
     end_match = re.search(r'</w:numbering>', result)
     if end_match:
         insert_pos = end_match.start()
-        num_xml = "\n".join(n["xml"] for n in nums_to_import)
+        num_xml = "\n".join(nums_with_fonts)
         if num_xml:
             result = result[:insert_pos] + num_xml + "\n" + result[insert_pos:]
     
