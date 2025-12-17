@@ -826,12 +826,96 @@ def paragraph_ppr_hints_from_block(p_xml: str) -> Dict[str, Any]:
     return hints
 
 
+
+def strip_run_font_formatting(p_xml: str) -> str:
+    """
+    Strip font-related formatting from all runs in a paragraph.
+    
+    This allows the paragraph style's font definitions to take effect,
+    overriding hardcoded run-level fonts (common in MasterSpec/ARCOM docs).
+    
+    Strips from <w:rPr> inside <w:r>:
+    - <w:rFonts .../> (font family)
+    - <w:sz .../> (font size)
+    - <w:szCs .../> (complex script font size)
+    
+    Preserves:
+    - Bold, italic, underline, strikethrough
+    - Colors, highlighting
+    - Character styles (<w:rStyle>)
+    - Everything else
+    """
+    # Don't touch sectPr paragraphs
+    if "<w:sectPr" in p_xml:
+        return p_xml 
+    
+    def strip_font_from_rpr(rpr_match):
+        """Process a single <w:rPr>...</w:rPr> block inside a run."""
+        rpr_block = rpr_match.group(0)
+        
+        # Strip rFonts (self-closing or with content)
+        rpr_block = re.sub(r'<w:rFonts\b[^>]*/>', '', rpr_block)
+        rpr_block = re.sub(r'<w:rFonts\b[^>]*>[\s\S]*?</w:rFonts>', '', rpr_block, flags=re.S)
+        
+        # Strip sz (font size)
+        rpr_block = re.sub(r'<w:sz\b[^>]*/>', '', rpr_block)
+        
+        # Strip szCs (complex script font size)
+        rpr_block = re.sub(r'<w:szCs\b[^>]*/>', '', rpr_block)
+        
+        # If rPr is now empty, collapse it to self-closing or remove
+        # Check if only whitespace remains between tags
+        inner_check = re.sub(r'<w:rPr\b[^>]*>([\s\S]*)</w:rPr>', r'\1', rpr_block, flags=re.S)
+        if not inner_check.strip():
+            return ''  # Remove empty rPr entirely
+        
+        return rpr_block 
+    
+    def process_run(run_match):
+        """Process a single <w:r>...</w:r> block."""
+        run_block = run_match.group(0)
+        
+        # Find and process rPr inside this run
+        # Be careful to only match rPr that's a direct child of the run, not nested
+        run_block = re.sub(
+            r'(<w:r\b[^>]*>[\s\S]*?)(<w:rPr\b[^>]*>[\s\S]*?</w:rPr>)([\s\S]*?</w:r>)',
+            lambda m: m.group(1) + strip_font_from_rpr(type('Match', (), {'group': lambda self, n=0: m.group(2)})()) + m.group(3),
+            run_block,
+            count=1,
+            flags=re.S
+        )
+        
+        # Also handle self-closing rPr: <w:rPr ... />
+        # These typically don't have font info but handle just in case
+        
+        return run_block
+    
+    # Process each run in the paragraph
+    # Match <w:r>...</w:r> or <w:r ...>...</w:r>
+    result = re.sub(
+        r'<w:r\b[^>]*>[\s\S]*?</w:r>',
+        process_run,
+        p_xml,
+        flags=re.S
+    )
+    
+    return result
+
+
+
+
 def apply_phase2_classifications(
     extract_dir: Path,
     classifications: Dict[str, Any],
     arch_style_registry: Dict[str, str],
     log: List[str]
 ) -> None:
+    """
+    Apply CSI role classifications to paragraphs by setting pStyle.
+    
+    Also strips run-level font formatting so the style's fonts take effect.
+    This handles MasterSpec/ARCOM documents that have hardcoded fonts in every run.
+    """
     doc_path = extract_dir / "word" / "document.xml"
     doc_text = doc_path.read_text(encoding="utf-8")
 
@@ -842,13 +926,29 @@ def apply_phase2_classifications(
     blocks = list(iter_paragraph_xml_blocks(doc_text))
     para_blocks = [b[2] for b in blocks]
 
-    # Allow Phase 2 to change ONLY:
-    #   - <w:pStyle w:val="..."/>
-    #   - (optional) insertion of <w:numPr> to materialize existing style-linked numbering
+    # Track which paragraphs we modify (for logging)
+    modified_indices = set()
+
+    # Contract check: normalize paragraphs for comparison
+    # We now ALLOW changes to: pStyle, numPr, and run-level font formatting (rFonts, sz, szCs)
     def _normalize_paragraph_for_contract(p_xml: str) -> str:
+        """
+        Normalize paragraph for contract comparison.
+        Strips elements we're allowed to change.
+        """
         out = p_xml
+        # Strip pStyle (we change this)
         out = re.sub(r"<w:pStyle\b[^>]*/>", "", out)
+        # Strip numPr (we may materialize this)
         out = re.sub(r"<w:numPr\b[^>]*>[\s\S]*?</w:numPr>", "", out, flags=re.S)
+        # Strip run-level font formatting (we now strip this too)
+        out = re.sub(r"<w:rFonts\b[^>]*/>", "", out)
+        out = re.sub(r"<w:rFonts\b[^>]*>[\s\S]*?</w:rFonts>", "", out, flags=re.S)
+        out = re.sub(r"<w:sz\b[^>]*/>", "", out)
+        out = re.sub(r"<w:szCs\b[^>]*/>", "", out)
+        # Clean up empty rPr blocks that might result
+        out = re.sub(r"<w:rPr>\s*</w:rPr>", "", out)
+        out = re.sub(r"<w:rPr\s*/>", "", out)
         return out
 
     contract_before = [_normalize_paragraph_for_contract(p) for p in para_blocks]
@@ -893,8 +993,16 @@ def apply_phase2_classifications(
         pb = para_blocks[idx]
         pb = ensure_explicit_numpr_from_current_style(pb, styles_xml_text)
 
+        # NEW: Strip run-level font formatting so style fonts take effect
+        pb = strip_run_font_formatting(pb)
+
         # Now safely swap pStyle
         para_blocks[idx] = apply_pstyle_to_paragraph_block(pb, style_id)
+        modified_indices.add(idx)
+
+    # Log summary
+    log.append(f"Applied styles to {len(modified_indices)} paragraphs")
+    log.append(f"Stripped run-level font formatting from modified paragraphs")
 
     # Enforce the diff contract.
     contract_after = [_normalize_paragraph_for_contract(p) for p in para_blocks]
@@ -912,7 +1020,7 @@ def apply_phase2_classifications(
             ))
             raise ValueError(
                 "Phase 2 invariant violation: paragraph content changed outside allowed edits "
-                f"(pStyle/numPr) at paragraph index {i}.\n" + diff[:4000]
+                f"(pStyle/numPr/run fonts) at paragraph index {i}.\n" + diff[:4000]
             )
 
     # Rebuild document.xml
