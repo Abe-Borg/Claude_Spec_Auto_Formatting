@@ -20,7 +20,7 @@ from typing import Dict, Any, List, Set, Tuple, Optional
 import json
 import difflib
 import re
-
+import html
 from arch_env_applier import apply_environment_to_target
 
 try:
@@ -806,16 +806,12 @@ def iter_paragraph_xml_blocks(document_xml_text: str):
     for m in re.finditer(r"(<w:p\b[\s\S]*?</w:p>)", document_xml_text):
         yield m.start(), m.end(), m.group(1)
 
+
 def paragraph_text_from_block(p_xml: str) -> str:
-    # Extract visible text quickly (good enough for classification)
     texts = re.findall(r"<w:t\b[^>]*>([\s\S]*?)</w:t>", p_xml)
     if not texts:
         return ""
-    # Unescape minimal XML entities
-    joined = "".join(texts)
-    joined = joined.replace("&lt;", "<").replace("&gt;", ">").replace("&amp;", "&")
-    joined = joined.replace("&quot;", "\"").replace("&apos;", "'")
-    # collapse whitespace
+    joined = html.unescape("".join(texts))
     joined = re.sub(r"\s+", " ", joined).strip()
     return joined
 
@@ -878,51 +874,40 @@ def strip_run_font_formatting(p_xml: str) -> str:
     """
     # Don't touch sectPr paragraphs
     if "<w:sectPr" in p_xml:
-        return p_xml 
+        return p_xml
     
-    def strip_font_from_rpr(rpr_match):
-        """Process a single <w:rPr>...</w:rPr> block inside a run."""
-        rpr_block = rpr_match.group(0)
-        
+    def strip_font_from_rpr_text(rpr_text: str) -> str:
+        """Process a raw rPr string."""
+        result = rpr_text
         # Strip rFonts (self-closing or with content)
-        rpr_block = re.sub(r'<w:rFonts\b[^>]*/>', '', rpr_block)
-        rpr_block = re.sub(r'<w:rFonts\b[^>]*>[\s\S]*?</w:rFonts>', '', rpr_block, flags=re.S)
-        
+        result = re.sub(r'<w:rFonts\b[^>]*/>', '', result)
+        result = re.sub(r'<w:rFonts\b[^>]*>[\s\S]*?</w:rFonts>', '', result, flags=re.S)
         # Strip sz (font size)
-        rpr_block = re.sub(r'<w:sz\b[^>]*/>', '', rpr_block)
-        
+        result = re.sub(r'<w:sz\b[^>]*/>', '', result)
         # Strip szCs (complex script font size)
-        rpr_block = re.sub(r'<w:szCs\b[^>]*/>', '', rpr_block)
+        result = re.sub(r'<w:szCs\b[^>]*/>', '', result)
         
-        # If rPr is now empty, collapse it to self-closing or remove
-        # Check if only whitespace remains between tags
-        inner_check = re.sub(r'<w:rPr\b[^>]*>([\s\S]*)</w:rPr>', r'\1', rpr_block, flags=re.S)
-        if not inner_check.strip():
-            return ''  # Remove empty rPr entirely
-        
-        return rpr_block 
+        # Check if empty - remove entirely if so
+        inner = re.sub(r'<w:rPr\b[^>]*>([\s\S]*)</w:rPr>', r'\1', result, flags=re.S)
+        if not inner.strip():
+            return ''
+        return result
     
     def process_run(run_match):
         """Process a single <w:r>...</w:r> block."""
         run_block = run_match.group(0)
         
-        # Find and process rPr inside this run
-        # Be careful to only match rPr that's a direct child of the run, not nested
+        # Find and replace rPr inside this run
         run_block = re.sub(
-            r'(<w:r\b[^>]*>[\s\S]*?)(<w:rPr\b[^>]*>[\s\S]*?</w:rPr>)([\s\S]*?</w:r>)',
-            lambda m: m.group(1) + strip_font_from_rpr(type('Match', (), {'group': lambda self, n=0: m.group(2)})()) + m.group(3),
+            r'<w:rPr\b[^>]*>[\s\S]*?</w:rPr>',
+            lambda m: strip_font_from_rpr_text(m.group(0)),
             run_block,
             count=1,
             flags=re.S
         )
-        
-        # Also handle self-closing rPr: <w:rPr ... />
-        # These typically don't have font info but handle just in case
-        
         return run_block
     
     # Process each run in the paragraph
-    # Match <w:r>...</w:r> or <w:r ...>...</w:r>
     result = re.sub(
         r'<w:r\b[^>]*>[\s\S]*?</w:r>',
         process_run,
