@@ -441,7 +441,6 @@ class StabilitySnapshot:
     sectpr_hash: str
     doc_rels_hash: str
 
-
 def snapshot_headers_footers(extract_dir: Path) -> Dict[str, str]:
     wf = extract_dir / "word"
     hashes = {}
@@ -469,7 +468,6 @@ def snapshot_stability(extract_dir: Path) -> StabilitySnapshot:
         doc_rels_hash=snapshot_doc_rels_hash(extract_dir),
     )
 
-
 def verify_stability(extract_dir: Path, snap: StabilitySnapshot) -> None:
     current_hf = snapshot_headers_footers(extract_dir)
     if current_hf != snap.header_footer_hashes:
@@ -489,7 +487,6 @@ def verify_stability(extract_dir: Path, snap: StabilitySnapshot) -> None:
     current_rels = snapshot_doc_rels_hash(extract_dir)
     if current_rels != snap.doc_rels_hash:
         raise ValueError("document.xml.rels stability check FAILED (can break header/footer).")
-
 
 def _extract_style_block(styles_xml_text: str, style_id: str) -> Optional[str]:
     m = re.search(
@@ -560,7 +557,6 @@ def ensure_explicit_numpr_from_current_style(p_xml: str, styles_xml_text: str) -
 
     # Create pPr if missing
     return re.sub(r'(<w:p\b[^>]*>)', rf"\1<w:pPr>{numpr}</w:pPr>", p_xml, count=1)
-
 
 def _strip_pstyle_and_numpr(ppr_inner: str) -> str:
     if not ppr_inner:
@@ -644,8 +640,6 @@ def _effective_rpr_inner_in_arch(arch_styles_xml_text: str, style_id: str) -> st
 
     return "".join(nodes)
 
-
-
 def _effective_ppr_inner_in_arch(arch_styles_xml_text: str, style_id: str) -> str:
     seen = set()
     cur = style_id
@@ -665,10 +659,8 @@ def _effective_ppr_inner_in_arch(arch_styles_xml_text: str, style_id: str) -> st
 def _rpr_contains_tag(rpr_inner: str, tag: str) -> bool:
     return re.search(rf"<w:{re.escape(tag)}\b", rpr_inner) is not None
 
-
 def _extract_rpr_inner(style_block: str) -> Optional[str]:
     return _extract_tag_inner(style_block, "w:rPr")
-
 
 def _inject_missing_rpr_children(style_block: str, missing_children_xml: str) -> str:
     """Insert missing rPr children (already as raw XML) just before </w:rPr>."""
@@ -678,8 +670,6 @@ def _inject_missing_rpr_children(style_block: str, missing_children_xml: str) ->
         return style_block
     # Replace only the first closing tag (avoid accidental insertion into nested rPr blocks)
     return style_block.replace("</w:rPr>", f"{missing_children_xml}</w:rPr>", 1)
-
-
 
 def _materialize_minimal_typography(style_block: str, style_id: str, arch_styles_xml_text: str) -> str:
     """
@@ -733,7 +723,6 @@ def _materialize_minimal_typography(style_block: str, style_id: str, arch_styles
     insertion = "".join(missing_nodes)
     return _inject_missing_rpr_children(style_block, insertion)
 
-
 def materialize_arch_style_block(style_block: str, style_id: str, arch_styles_xml_text: str) -> str:
     """
     Phase 2: import-time style hardening.
@@ -764,9 +753,7 @@ def materialize_arch_style_block(style_block: str, style_id: str, arch_styles_xm
 
     return style_block
 
-
 W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
-
 
 def iter_paragraph_xml_blocks(document_xml_text: str):
     # Non-greedy paragraph blocks. Works well for DOCX document.xml.
@@ -824,7 +811,6 @@ def paragraph_ppr_hints_from_block(p_xml: str) -> Dict[str, Any]:
     if spacing:
         hints["spacing"] = spacing
     return hints
-
 
 
 def strip_run_font_formatting(p_xml: str) -> str:
@@ -900,8 +886,6 @@ def strip_run_font_formatting(p_xml: str) -> str:
     )
     
     return result
-
-
 
 
 def apply_phase2_classifications(
