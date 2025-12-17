@@ -35,15 +35,14 @@ def patch_docx(
         "word/footer",
     )
 
-    FORBIDDEN_EXACT = {
-        "word/numbering.xml",
-    }
+    FORBIDDEN_EXACT = set()
 
     # Expanded to include environment parts
     ALLOWED_PATCHES = {
         "word/document.xml",
         "word/styles.xml",
         "word/theme/theme1.xml",
+        "word/numbering.xml",
         "word/settings.xml",
         "word/fontTable.xml",
         "[Content_Types].xml",

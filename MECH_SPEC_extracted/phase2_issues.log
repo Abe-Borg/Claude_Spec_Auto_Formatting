@@ -17,17 +17,30 @@ Replaced existing docDefaults with architect values
 ============================================================
 END ENVIRONMENT APPLICATION
 ============================================================
-WARNING: Stripped <w:numPr> from imported style: CSILevel0
+
+============================================================
+IMPORTING NUMBERING DEFINITIONS
+============================================================
+Importing 2 abstractNum definitions
+Importing 2 num definitions
+  numId 1 -> 3 (abstractNum 2 -> 2)
+  numId 2 -> 4 (abstractNum 6 -> 3)
+Updated MECH_SPEC_extracted\word\numbering.xml
+
+============================================================
+IMPORTING STYLE DEFINITIONS
+============================================================
+Remapped numId 1 -> 3 in style: CSILevel0
 Imported style from architect: CSILevel0
-WARNING: Stripped <w:numPr> from imported style: CSILevel1
+Remapped numId 2 -> 4 in style: CSILevel1
 Imported style from architect: CSILevel1
-WARNING: Stripped <w:numPr> from imported style: CSILevel2
+Remapped numId 2 -> 4 in style: CSILevel2
 Imported style from architect: CSILevel2
-WARNING: Stripped <w:numPr> from imported style: CSILevel3
+Remapped numId 2 -> 4 in style: CSILevel3
 Imported style from architect: CSILevel3
-WARNING: Stripped <w:numPr> from imported style: CSILevel4
+Remapped numId 2 -> 4 in style: CSILevel4
 Imported style from architect: CSILevel4
-WARNING: Stripped <w:numPr> from imported style: CSILevel5
+Remapped numId 2 -> 4 in style: CSILevel5
 Imported style from architect: CSILevel5
 Applied styles to 330 paragraphs
 Stripped run-level font formatting from modified paragraphs
