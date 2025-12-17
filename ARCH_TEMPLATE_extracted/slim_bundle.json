@@ -1,0 +1,478 @@
+{
+  "stability": {
+    "header_footer_hashes": {
+      "word/header1.xml": "29b0b4696bcb83803b0566f72df4f1382d5addf50cdb263306e6a3080ea9178f",
+      "word/footer1.xml": "dc0d0874256d80d3f4c5f9abe9b5f30254d096f7c315ba9aa91475462202e959"
+    },
+    "sectPr_hash": "f7cdf4178a9226b3c526fe3dd6b655e8c18c005c63ababe8e38eeafd9e03c118"
+  },
+  "paragraphs": [
+    {
+      "paragraph_index": 0,
+      "text": "Section 00 0000 SECTION NAME",
+      "pStyle": "CSILevel0",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 1,
+      "text": "PART 1 - GENERAL",
+      "pStyle": "CSILevel1",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 2,
+      "text": "xxxxxx",
+      "pStyle": "CSILevel2",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 3,
+      "text": "XXXX",
+      "pStyle": "CSILevel3",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 4,
+      "text": "XXXX",
+      "pStyle": "CSILevel3",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 5,
+      "text": "XXXXXX",
+      "pStyle": "CSILevel2",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 6,
+      "text": "XXXX",
+      "pStyle": "CSILevel3",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 7,
+      "text": "XXXX",
+      "pStyle": "CSILevel4",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 8,
+      "text": "PART 2 - PRODUCTS",
+      "pStyle": "CSILevel1",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 9,
+      "text": "XXXXXX",
+      "pStyle": "CSILevel2",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 10,
+      "text": "XXXX",
+      "pStyle": "CSILevel3",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 11,
+      "text": "XXXX",
+      "pStyle": "CSILevel3",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 12,
+      "text": "",
+      "pStyle": "CSILevel3",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 13,
+      "text": "XXXXXX",
+      "pStyle": "CSILevel2",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 14,
+      "text": "XXXX",
+      "pStyle": "CSILevel3",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 15,
+      "text": "XXXX",
+      "pStyle": "CSILevel4",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 16,
+      "text": "",
+      "pStyle": "CSILevel5",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 17,
+      "text": "",
+      "pStyle": "CSILevel4N",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 18,
+      "text": "PART 3 - EXECUTION",
+      "pStyle": "CSILevel1",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 19,
+      "text": "XXXXXX",
+      "pStyle": "CSILevel2",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 20,
+      "text": "XXXX",
+      "pStyle": "CSILevel3",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 21,
+      "text": "XXXX",
+      "pStyle": "CSILevel3",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 22,
+      "text": "",
+      "pStyle": "CSILevel3",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 23,
+      "text": "XXXXXX",
+      "pStyle": "CSILevel2",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 24,
+      "text": "XXXX",
+      "pStyle": "CSILevel3",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 25,
+      "text": "XXXX",
+      "pStyle": "CSILevel4",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 26,
+      "text": "",
+      "pStyle": "CSILevel1",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 27,
+      "text": "",
+      "pStyle": "CSILevel3",
+      "numPr": {
+        "numId": "3",
+        "ilvl": "3"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 28,
+      "text": "",
+      "pStyle": "CSILevel3",
+      "numPr": {
+        "numId": "4",
+        "ilvl": "3"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 29,
+      "text": "END OF SECTION",
+      "pStyle": "CSILevel0",
+      "numPr": {
+        "numId": "5",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    }
+  ],
+  "style_catalog": {
+    "CSILevel0": {
+      "styleId": "CSILevel0",
+      "type": "paragraph",
+      "name": "CSILevel0",
+      "basedOn": null
+    },
+    "CSILevel1": {
+      "styleId": "CSILevel1",
+      "type": "paragraph",
+      "name": "CSILevel1",
+      "basedOn": null
+    },
+    "CSILevel2": {
+      "styleId": "CSILevel2",
+      "type": "paragraph",
+      "name": "CSILevel2",
+      "basedOn": null
+    },
+    "CSILevel3": {
+      "styleId": "CSILevel3",
+      "type": "paragraph",
+      "name": "CSILevel3",
+      "basedOn": null
+    },
+    "CSILevel4": {
+      "styleId": "CSILevel4",
+      "type": "paragraph",
+      "name": "CSILevel4",
+      "basedOn": null
+    },
+    "CSILevel4N": {
+      "styleId": "CSILevel4N",
+      "type": "paragraph",
+      "name": "CSILevel4N",
+      "basedOn": "Normal"
+    },
+    "CSILevel5": {
+      "styleId": "CSILevel5",
+      "type": "paragraph",
+      "name": "CSILevel5",
+      "basedOn": null
+    },
+    "Normal": {
+      "styleId": "Normal",
+      "type": "paragraph",
+      "name": "Normal",
+      "basedOn": null
+    }
+  },
+  "numbering_catalog": {
+    "nums": {
+      "3": {
+        "numId": "3",
+        "abstractNumId": "3"
+      },
+      "4": {
+        "numId": "4",
+        "abstractNumId": "8"
+      },
+      "5": {
+        "numId": "5",
+        "abstractNumId": "4"
+      }
+    },
+    "abstracts": {
+      "3": {
+        "abstractNumId": "3",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          },
+          {
+            "ilvl": "1",
+            "numFmt": "lowerLetter",
+            "lvlText": "%2."
+          },
+          {
+            "ilvl": "2",
+            "numFmt": "lowerRoman",
+            "lvlText": "%3."
+          },
+          {
+            "ilvl": "3",
+            "numFmt": "decimal",
+            "lvlText": "%4."
+          },
+          {
+            "ilvl": "4",
+            "numFmt": "lowerLetter",
+            "lvlText": "%5."
+          },
+          {
+            "ilvl": "5",
+            "numFmt": "lowerRoman",
+            "lvlText": "%6."
+          },
+          {
+            "ilvl": "6",
+            "numFmt": "decimal",
+            "lvlText": "%7."
+          },
+          {
+            "ilvl": "7",
+            "numFmt": "lowerLetter",
+            "lvlText": "%8."
+          },
+          {
+            "ilvl": "8",
+            "numFmt": "lowerRoman",
+            "lvlText": "%9."
+          }
+        ]
+      },
+      "4": {
+        "abstractNumId": "4",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          },
+          {
+            "ilvl": "1",
+            "numFmt": "lowerLetter",
+            "lvlText": "%2."
+          },
+          {
+            "ilvl": "2",
+            "numFmt": "lowerRoman",
+            "lvlText": "%3."
+          },
+          {
+            "ilvl": "3",
+            "numFmt": "decimal",
+            "lvlText": "%4."
+          },
+          {
+            "ilvl": "4",
+            "numFmt": "lowerLetter",
+            "lvlText": "%5."
+          },
+          {
+            "ilvl": "5",
+            "numFmt": "lowerRoman",
+            "lvlText": "%6."
+          },
+          {
+            "ilvl": "6",
+            "numFmt": "decimal",
+            "lvlText": "%7."
+          },
+          {
+            "ilvl": "7",
+            "numFmt": "lowerLetter",
+            "lvlText": "%8."
+          },
+          {
+            "ilvl": "8",
+            "numFmt": "lowerRoman",
+            "lvlText": "%9."
+          }
+        ]
+      },
+      "8": {
+        "abstractNumId": "8",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          },
+          {
+            "ilvl": "1",
+            "numFmt": "lowerLetter",
+            "lvlText": "%2."
+          },
+          {
+            "ilvl": "2",
+            "numFmt": "lowerRoman",
+            "lvlText": "%3."
+          },
+          {
+            "ilvl": "3",
+            "numFmt": "decimal",
+            "lvlText": "%4."
+          },
+          {
+            "ilvl": "4",
+            "numFmt": "lowerLetter",
+            "lvlText": "%5."
+          },
+          {
+            "ilvl": "5",
+            "numFmt": "lowerRoman",
+            "lvlText": "%6."
+          },
+          {
+            "ilvl": "6",
+            "numFmt": "decimal",
+            "lvlText": "%7."
+          },
+          {
+            "ilvl": "7",
+            "numFmt": "lowerLetter",
+            "lvlText": "%8."
+          },
+          {
+            "ilvl": "8",
+            "numFmt": "lowerRoman",
+            "lvlText": "%9."
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "source_docx": "ARCH_TEMPLATE.docx",
+  "roles": {
+    "SectionTitle": {
+      "style_id": "CSILevel0",
+      "exemplar_paragraph_index": 0,
+      "style_name": "CSILevel0"
+    },
+    "PART": {
+      "style_id": "CSILevel1",
+      "exemplar_paragraph_index": 1,
+      "style_name": "CSILevel1"
+    },
+    "ARTICLE": {
+      "style_id": "CSILevel2",
+      "exemplar_paragraph_index": 2,
+      "style_name": "CSILevel2"
+    },
+    "PARAGRAPH": {
+      "style_id": "CSILevel3",
+      "exemplar_paragraph_index": 3,
+      "style_name": "CSILevel3"
+    },
+    "SUBPARAGRAPH": {
+      "style_id": "CSILevel4",
+      "exemplar_paragraph_index": 7,
+      "style_name": "CSILevel4"
+    },
+    "SUBSUBPARAGRAPH": {
+      "style_id": "CSILevel5",
+      "exemplar_paragraph_index": 16,
+      "style_name": "CSILevel5"
+    }
+  }
+}
