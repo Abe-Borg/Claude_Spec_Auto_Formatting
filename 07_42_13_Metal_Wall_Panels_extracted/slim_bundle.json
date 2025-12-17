@@ -1,0 +1,926 @@
+{
+  "stability": {
+    "header_footer_hashes": {
+      "word/header1.xml": "d932c4b4151bd8bb4e2cc103c5cc3c20ac1bf3c95c672040af2eff840262c98b",
+      "word/footer1.xml": "4fd20676fb92721d34388484f903db1298257f87cca35585fd84521d1ef1d6a2"
+    },
+    "sectPr_hash": "ad800bdd5628b95a858069932d6429f430b59c6decf8b1149e043164c32fd59c"
+  },
+  "paragraphs": [
+    {
+      "paragraph_index": 0,
+      "text": "SECTION 7 42 13",
+      "pStyle": "SectionTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 1,
+      "text": "METAL WALL PANELS",
+      "pStyle": "SectionTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 2,
+      "text": "PART 2 - PRODUCTS",
+      "pStyle": "PartTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 3,
+      "text": "Panel Materials",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "2",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 4,
+      "text": "Aluminum Panels",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "3",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 5,
+      "text": "Material: Aluminum alloy 3003-H14",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "4",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 6,
+      "text": "Thickness: 0.040 inch minimum",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "4",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 7,
+      "text": "Finish: Kynar 500 fluoropolymer, 70% PVDF",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "4",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 8,
+      "text": "Steel Panels",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "3",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 9,
+      "text": "Material: G90 galvanized steel",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "5",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 10,
+      "text": "Thickness: 22 gauge minimum",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "5",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 11,
+      "text": "2.05 ACCESSORIES",
+      "pStyle": "ArticleTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 12,
+      "text": "Fasteners: Stainless steel, concealed type.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 13,
+      "text": "Self-drilling screws with neoprene washers",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "7",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 14,
+      "text": "Blind rivets where indicated",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "7",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 15,
+      "text": "Sealant: Silicone, color to match panels",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 16,
+      "text": "Flashing: Same material and finish as panels",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 17,
+      "text": "PART 1 - GENERAL",
+      "pStyle": "PartTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 18,
+      "text": "Summary",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "8",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 19,
+      "text": "section includes:",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "9",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 20,
+      "text": "Factory-formed metal wall panels.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "10",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 21,
+      "text": "Panel accessories and trim",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "10",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 22,
+      "text": "Sub-framing for panel attachment",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "10",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 23,
+      "text": "related sections",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "9",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 24,
+      "text": "Section 05 41 00 - Structural Metal Framing",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "11",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 25,
+      "text": "Section 07 92 00 - Joint Sealants",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "11",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 26,
+      "text": "1.3 SUBMITTALS",
+      "pStyle": "ArticleTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 27,
+      "text": "Product Data: Submit manufacturer's product data",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "12",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 28,
+      "text": "Include panel profiles and dimensions",
+      "pStyle": "SubSubparagraphLevel",
+      "numPr": {
+        "numId": "13",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 29,
+      "text": "Include finish color charts",
+      "pStyle": "SubSubparagraphLevel",
+      "numPr": {
+        "numId": "13",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 30,
+      "text": "Shop Drawings: Submit fabrication and installation drawings",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "12",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 31,
+      "text": "Samples: Submit 12 inch square samples of each panel type and color",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "12",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 32,
+      "text": "1.3 QUALITY ASSURANCE",
+      "pStyle": "ArticleTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 33,
+      "text": "Manufacturer Qualifications: Minimum 10 years experience.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "14",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 34,
+      "text": "Installer Qualifications: Approved by panel manufacturer.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "14",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 35,
+      "text": "1.4 DELIVERY, STORAGE AND HANDLING",
+      "pStyle": "ArticleTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 36,
+      "text": "1.6 REFERENCES",
+      "pStyle": "ArticleTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 37,
+      "text": "ASTM B209 - Aluminum Sheet",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "15",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 38,
+      "text": "AAMA 2605 - High Performance Coatings",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "15",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 39,
+      "text": "Install panels plumb and level within 1/8 inch in 10 feet.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "15",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 40,
+      "text": "PART 3 - EXECUTION",
+      "pStyle": "PartTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 41,
+      "text": "3.02 INSTALLATION",
+      "pStyle": "ArticleTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 42,
+      "text": "Install panels per manufacturer's instructions and approved shop drawings.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 43,
+      "text": "Align panels with building grid lines",
+      "pStyle": "SubSubparagraphLevel",
+      "numPr": {
+        "numId": "13",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 44,
+      "text": "Maintain uniform joint widths",
+      "pStyle": "SubSubparagraphLevel",
+      "numPr": {
+        "numId": "13",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 45,
+      "text": "Seal joints watertight with specified sealant.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 46,
+      "text": "Coordinate with other trades for penetrations.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "12",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 47,
+      "text": "Protect installed panels from damage.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "12",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 48,
+      "text": "CLEANING",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "16",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 49,
+      "text": "Clean panel surfaces upon completion.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 50,
+      "text": "Acceptable Manufacturers:",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 51,
+      "text": "CENTRIA",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "17",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 52,
+      "text": "ATAS International",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "17",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 53,
+      "text": "Metalw\u00ebrks",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "17",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 54,
+      "text": "Remove protective film from panels.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 55,
+      "text": "Touch up minor scratches with manufacturer's touch-up paint.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 56,
+      "text": "3.05 WARRANTY",
+      "pStyle": "ArticleTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 57,
+      "text": "A. PROVIDE 20 YEAR WARRANTY ON PANEL FINISH",
+      "pStyle": "ArticleTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 58,
+      "text": "B. PROVIDE 5 YEAR WARRANTY ON INSTALLATION",
+      "pStyle": "ArticleTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 59,
+      "text": "PART 2 - PRODUCTS (CONTINUED)",
+      "pStyle": "PartTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 60,
+      "text": "2.03 MANUFACTURERS",
+      "pStyle": "ArticleTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 61,
+      "text": "See Article 3.03 for acceptable manufacturers.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 62,
+      "text": "END OF SECTON",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "jc": "center",
+        "spacing": {
+          "before": "360"
+        }
+      },
+      "contains_sectPr": false
+    }
+  ],
+  "style_catalog": {
+    "ArticleTitle": {
+      "styleId": "ArticleTitle",
+      "type": "paragraph",
+      "name": "Article Title",
+      "basedOn": "Normal"
+    },
+    "ParagraphLevel": {
+      "styleId": "ParagraphLevel",
+      "type": "paragraph",
+      "name": "Paragraph Level",
+      "basedOn": "Normal"
+    },
+    "PartTitle": {
+      "styleId": "PartTitle",
+      "type": "paragraph",
+      "name": "Part Title",
+      "basedOn": "Normal"
+    },
+    "SectionTitle": {
+      "styleId": "SectionTitle",
+      "type": "paragraph",
+      "name": "Section Title",
+      "basedOn": "Normal"
+    },
+    "SubSubparagraphLevel": {
+      "styleId": "SubSubparagraphLevel",
+      "type": "paragraph",
+      "name": "Sub-Subparagraph Level",
+      "basedOn": "Normal"
+    },
+    "SubparagraphLevel": {
+      "styleId": "SubparagraphLevel",
+      "type": "paragraph",
+      "name": "Subparagraph Level",
+      "basedOn": "Normal"
+    }
+  },
+  "numbering_catalog": {
+    "nums": {
+      "10": {
+        "numId": "10",
+        "abstractNumId": "11"
+      },
+      "11": {
+        "numId": "11",
+        "abstractNumId": "18"
+      },
+      "12": {
+        "numId": "12",
+        "abstractNumId": "10"
+      },
+      "13": {
+        "numId": "13",
+        "abstractNumId": "14"
+      },
+      "14": {
+        "numId": "14",
+        "abstractNumId": "16"
+      },
+      "15": {
+        "numId": "15",
+        "abstractNumId": "17"
+      },
+      "16": {
+        "numId": "16",
+        "abstractNumId": "4"
+      },
+      "17": {
+        "numId": "17",
+        "abstractNumId": "19"
+      },
+      "2": {
+        "numId": "2",
+        "abstractNumId": "5"
+      },
+      "3": {
+        "numId": "3",
+        "abstractNumId": "9"
+      },
+      "4": {
+        "numId": "4",
+        "abstractNumId": "12"
+      },
+      "5": {
+        "numId": "5",
+        "abstractNumId": "13"
+      },
+      "6": {
+        "numId": "6",
+        "abstractNumId": "7"
+      },
+      "7": {
+        "numId": "7",
+        "abstractNumId": "15"
+      },
+      "8": {
+        "numId": "8",
+        "abstractNumId": "6"
+      },
+      "9": {
+        "numId": "9",
+        "abstractNumId": "8"
+      }
+    },
+    "abstracts": {
+      "4": {
+        "abstractNumId": "4",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "3.0%1"
+          }
+        ]
+      },
+      "5": {
+        "abstractNumId": "5",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "2.0%1"
+          }
+        ]
+      },
+      "6": {
+        "abstractNumId": "6",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "1.%1"
+          }
+        ]
+      },
+      "7": {
+        "abstractNumId": "7",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "8": {
+        "abstractNumId": "8",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "lowerLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "9": {
+        "abstractNumId": "9",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperRoman",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "10": {
+        "abstractNumId": "10",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "11": {
+        "abstractNumId": "11",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "12": {
+        "abstractNumId": "12",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "13": {
+        "abstractNumId": "13",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "lowerRoman",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "14": {
+        "abstractNumId": "14",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "lowerLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "15": {
+        "abstractNumId": "15",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "bullet",
+            "lvlText": "\u2022"
+          }
+        ]
+      },
+      "16": {
+        "abstractNumId": "16",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "17": {
+        "abstractNumId": "17",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "18": {
+        "abstractNumId": "18",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "19": {
+        "abstractNumId": "19",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,1399 @@
+{
+  "stability": {
+    "header_footer_hashes": {
+      "word/header1.xml": "7d42d4a66465d01de3abe202f4a71683654420759ef1a033677f491066dbaa7a",
+      "word/footer1.xml": "e3c086ce7d12f9c5f5cefdac5986ad7f700ecbef58d9df7491923849eb6126ae"
+    },
+    "sectPr_hash": "ad800bdd5628b95a858069932d6429f430b59c6decf8b1149e043164c32fd59c"
+  },
+  "paragraphs": [
+    {
+      "paragraph_index": 0,
+      "text": "SECTION 09 30 00",
+      "pStyle": "SectionTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 1,
+      "text": "CERAMIC TILING",
+      "pStyle": "SectionTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 2,
+      "text": "PART 1 - GENERAL",
+      "pStyle": "PartTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 3,
+      "text": "SUMMARY",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "2",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 4,
+      "text": "Section Includes:",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "3",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 5,
+      "text": "Ceramic tile for floors.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "4",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 6,
+      "text": "Ceramic tile for walls.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "4",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 7,
+      "text": "Porcelain tile for floors.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "4",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 8,
+      "text": "Tile setting materials and grout.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "4",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 9,
+      "text": "Related Sections:",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "3",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 10,
+      "text": "Section 07 92 00 - Joint Sealants.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "4",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 11,
+      "text": "Section 09 91 00 - painting.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "4",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 12,
+      "text": "REFERENCES",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "2",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 13,
+      "text": "Reference Standards:",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "5",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 14,
+      "text": "ANSI A108 - American National Standard Specifications for Installation of Ceramic Tile.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 15,
+      "text": "ANSI A118 - American National Standard Specifications for Tile Installation Materials.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 16,
+      "text": "ANSI A137.1 - American National Standard Specifications for Ceramic Tile.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 17,
+      "text": "TCNA Handbook for Ceramic, Glass, and Stone Tile Installation.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 18,
+      "text": "SUBMITTALS",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "2",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 19,
+      "text": "Product Data: Submit manufacturer's technical data for each tile and setting material.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "7",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 20,
+      "text": "Include tile sizes, colors, and patterns.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "8",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 21,
+      "text": "Include setting material specifications and limitations.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "8",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 22,
+      "text": "Samples: Submit two full-size samples of each tile type and color.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "7",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 23,
+      "text": "Grout samples to be submitted with tile samples.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "7",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 24,
+      "text": "Shop Drawings: Submit tile layout drawings for patterned installations.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "7",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 25,
+      "text": "Quality Assurance",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "2",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 26,
+      "text": "Installer Qualifications: Minimum 5 years experience with similar tile installations.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "9",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 27,
+      "text": "Mock-Up: Construct mock-up of typical tile installation for Architect approval.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "9",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 28,
+      "text": "Minimum 4 feet by 4 feet area.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "10",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 29,
+      "text": "Include typical joints, corners, and transitions.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "10",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 30,
+      "text": "DELIVERY, STORAGE, AND HANDLING",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "2",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 31,
+      "text": "Deliver materials in manufacturer's original packaging with labels intact.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "11",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 32,
+      "text": "Store materials in dry location protected from weather.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "11",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 33,
+      "text": "Condition materials to minimum 50 degrees F before installation.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "11",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 34,
+      "text": "PART 2 - PRODUCTS",
+      "pStyle": "PartTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 35,
+      "text": "MANUFACTURERS",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "12",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 36,
+      "text": "Acceptable Manufacturers - Tile:",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "13",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 37,
+      "text": "Daltile.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "14",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 38,
+      "text": "American Olean.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "14",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 39,
+      "text": "Florida Tile Industries.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "14",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 40,
+      "text": "Acceptable Manufacturers - Setting Materials:",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "13",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 41,
+      "text": "Laticrete International.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "14",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 42,
+      "text": "MAPEI Corporation.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "14",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 43,
+      "text": "Custom Building Products.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "14",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 44,
+      "text": "TILE MATERIALS",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "12",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 45,
+      "text": "Floor Tile (Type FT-1): Porcelain, through-body color.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "15",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 46,
+      "text": "Size: 12 inches by 12 inches by 3/8 inch thick.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "16",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 47,
+      "text": "Finish: Matte, slip-resistant.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "16",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 48,
+      "text": "DCOF: 0.42 minimum per ANSI A326.3.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "16",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 49,
+      "text": "Color: As selected by Architect.",
+      "pStyle": "SubSubparagraphLevel",
+      "numPr": {
+        "numId": "17",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 50,
+      "text": "Application: Toilet rooms, janitor closets, kitchen.",
+      "pStyle": "SubSubparagraphLevel",
+      "numPr": {
+        "numId": "17",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 51,
+      "text": "Wall Tile (Type WT-1): Ceramic, glazed.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "15",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 52,
+      "text": "Size: 4 inches by 4 inches by 5/16 inch thick.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "18",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 53,
+      "text": "Finish: Gloss.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "18",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 54,
+      "text": "Color: White.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "18",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 55,
+      "text": "Accent Tile (Type AT-1): Glass mosaic.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "15",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 56,
+      "text": "Size: 1 inch by 1 inch mounted on 12 inch by 12 inch sheets.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "18",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 57,
+      "text": "SETTING MATERIALS",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "12",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 58,
+      "text": "Thin-Set Mortar: ANSI A118.4, latex-portland cement type.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "19",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 59,
+      "text": "Grout: ANSI A118.6, polymer modified unsanded for joints 1/8 inch and smaller.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "19",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 60,
+      "text": "Color: As selected by Architect from manufacturer's standard colors.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "20",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 61,
+      "text": "Sanded grout for joints greater than 1/8 inch.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "19",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 62,
+      "text": "Waterproof Membrane: ANSI A118.10, liquid-applied type for wet areas.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "19",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 63,
+      "text": "PART 3 - EXECUTION",
+      "pStyle": "PartTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 64,
+      "text": "EXAMINATION",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "21",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 65,
+      "text": "Verify substrates are ready for tile installation:",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "22",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 66,
+      "text": "Surfaces are clean, dry, and free of contaminants.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "23",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 67,
+      "text": "Concrete is cured minimum 28 days.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "23",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 68,
+      "text": "Floor flatness meets requirements of TCNA Handbook.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "23",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 69,
+      "text": "Do not proceed until unsatisfactory conditions are corrected.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "22",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 70,
+      "text": "PREPARATION",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "21",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 71,
+      "text": "Prepare substrates per TCNA Handbook and setting material manufacturer's requirements.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "24",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 72,
+      "text": "Apply waterproof membrane in wet areas:",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "24",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 73,
+      "text": "Toilet room floors and walls to 6 feet above floor.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "25",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 74,
+      "text": "Shower walls full height.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "25",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 75,
+      "text": "Lap seams minimum 2 inches.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "25",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 76,
+      "text": "Lay out tile work to minimize cuts and maintain symmetry.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "24",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 77,
+      "text": "INSTALLATION",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "21",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 78,
+      "text": "Install tile per TCNA Handbook method appropriate for substrate and application.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "26",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 79,
+      "text": "Set floor tile with full mortar coverage.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "27",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 80,
+      "text": "Set wall tile with minimum 80 percent coverage.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "27",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 81,
+      "text": "Full coverage at wet areas.",
+      "pStyle": "SubSubparagraphLevel",
+      "numPr": {
+        "numId": "28",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 82,
+      "text": "Full coverage at tile edges.",
+      "pStyle": "SubSubparagraphLevel",
+      "numPr": {
+        "numId": "28",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 83,
+      "text": "Joint Width: 1/8 inch unless otherwise indicated.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "26",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 84,
+      "text": "Grout joints after mortar has cured minimum 24 hours.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "26",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 85,
+      "text": "Tool joints to uniform depth.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "27",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 86,
+      "text": "Clean excess grout from tile surfaces before grout sets.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "27",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 87,
+      "text": "Seal grout joints with penetrating sealer after grout has cured.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "27",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 88,
+      "text": "END OF SECTION",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "jc": "center",
+        "spacing": {
+          "before": "360"
+        }
+      },
+      "contains_sectPr": false
+    }
+  ],
+  "style_catalog": {
+    "ArticleTitle": {
+      "styleId": "ArticleTitle",
+      "type": "paragraph",
+      "name": "Article Title",
+      "basedOn": "Normal"
+    },
+    "ParagraphLevel": {
+      "styleId": "ParagraphLevel",
+      "type": "paragraph",
+      "name": "Paragraph Level",
+      "basedOn": "Normal"
+    },
+    "PartTitle": {
+      "styleId": "PartTitle",
+      "type": "paragraph",
+      "name": "Part Title",
+      "basedOn": "Normal"
+    },
+    "SectionTitle": {
+      "styleId": "SectionTitle",
+      "type": "paragraph",
+      "name": "Section Title",
+      "basedOn": "Normal"
+    },
+    "SubSubparagraphLevel": {
+      "styleId": "SubSubparagraphLevel",
+      "type": "paragraph",
+      "name": "Sub-Subparagraph Level",
+      "basedOn": "Normal"
+    },
+    "SubparagraphLevel": {
+      "styleId": "SubparagraphLevel",
+      "type": "paragraph",
+      "name": "Subparagraph Level",
+      "basedOn": "Normal"
+    }
+  },
+  "numbering_catalog": {
+    "nums": {
+      "10": {
+        "numId": "10",
+        "abstractNumId": "20"
+      },
+      "11": {
+        "numId": "11",
+        "abstractNumId": "10"
+      },
+      "12": {
+        "numId": "12",
+        "abstractNumId": "3"
+      },
+      "13": {
+        "numId": "13",
+        "abstractNumId": "11"
+      },
+      "14": {
+        "numId": "14",
+        "abstractNumId": "21"
+      },
+      "15": {
+        "numId": "15",
+        "abstractNumId": "12"
+      },
+      "16": {
+        "numId": "16",
+        "abstractNumId": "30"
+      },
+      "17": {
+        "numId": "17",
+        "abstractNumId": "27"
+      },
+      "18": {
+        "numId": "18",
+        "abstractNumId": "22"
+      },
+      "19": {
+        "numId": "19",
+        "abstractNumId": "13"
+      },
+      "2": {
+        "numId": "2",
+        "abstractNumId": "2"
+      },
+      "20": {
+        "numId": "20",
+        "abstractNumId": "23"
+      },
+      "21": {
+        "numId": "21",
+        "abstractNumId": "5"
+      },
+      "22": {
+        "numId": "22",
+        "abstractNumId": "14"
+      },
+      "23": {
+        "numId": "23",
+        "abstractNumId": "24"
+      },
+      "24": {
+        "numId": "24",
+        "abstractNumId": "15"
+      },
+      "25": {
+        "numId": "25",
+        "abstractNumId": "25"
+      },
+      "26": {
+        "numId": "26",
+        "abstractNumId": "16"
+      },
+      "27": {
+        "numId": "27",
+        "abstractNumId": "26"
+      },
+      "28": {
+        "numId": "28",
+        "abstractNumId": "28"
+      },
+      "3": {
+        "numId": "3",
+        "abstractNumId": "6"
+      },
+      "4": {
+        "numId": "4",
+        "abstractNumId": "17"
+      },
+      "5": {
+        "numId": "5",
+        "abstractNumId": "7"
+      },
+      "6": {
+        "numId": "6",
+        "abstractNumId": "18"
+      },
+      "7": {
+        "numId": "7",
+        "abstractNumId": "8"
+      },
+      "8": {
+        "numId": "8",
+        "abstractNumId": "19"
+      },
+      "9": {
+        "numId": "9",
+        "abstractNumId": "9"
+      }
+    },
+    "abstracts": {
+      "2": {
+        "abstractNumId": "2",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "1.0%1"
+          }
+        ]
+      },
+      "3": {
+        "abstractNumId": "3",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "2.0%1"
+          }
+        ]
+      },
+      "5": {
+        "abstractNumId": "5",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "3.0%1"
+          }
+        ]
+      },
+      "6": {
+        "abstractNumId": "6",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "7": {
+        "abstractNumId": "7",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "8": {
+        "abstractNumId": "8",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "9": {
+        "abstractNumId": "9",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "10": {
+        "abstractNumId": "10",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "lowerLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "11": {
+        "abstractNumId": "11",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "12": {
+        "abstractNumId": "12",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "13": {
+        "abstractNumId": "13",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "14": {
+        "abstractNumId": "14",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "15": {
+        "abstractNumId": "15",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "16": {
+        "abstractNumId": "16",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "17": {
+        "abstractNumId": "17",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "18": {
+        "abstractNumId": "18",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "19": {
+        "abstractNumId": "19",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "20": {
+        "abstractNumId": "20",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "21": {
+        "abstractNumId": "21",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "22": {
+        "abstractNumId": "22",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "23": {
+        "abstractNumId": "23",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "24": {
+        "abstractNumId": "24",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "25": {
+        "abstractNumId": "25",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "26": {
+        "abstractNumId": "26",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "27": {
+        "abstractNumId": "27",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "lowerLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "28": {
+        "abstractNumId": "28",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "lowerLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "30": {
+        "abstractNumId": "30",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      }
+    }
+  }
+}

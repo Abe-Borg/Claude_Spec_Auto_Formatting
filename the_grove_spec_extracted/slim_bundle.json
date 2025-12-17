@@ -1,0 +1,3291 @@
+{
+  "stability": {
+    "header_footer_hashes": {
+      "word/header1.xml": "d6bb3cd43648ed61ae82b43d38bbc7b02b04b8dfd9ab665d479a0e2421848ebc"
+    },
+    "sectPr_hash": "23ed605dd422c4f55f6f5ca81a1772e227f15352eb31f634dd117378f00accbd"
+  },
+  "paragraphs": [
+    {
+      "paragraph_index": 0,
+      "text": "SECTION 08 90 00",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "jc": "center",
+        "spacing": {
+          "before": "240",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 1,
+      "text": "LOUVERS AND VENTS",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "jc": "center",
+        "spacing": {
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 2,
+      "text": "PART 1 - GENERAL",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 3,
+      "text": "1.01DESCRIPTION: Division 1 applies to this Section. Provide louvers and vents complete",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 4,
+      "text": "as indicated, specified, and required.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 5,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 6,
+      "text": "A. Work In This Section: Principal items include:",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 7,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 8,
+      "text": "1. Extruded aluminum louvers.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 9,
+      "text": "2. Formed sheet metal louvers.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 10,
+      "text": "3. Formed sheet metal door louvers.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 11,
+      "text": "4. Gravity / dormer vents.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 12,
+      "text": "5. Prefabricated dryer vents and tubing.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 13,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 14,
+      "text": "B. Related Work Not In This Section:",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 15,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 16,
+      "text": "1. Caulking and sealants.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 17,
+      "text": "2. Paint.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 18,
+      "text": "3. Air-handling louvers connected to ductwork.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 19,
+      "text": "4. Blank-off plates for air-handling louvers.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 20,
+      "text": "5. Louvers in hollow metal doors and frames.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 21,
+      "text": "6.Vents as specified in other sections.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 22,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 23,
+      "text": "1.02 QUALITY ASSURANCE:",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 24,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 25,
+      "text": "A. Performance: Where louvers are indicated to comply with specific performance",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 26,
+      "text": "requirements, provide units whose performance ratings have been determined in",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 27,
+      "text": "compliance with Air Movement and Control Association (AMCA) Standard 500.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 28,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 29,
+      "text": "B. AMCA Certification: Where indicated, provide louvers with AMCA Certified",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 30,
+      "text": "Ratings Seal evidencing that product complies with above requirements.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 31,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 32,
+      "text": "1. Comply with SMACNA \"Architectural Sheet Metal Manual\" recommendations for fabrication, construction details and installation",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "2160",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 33,
+      "text": "procedures, except as otherwise indicated.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "1440",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 34,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 35,
+      "text": "C. Field Measurements: Verify size, location and placement of louver units prior to",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 36,
+      "text": "fabrication, wherever possible.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 37,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 38,
+      "text": "D. Shop Assembly: Coordinate field measurements and shop drawings with",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 39,
+      "text": "fabrication and shop assembly to minimize field adjustments, splicing,",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 40,
+      "text": "mechanical joints and field assembly of units. Preassemble units in shop to",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 41,
+      "text": "greatest extent possible and disassemble as necessary for shipping and handling",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 42,
+      "text": "limitations. Clearly mark units for reassembly and coordinated installation.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 43,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 44,
+      "text": "1.03 SUBMITTALS: Refer to Section 01 33 00 for procedures.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 45,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 46,
+      "text": "A. Product Data: If requested by Owner submit manufacturer\u2019s specifications;",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 47,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 48,
+      "text": "certified test data, where applicable; and installation instructions for required",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 49,
+      "text": "products, including finishes.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 50,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 51,
+      "text": "B. Shop Drawings: If requested by Owner and/or Architect submit shop drawings",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 52,
+      "text": "for fabrication and erection of louver units and accessories. Include plans,",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 53,
+      "text": "elevations and details of sections and connections to adjoining work. Indicate",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 54,
+      "text": "materials, finishes, fasteners, joinery and other information to determine",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 55,
+      "text": "compliance with specified requirements.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 56,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 57,
+      "text": "C. Samples: Submit six-inch square of each required aluminum finish. Prepare",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 58,
+      "text": "samples on metal of the same gauge and alloy to be used in work. Where",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 59,
+      "text": "normal color and texture variations are to be expected, include two or more units",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 60,
+      "text": "in each sample showing the limits of such variations.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 61,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 62,
+      "text": "PART 2 - PRODUCTS",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 63,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 64,
+      "text": "2.01ACCEPTABLE MANUFACTURERS:",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 65,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 66,
+      "text": "A. Available Manufacturers: Subject to compliance with requirements,",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 67,
+      "text": "manufacturers offering products which may be incorporated in the work include,",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 68,
+      "text": "but are not limited to, the following:",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 69,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 70,
+      "text": "Airline Products Company",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 71,
+      "text": "The Airolite Company",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 72,
+      "text": "American Warming and Ventilating Company",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 73,
+      "text": "Construction Specialties, Inc.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 74,
+      "text": "Industrial Louvers, Inc.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 75,
+      "text": "Ruskin Manufacturing Company",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 76,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 77,
+      "text": "2.02 MATERIALS:",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 78,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 79,
+      "text": "A. Galvanized Sheet Steel: ASTM A526 and A527, with ASTM A525, G90 zinc",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 80,
+      "text": "coating, mill phosphatized.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 81,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 82,
+      "text": "B. Cold-rolled Sheet Steel: ASTM A366, Class 1, matte finish.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 83,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 84,
+      "text": "C. Aluminum Sheet: ASTM B209, Alloy 3003 or 5005 with temper as required for",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 85,
+      "text": "forming, or as otherwise recommended by metal producer to provide required",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 86,
+      "text": "finish.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 87,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 88,
+      "text": "D. Aluminum Extrusions: ASTM B221, Alloy 6063-T52.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 89,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 90,
+      "text": "E. Fastenings: Use same material as items fastened, unless otherwise indicated.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 91,
+      "text": "Fasteners for exterior applications may be hot-dip galvanized, stainless steel or",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 92,
+      "text": "aluminum. Provide types, gauges and lengths to suit unit installation conditions.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 93,
+      "text": "Use Phillips flat-head machine screws for exposed fasteners, unless otherwise",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 94,
+      "text": "indicated.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 95,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 96,
+      "text": "F. Anchors and Inserts: Use non-ferrous metal or hot-dip galvanized anchors and",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 97,
+      "text": "inserts for exterior installations and elsewhere as required for corrosion",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 98,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 99,
+      "text": "resistance. Use steel or lead expansion bolt devices for drilled-in-place anchors.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 100,
+      "text": "Furnish inserts, as required, to be set into concrete or masonry work.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 101,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 102,
+      "text": "G. Bituminous Paint: SSPC-Paint 12 (cold-applied asphalt mastic).",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 103,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 104,
+      "text": "2.03 FABRICATION, GENERAL:",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 105,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 106,
+      "text": "A. Provide louvers and accessories of design, materials, sizes, depth, arrangement, and metal thicknesses indicated, or if not indicated, as required for optimum performance with respect to airflow; w\u2026",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "1440",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 107,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 108,
+      "text": "B. Fabricate frames including integral sills to suit adjacent construction with tolerances for installation including application of sealants in joints between",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "1440",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 109,
+      "text": "louvers and adjoining work, where applicable.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 110,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 111,
+      "text": "C. Include supports, anchorages, and accessories required to achieve a complete",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 112,
+      "text": "assembly.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 113,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 114,
+      "text": "D. Provide vertical mullions of type and at spacings indicated but not further apart",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 115,
+      "text": "than recommended by manufacturer of seventy-two inch on center whichever is",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 116,
+      "text": "less. At horizontal joints between louver units provide horizontal mullions except",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 117,
+      "text": "where continuous vertical assemblies are indicated.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 118,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 119,
+      "text": "E. Provide sill extensions and loose sills made of same material as louvers, where",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 120,
+      "text": "indicated, or required for drainage to exterior and to prevent water penetrating to",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 121,
+      "text": "interior.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 122,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 123,
+      "text": "F. Join frame members to one another and to stationary louver blades by welding,",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 124,
+      "text": "except where indicated otherwise or where field bolted connections between",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 125,
+      "text": "frame members are made necessary by size of louvers. Maintain equal blade",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 126,
+      "text": "spacing, including separation between blades and frames at head and sill, to",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 127,
+      "text": "produce uniform appearance.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 128,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 129,
+      "text": "2.04 STATIONARY FORMED SHEET METAL LOUVERS:",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 130,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 131,
+      "text": "A. Horizontal Drainable Blade Louvers: Unit designed to collect and drain water",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 132,
+      "text": "to exterior at sill by means of gutters on front edges of louver blades and channels in jambs and mullions; of depth and sizes indicated, fabricated from the following metal:",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "1440"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 133,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 134,
+      "text": "1. Aluminum: Not less than 14 gauge.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 135,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 136,
+      "text": "2.05 ADJUSTABLE LOUVERS:",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 137,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 138,
+      "text": "A. Operation: Provide adjustable blade louvers (AdjLvr) at locations and of type",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 139,
+      "text": "indicated; with manufacturer\u2019s recommended bearings and operating",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 140,
+      "text": "mechanisms to suit louver size and method of operation.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 141,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 142,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 143,
+      "text": "1. Hand operation with spring, chain, wall bracket, and 160 degree F (71",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 144,
+      "text": "degrees C) fusible link.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "1440",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 145,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 146,
+      "text": "2.06 LOUVER SCREENS: Provide removable screens for exterior louvers where indicated.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 147,
+      "text": "Fabricate screen frames of same metal and finish as louver units to which secured,",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 148,
+      "text": "unless otherwise indicated. Provide rewireable frames consisting of formed or extruded",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 149,
+      "text": "metal with a driven spline or insert for securing screen mesh. Use insect screen where",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 150,
+      "text": "indicated, of the following:",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 151,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 152,
+      "text": "1. Insect mesh, 0.063-inch aluminum wire.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 153,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 154,
+      "text": "A. Locate Screens on inside face of louvers, unless otherwise indicated. Secure",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 155,
+      "text": "screens to louver frames with machine screws, spaced at each corner and at",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 156,
+      "text": "twelve inch on center between.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 157,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 158,
+      "text": "2.07 PREFABRICATED DRYER VENTS: Provide and install prefabricated dryer vents and tubing as manufactured by a manufacturer doing this type of business for at least 10 years. Coordinate with the rough \u2026",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 159,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 160,
+      "text": "2.08 METAL FINISHES: Comply with NAAMM \"Metal Finishes Manual\u201d for finish designations and application recommendations, except as otherwise indicated. Apply finishes in factory after products are asse\u2026",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "hanging": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 161,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 162,
+      "text": "A. Ferrous Metal Finishes:",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 163,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 164,
+      "text": "1. Preparation: Clean surfaces of dirt, grease and loose rust or mill scale,",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 165,
+      "text": "including items fabricated from galvanized steel, if any. Apply finish to",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "1440",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 166,
+      "text": "surfaces of fabricated and assembled units, whether exposed or",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "1440",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 167,
+      "text": "concealed when installed, after pretreating with a conversion coating",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "1440",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 168,
+      "text": "suited to organic coating applied over it.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "1440",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 169,
+      "text": "2. Factory-Primed Finish: Where painting after installation is indicated (not",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 170,
+      "text": "work of this section), apply air-dried primer immediately following cleaning",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "1440",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 171,
+      "text": "and pretreatment.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "1440",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 172,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 173,
+      "text": "PART 3 - EXECUTION",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 174,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 175,
+      "text": "3.01 PREPARATION: Coordinate setting drawings, diagrams, templates, instructions and",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 176,
+      "text": "directions for installation of anchorages which are to be embedded in concrete or",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 177,
+      "text": "masonry construction. Coordinate delivery of such items to project site.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 178,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 179,
+      "text": "3.02 INSTALLATION: Locate and place louver units plumb, level and in proper alignment",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 180,
+      "text": "with adjacent work.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 181,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 182,
+      "text": "A. Use Concealed Anchorages wherever possible. Provide brass or lead washers",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 183,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "1440"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 184,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "1440"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 185,
+      "text": "fitted to screws where required to protect metal surfaces and to make a weather-tight connection.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "1440"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 186,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 187,
+      "text": "B. Form Tight Joints with exposed connections accurately fitted together. Provide",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 188,
+      "text": "reveals and openings for sealants and joint fillers, as indicated.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 189,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 190,
+      "text": "C. Repair Finishes damaged by cutting, welding, soldering and grinding operations",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 191,
+      "text": "required for fitting and jointing. Restore finishes so there is no evidence of",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 192,
+      "text": "corrective work. Return items which cannot be refinished in the field to shop,",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 193,
+      "text": "make required alterations, and refinish entire unit, or provide new units, at",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 194,
+      "text": "Contractor's option.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 195,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 196,
+      "text": "D. Protect galvanized and non-ferrous metal surfaces from corrosion of galvanic",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 197,
+      "text": "action by application of a heavy coating of bituminous paint on surfaces which",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 198,
+      "text": "will be in contact with concrete, masonry or dissimilar metals.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 199,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 200,
+      "text": "E. Provide concealed gaskets, flashings, joint fillers, and insulation, and install as",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 201,
+      "text": "work progresses to make the installations weathertight.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720",
+          "firstLine": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 202,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 203,
+      "text": "F. Refer to Section 07 90 00 for sealants in connection with installation of louvers.",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 204,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 205,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "ind": {
+          "left": "720"
+        },
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 206,
+      "text": "END OF SECTION",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 207,
+      "text": "",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "after": "0",
+          "line": "20"
+        }
+      },
+      "contains_sectPr": false
+    }
+  ],
+  "style_catalog": {},
+  "numbering_catalog": {
+    "nums": {},
+    "abstracts": {}
+  }
+}

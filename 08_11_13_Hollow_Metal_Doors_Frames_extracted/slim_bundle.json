@@ -1,0 +1,1103 @@
+{
+  "stability": {
+    "header_footer_hashes": {
+      "word/header1.xml": "5c76de09cb017489dfcd220975ef5c6833059b8fc69d89e307e0522e0b6f212a",
+      "word/footer1.xml": "c9676f8857a10b0f3be883929173f857c49964b1fbe5b65fb977ee1fdaaa6e36"
+    },
+    "sectPr_hash": "22a26103b52770c0636a056f492e5f2e3e988d4457915b96c68856febc53ec98"
+  },
+  "paragraphs": [
+    {
+      "paragraph_index": 0,
+      "text": "SECTION 08 11 13 - HOLLOW METAL DOORS AND FRAMES",
+      "pStyle": "SectionTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 1,
+      "text": "PART 1 - GENERAL",
+      "pStyle": "PartTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 2,
+      "text": "SUMMARY",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "2",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 3,
+      "text": "Section Includes:",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "3",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 4,
+      "text": "Steel doors and frames for interior applications.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "4",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 5,
+      "text": "Galvanized steel doors and frames for exterior applications.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "4",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 6,
+      "text": "Door hardware preparation and reinforcement.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "4",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 7,
+      "text": "Related Sections:",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "3",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 8,
+      "text": "Section 08 71 00 - Door Hardware.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "4",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 9,
+      "text": "Section 09 91 00 - Painting.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "4",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 10,
+      "text": "REFERENCES",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "2",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 11,
+      "text": "Reference Standards:",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "5",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 12,
+      "text": "ANSI/SDI A250.8 - Specifications for Standard Steel Doors and Frames.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 13,
+      "text": "ANSI/SDI A250.4 - Test Procedure and Acceptance Criteria for Physical Endurance for Steel Doors.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 14,
+      "text": "ASTM A653 - Standard Specification for Steel Sheet, Zinc-Coated.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 15,
+      "text": "NFPA 80 - Standard for Fire Doors and Other Opening Protectives.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "6",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 16,
+      "text": "SUBMITTALS",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "2",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 17,
+      "text": "Product Data: Submit manufacturer's technical data for each door and frame type.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "7",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 18,
+      "text": "Include construction details, material gauges, and finishes.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "8",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 19,
+      "text": "Include fire rating labels and certifications.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "8",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 20,
+      "text": "Shop Drawings: Submit fabrication drawings for each door and frame assembly.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "7",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 21,
+      "text": "Certifications: Submit fire rating certifications from testing laboratory.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "7",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 22,
+      "text": "QUALITY ASSURANCE",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "2",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 23,
+      "text": "Fire-Rated Assemblies: Provide doors, frames, and hardware listed by UL or WHI.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "9",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 24,
+      "text": "Manufacturer Qualifications: Minimum 10 years experience producing hollow metal products.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "9",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 25,
+      "text": "PART 2 - PRODUCTS",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "before": "240",
+          "after": "120"
+        }
+      },
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 26,
+      "text": "MANUFACTURERS",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "10",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 27,
+      "text": "Acceptable Manufacturers:",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "11",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 28,
+      "text": "Ceco Door Products.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "12",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 29,
+      "text": "Curries Company.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "12",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 30,
+      "text": "Steelcraft.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "12",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 31,
+      "text": "Republic Doors and Frames.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "12",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 32,
+      "text": "Substitutions: In accordance with Section 01 60 00.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "11",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 33,
+      "text": "STEEL DOORS",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "10",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 34,
+      "text": "Interior Doors (Type A):",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "13",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 35,
+      "text": "Construction: Full flush, seamless.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "14",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 36,
+      "text": "Face Sheets: 16 gauge cold-rolled steel.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "14",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 37,
+      "text": "Core: Honeycomb, polyurethane, or polystyrene.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "14",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 38,
+      "text": "Level 3: Standard duty per ANSI/SDI A250.4.",
+      "pStyle": "SubSubparagraphLevel",
+      "numPr": {
+        "numId": "15",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 39,
+      "text": "Physical performance: 250,000 cycles minimum.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "15",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 40,
+      "text": "Fire-Rated Doors (Type B):",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "13",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 41,
+      "text": "Rating: As indicated on Drawings, 20 minutes to 3 hours.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "14",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 42,
+      "text": "Construction: Comply with NFPA 80 requirements.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "14",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 43,
+      "text": "Label: UL or WHI classification marking on door edge.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "16",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 44,
+      "text": "Smoke seal: Intumescent seal at rated openings.",
+      "pStyle": "SubSubparagraphLevel",
+      "numPr": {
+        "numId": "16",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 45,
+      "text": "STEEL FRAMES",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "10",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 46,
+      "text": "General: Full profile welded frames unless otherwise indicated.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "17",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 47,
+      "text": "Material: 16 gauge steel minimum for door frames.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "18",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 48,
+      "text": "Reinforcement: 7 gauge at hardware locations.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "18",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 49,
+      "text": "Anchors: Provide anchors suitable for wall construction type.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "17",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 50,
+      "text": "PART 3 - EXECUTION",
+      "pStyle": "PartTitle",
+      "numPr": null,
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 51,
+      "text": "EXAMINATION",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "19",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 52,
+      "text": "Verify wall openings are correct size and properly prepared.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "20",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 53,
+      "text": "Verify wall construction is ready to receive frames.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "20",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 54,
+      "text": "INSTALLATION",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "19",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 55,
+      "text": "Install doors and frames per SDI-117 and manufacturer's instructions.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "21",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 56,
+      "text": "Set frames plumb, level, and square within 1/16 inch.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "22",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 57,
+      "text": "Anchor frames securely to wall construction.",
+      "pStyle": "SubparagraphLevel",
+      "numPr": {
+        "numId": "22",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 58,
+      "text": "Grouted frames: Fill completely with mortar.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "23",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 59,
+      "text": "Drywall frames: Secure with appropriate anchors at 24 inches on center.",
+      "pStyle": "SubSubparagraphLevel",
+      "numPr": {
+        "numId": "23",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 60,
+      "text": "Fire-rated assemblies: Install per listing requirements.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "21",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 61,
+      "text": "ADJUSTING AND CLEANING",
+      "pStyle": "ArticleTitle",
+      "numPr": {
+        "numId": "19",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 62,
+      "text": "Adjust hardware for proper operation.",
+      "pStyle": "ListParagraph",
+      "numPr": {
+        "numId": "24",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 63,
+      "text": "Clean surfaces and touch up damaged finishes.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "24",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 64,
+      "text": "Remove and replace defective work.",
+      "pStyle": "ParagraphLevel",
+      "numPr": {
+        "numId": "24",
+        "ilvl": "0"
+      },
+      "pPr_hints": null,
+      "contains_sectPr": false
+    },
+    {
+      "paragraph_index": 65,
+      "text": "END OF SECTION",
+      "pStyle": null,
+      "numPr": null,
+      "pPr_hints": {
+        "spacing": {
+          "before": "360"
+        }
+      },
+      "contains_sectPr": false
+    }
+  ],
+  "style_catalog": {
+    "ArticleTitle": {
+      "styleId": "ArticleTitle",
+      "type": "paragraph",
+      "name": "Article Title",
+      "basedOn": "Normal"
+    },
+    "ListParagraph": {
+      "styleId": "ListParagraph",
+      "type": "paragraph",
+      "name": "List Paragraph",
+      "basedOn": "Normal"
+    },
+    "ParagraphLevel": {
+      "styleId": "ParagraphLevel",
+      "type": "paragraph",
+      "name": "Paragraph Level",
+      "basedOn": "Normal"
+    },
+    "PartTitle": {
+      "styleId": "PartTitle",
+      "type": "paragraph",
+      "name": "Part Title",
+      "basedOn": "Normal"
+    },
+    "SectionTitle": {
+      "styleId": "SectionTitle",
+      "type": "paragraph",
+      "name": "Section Title",
+      "basedOn": "Normal"
+    },
+    "SubSubparagraphLevel": {
+      "styleId": "SubSubparagraphLevel",
+      "type": "paragraph",
+      "name": "Sub-Subparagraph Level",
+      "basedOn": "Normal"
+    },
+    "SubparagraphLevel": {
+      "styleId": "SubparagraphLevel",
+      "type": "paragraph",
+      "name": "Subparagraph Level",
+      "basedOn": "Normal"
+    }
+  },
+  "numbering_catalog": {
+    "nums": {
+      "10": {
+        "numId": "10",
+        "abstractNumId": "3"
+      },
+      "11": {
+        "numId": "11",
+        "abstractNumId": "9"
+      },
+      "12": {
+        "numId": "12",
+        "abstractNumId": "18"
+      },
+      "13": {
+        "numId": "13",
+        "abstractNumId": "10"
+      },
+      "14": {
+        "numId": "14",
+        "abstractNumId": "19"
+      },
+      "15": {
+        "numId": "15",
+        "abstractNumId": "24"
+      },
+      "16": {
+        "numId": "16",
+        "abstractNumId": "25"
+      },
+      "17": {
+        "numId": "17",
+        "abstractNumId": "11"
+      },
+      "18": {
+        "numId": "18",
+        "abstractNumId": "20"
+      },
+      "19": {
+        "numId": "19",
+        "abstractNumId": "4"
+      },
+      "2": {
+        "numId": "2",
+        "abstractNumId": "2"
+      },
+      "20": {
+        "numId": "20",
+        "abstractNumId": "12"
+      },
+      "21": {
+        "numId": "21",
+        "abstractNumId": "13"
+      },
+      "22": {
+        "numId": "22",
+        "abstractNumId": "22"
+      },
+      "23": {
+        "numId": "23",
+        "abstractNumId": "26"
+      },
+      "24": {
+        "numId": "24",
+        "abstractNumId": "14"
+      },
+      "3": {
+        "numId": "3",
+        "abstractNumId": "5"
+      },
+      "4": {
+        "numId": "4",
+        "abstractNumId": "15"
+      },
+      "5": {
+        "numId": "5",
+        "abstractNumId": "6"
+      },
+      "6": {
+        "numId": "6",
+        "abstractNumId": "16"
+      },
+      "7": {
+        "numId": "7",
+        "abstractNumId": "7"
+      },
+      "8": {
+        "numId": "8",
+        "abstractNumId": "17"
+      },
+      "9": {
+        "numId": "9",
+        "abstractNumId": "8"
+      }
+    },
+    "abstracts": {
+      "2": {
+        "abstractNumId": "2",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "1.0%1"
+          }
+        ]
+      },
+      "3": {
+        "abstractNumId": "3",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "2.0%1"
+          }
+        ]
+      },
+      "4": {
+        "abstractNumId": "4",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "3.0%1"
+          }
+        ]
+      },
+      "5": {
+        "abstractNumId": "5",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "6": {
+        "abstractNumId": "6",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "7": {
+        "abstractNumId": "7",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "8": {
+        "abstractNumId": "8",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "9": {
+        "abstractNumId": "9",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "10": {
+        "abstractNumId": "10",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "11": {
+        "abstractNumId": "11",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "12": {
+        "abstractNumId": "12",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "13": {
+        "abstractNumId": "13",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "14": {
+        "abstractNumId": "14",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "upperLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "15": {
+        "abstractNumId": "15",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "16": {
+        "abstractNumId": "16",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "17": {
+        "abstractNumId": "17",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "18": {
+        "abstractNumId": "18",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "19": {
+        "abstractNumId": "19",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "20": {
+        "abstractNumId": "20",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "22": {
+        "abstractNumId": "22",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "decimal",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "24": {
+        "abstractNumId": "24",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "lowerLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "25": {
+        "abstractNumId": "25",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "lowerLetter",
+            "lvlText": "%1."
+          }
+        ]
+      },
+      "26": {
+        "abstractNumId": "26",
+        "levels": [
+          {
+            "ilvl": "0",
+            "numFmt": "lowerLetter",
+            "lvlText": "%1."
+          }
+        ]
+      }
+    }
+  }
+}
