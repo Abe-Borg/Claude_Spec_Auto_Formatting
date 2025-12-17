@@ -23,6 +23,12 @@ import re
 
 from arch_env_applier import apply_environment_to_target
 
+try:
+    from numbering_importer import import_numbering
+    HAS_NUMBERING_IMPORTER = True
+except ImportError:
+    HAS_NUMBERING_IMPORTER = False
+
 
 # -----------------------------------------------------------------------------
 # DOCX packaging safety
@@ -317,20 +323,54 @@ def main():
             log.append("WARNING: No arch_template_registry.json found; skipping environment application")
             print(f"WARNING: arch_template_registry.json not found at {arch_template_registry_path}")
 
+
+
+
+
         # Import only styles actually used by this doc's classifications
         used_roles = {
-            item.get("csi_role")
-            for item in classifications.get("classifications", [])
-            if isinstance(item, dict) and isinstance(item.get("csi_role"), str)
+        item.get("csi_role")
+        for item in classifications.get("classifications", [])
+        if isinstance(item, dict) and isinstance(item.get("csi_role"), str)
         }
         needed_style_ids = sorted({arch_registry[r] for r in used_roles if r in arch_registry})
+
+        # ─────────────────────────────────────────────────────────────────
+        # NEW: Import numbering definitions BEFORE importing styles
+        # ─────────────────────────────────────────────────────────────────
+        style_numid_remap = {}
+        if HAS_NUMBERING_IMPORTER and arch_template_registry_path.exists():
+            try:
+                log.append("")
+                log.append("=" * 60)
+                log.append("IMPORTING NUMBERING DEFINITIONS")
+                log.append("=" * 60)
+                
+                style_numid_remap = import_numbering(
+                    arch_extract_dir=arch_root,
+                    target_extract_dir=extract_dir,
+                    arch_template_registry=env_registry,
+                    style_ids_to_import=needed_style_ids,
+                    log=log
+                )
+            except Exception as e:
+                log.append(f"WARNING: Numbering import failed: {e}")
+
+        log.append("")
+        log.append("=" * 60)
+        log.append("IMPORTING STYLE DEFINITIONS")
+        log.append("=" * 60)
 
         import_arch_styles_into_target(
             target_extract_dir=extract_dir,
             arch_extract_dir=arch_root,
             needed_style_ids=needed_style_ids,
-            log=log
+            log=log,
+            style_numid_remap=style_numid_remap
         )
+
+
+
         if not needed_style_ids:
             log.append("No architect styles needed for this doc (no mapped roles used).")
 
@@ -369,6 +409,11 @@ def main():
         font_table_path = extract_dir / "word" / "fontTable.xml"
         if font_table_path.exists():
             replacements["word/fontTable.xml"] = font_table_path.read_bytes()
+
+        # numbering may have been updated with imported definitions
+        numbering_path = extract_dir / "word" / "numbering.xml"
+        if numbering_path.exists():
+            replacements["word/numbering.xml"] = numbering_path.read_bytes()
         
         # Content types may have been updated for new theme
         content_types_path = extract_dir / "[Content_Types].xml"
@@ -1325,7 +1370,8 @@ def import_arch_styles_into_target(
     target_extract_dir: Path,
     arch_extract_dir: Path,
     needed_style_ids: List[str],
-    log: List[str]
+    log: List[str], 
+    style_numid_remap: Optional[Dict[str, Dict[str, int]]] = None
 ) -> None:
     """
     Copy specific style blocks from architect styles.xml into target styles.xml (idempotent),
@@ -1357,11 +1403,28 @@ def import_arch_styles_into_target(
             missing.append(sid)
             continue
 
-        # Guardrail: paragraph styles must not carry numbering properties.
-        # If present (some templates do this), strip it to avoid clobbering Word list runtime.
+
+
+
+        # handle numPr: remap if we have mapping, otherwise strip
         if "<w:numPr" in blk:
-            log.append(f"WARNING: Stripped <w:numPr> from imported style: {sid}")
-            blk = re.sub(r"<w:numPr\b[^>]*>[\s\S]*?</w:numPr>", "", blk, flags=re.S)
+            if style_numid_remap and sid in style_numid_remap:
+                # remap numId to the imported numbering
+                remap = style_numid_remap[sid]
+                old_num_id = remap["old_numId"]
+                new_num_id = remap["new_numId"]
+                blk = re.sub(
+                    r'(<w:numId\s+w:val=")' + str(old_num_id) + r'"',
+                    rf'\g<1>{new_num_id}"',
+                    blk
+                )
+                log.append(f"Remapped numId {old_num_id} -> {new_num_id} in style: {sid}")
+            else:
+                # No remap available, strip numPr to avoid broken references
+                log.append(f"WARNING: Stripped <w:numPr> from imported style: {sid}")
+                blk = re.sub(r"<w:numPr\b[^>]*>[\s\S]*?</w:numPr>", "", blk, flags = re.S)
+
+
 
         # HARDEN: make style self-contained (pPr/rPr) to prevent font drift
         blk = materialize_arch_style_block(blk, sid, arch_styles_text)

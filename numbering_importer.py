@@ -264,21 +264,29 @@ def import_numbering(
     
     Returns style_numid_remap for use when importing styles.
     """
+    # Check if registry has numbering data
+    if "numbering" not in arch_template_registry:
+        log.append("No numbering data in arch_template_registry, skipping numbering import")
+        return {}
+    
+    numbering_data = arch_template_registry.get("numbering", {})
+    if not numbering_data.get("abstract_nums") and not numbering_data.get("nums"):
+        log.append("No numbering definitions in arch_template_registry")
+        return {}
+    
     # Read architect's styles.xml to find numId references
     arch_styles_path = arch_extract_dir / "word" / "styles.xml"
+    if not arch_styles_path.exists():
+        log.append(f"WARNING: Architect styles.xml not found at {arch_styles_path}")
+        return {}
     arch_styles_xml = arch_styles_path.read_text(encoding="utf-8")
     
     # Read target's numbering.xml
     target_numbering_path = target_extract_dir / "word" / "numbering.xml"
     if not target_numbering_path.exists():
-        log.append("WARNING: Target has no numbering.xml - creating one")
-        # Create minimal numbering.xml
-        target_numbering_xml = '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<w:numbering xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
-             xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid">
-</w:numbering>'''
-    else:
-        target_numbering_xml = target_numbering_path.read_text(encoding="utf-8")
+        log.append("WARNING: Target has no numbering.xml - skipping numbering import")
+        return {}
+    target_numbering_xml = target_numbering_path.read_text(encoding="utf-8")
     
     # Build import plan
     plan = build_numbering_import_plan(
@@ -289,8 +297,8 @@ def import_numbering(
     )
     
     if not plan["abstract_nums_to_import"] and not plan["nums_to_import"]:
-        log.append("No numbering definitions to import")
-        return {}
+        log.append("No numbering definitions need to be imported")
+        return plan.get("style_numid_remap", {})
     
     # Log what we're importing
     log.append(f"Importing {len(plan['abstract_nums_to_import'])} abstractNum definitions")
