@@ -1,0 +1,21 @@
+{
+  "arch_extract_root": "ARCH_TEMPLATE_extracted",
+  "target_extract_root": "MECH_SPEC_extracted",
+  "roles_in_classifications": {
+    "SectionTitle": 1,
+    "PART": 3,
+    "ARTICLE": 29,
+    "PARAGRAPH": 90,
+    "SUBPARAGRAPH": 135,
+    "SUBSUBPARAGRAPH": 72
+  },
+  "arch_style_registry": {
+    "SectionTitle": "CSILevel0",
+    "PART": "CSILevel1",
+    "ARTICLE": "CSILevel2",
+    "PARAGRAPH": "CSILevel3",
+    "SUBPARAGRAPH": "CSILevel4",
+    "SUBSUBPARAGRAPH": "CSILevel5"
+  },
+  "unmapped_roles": []
+}
