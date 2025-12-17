@@ -1,0 +1,36 @@
+============================================================
+BEGIN ENVIRONMENT APPLICATION
+============================================================
+
+[1/4] Applying theme...
+No theme in registry; skipping theme application
+
+[2/4] Applying settings/compat...
+Replaced compat flags with architect values
+
+[3/4] Applying font table...
+All architect fonts already present in target fontTable
+
+[4/4] Applying docDefaults...
+Replaced existing docDefaults with architect values
+
+============================================================
+END ENVIRONMENT APPLICATION
+============================================================
+
+============================================================
+IMPORTING NUMBERING DEFINITIONS
+============================================================
+No numbering definitions need to be imported
+
+============================================================
+IMPORTING STYLE DEFINITIONS
+============================================================
+Imported style from architect: ArticleTitle
+Imported style from architect: ParagraphLevel
+Imported style from architect: PartTitle
+Imported style from architect: SectionTitle
+Imported style from architect: SubSubparagraphLevel
+Imported style from architect: SubparagraphLevel
+Applied styles to 330 paragraphs
+Stripped run-level font formatting from modified paragraphs
