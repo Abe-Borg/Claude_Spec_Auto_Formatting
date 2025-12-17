@@ -121,7 +121,7 @@ class DocxDecomposer:
         
         Args:
             output_dir: Directory to extract to. If None, creates a directory
-                       based on the docx filename.
+                    based on the docx filename.
         
         Returns:
             Path to the extraction directory
@@ -132,9 +132,26 @@ class DocxDecomposer:
         else:
             output_dir = Path(output_dir)
         
-        # Remove existing directory if it exists
+        # Remove existing directory if it exists (OneDrive-safe)
         if output_dir.exists():
-            shutil.rmtree(output_dir)
+            import time
+            import uuid
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    shutil.rmtree(output_dir)
+                    break
+                except PermissionError as e:
+                    if attempt < max_retries - 1:
+                        print(f"Folder locked (OneDrive?), retrying in 2s... ({attempt + 1}/{max_retries})")
+                        time.sleep(2)
+                    else:
+                        # Last resort: rename instead of delete
+                        backup = output_dir.with_name(f"{output_dir.name}_old_{uuid.uuid4().hex[:8]}")
+                        print(f"Cannot delete {output_dir}, renaming to {backup}")
+                        output_dir.rename(backup)
+        
+        output_dir.mkdir(parents=True, exist_ok=True)
         
         # Extract the ZIP archive
         print(f"Extracting {self.docx_path} to {output_dir}...")
